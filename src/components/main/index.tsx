@@ -1,27 +1,55 @@
-import React, { CSSProperties } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-
-import { Button } from "@components";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import Calories from "./calories";
+import { selectWeight, setSame, decrease } from "@redux/slices/calories";
+import { useAppSelector, useAppDispatch } from "@redux/hooks";
 
 export const Main: React.FC = () => {
+    // const [weight, setWeight] = useState(70);
+    const weight = useAppSelector(selectWeight);
+    const dispatch = useAppDispatch();
+    const [age, setAge] = useState(28);
+    const [height, setHeight] = useState(170);
+
     return (
-        <div
-            className="text-center py-4"
-            style={{ backgroundColor: "#282c34" }}
-        >
+        <div className="text-center py-4">
             <Container>
-                <h1 className="display-2 text-white">superplate</h1>
-                <p className="lead text-white">
-                    The frontend boilerplate with superpowers!
-                </p>
-                <Button
-                    variant="primary"
-                    size="lg"
-                    href="https://pankod.github.io/superplate/"
-                    target="_blank"
-                >
-                    Docs
-                </Button>
+                <h1 className="display-2 ">Fitness Playground</h1>
+                <p className="lead">The fitness website with superpowers</p>
+                <Tabs>
+                    <TabList>
+                        <Tab>General Data</Tab>
+                        <Tab>Calorie Intake</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        Your weight is:
+                        <input
+                            type="number"
+                            value={weight}
+                            onChange={(e) => dispatch(setSame(e.target.value))}
+                        />
+                        <br></br>
+                        Your age is:
+                        <input
+                            type="number"
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
+                        />
+                        <br></br>
+                        Your height is:
+                        <input
+                            type="number"
+                            value={height}
+                            onChange={(e) => setHeight(e.target.value)}
+                        />
+                        <Calories />
+                    </TabPanel>
+                    <TabPanel>
+                        <Calories />
+                    </TabPanel>
+                </Tabs>
             </Container>
         </div>
     );

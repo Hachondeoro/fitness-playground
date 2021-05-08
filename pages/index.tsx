@@ -7,7 +7,7 @@ const Home: React.FC = () => {
         <div className="d-flex flex-column min-vh-100">
             <Header />
             <Main />
-            <Cards />
+            {/* <Cards /> */}
             <Footer />
         </div>
     );
