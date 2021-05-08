@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Calories from "./calories";
@@ -9,8 +9,8 @@ export const Main: React.FC = () => {
     // const [weight, setWeight] = useState(70);
     const weight = useAppSelector(selectWeight);
     const dispatch = useAppDispatch();
-    const [age, setAge] = useState(28);
-    const [height, setHeight] = useState(170);
+    const [age, setAge] = useState<string>("28");
+    const [height, setHeight] = useState<string>("170");
 
     return (
         <div className="text-center py-4">
@@ -35,14 +35,18 @@ export const Main: React.FC = () => {
                         <input
                             type="number"
                             value={age}
-                            onChange={(e) => setAge(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                                setAge(e.target.value)
+                            }
                         />
                         <br></br>
                         Your height is:
                         <input
                             type="number"
                             value={height}
-                            onChange={(e) => setHeight(e.target.value)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                                setHeight(e.target.value)
+                            }
                         />
                         <Calories />
                     </TabPanel>
