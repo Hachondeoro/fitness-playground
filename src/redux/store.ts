@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import weightReducer from "@redux/slices/calories";
+import bodyReducer from "@redux/slices/bodydata";
 
 // import rootReducer from "./reducers";
 
 const store = configureStore({
     reducer: {
-        weight: weightReducer,
+        bodydata: bodyReducer,
     },
 });
 

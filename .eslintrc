@@ -6,10 +6,15 @@
         {
             "files": ["*.js"],
             "rules": {
-                "@typescript-eslint/no-var-requires": "off"
+                // "@typescript-eslint/no-var-requires": "off"
             }
         }
     ],
+    "rules": {
+        // "@typescript-eslint/no-var-requires": "off"
+        "no-var": 0,
+        // "max-len": [1, 100, 4, {"ignoreUrls": true}]
+    },
     "env": {
         "node": true,
         "browser": true,

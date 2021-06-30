@@ -7,6 +7,7 @@ import { Hydrate } from "react-query/hydration";
 import { Provider } from "react-redux";
 import store from "@redux/store";
 import "react-tabs/style/react-tabs.css";
+import "antd/dist/antd.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const queryClient = new QueryClient();

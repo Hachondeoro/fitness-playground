@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
 
 import counter from "@redux/slices/counter";
-import calories from "@redux/slices/calories";
 
-const rootReducer = combineReducers({ counter, calories });
+const rootReducer = combineReducers({ counter });
 
 export type RootState = ReturnType<typeof rootReducer>;
 
