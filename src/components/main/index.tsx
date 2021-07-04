@@ -37,6 +37,7 @@ export const Main: React.FC = () => {
                         <Tab>General Data</Tab>
                         <Tab>Calorie Intake</Tab>
                         <Tab>Meal Plans</Tab>
+                        <Tab>Gym routines</Tab>
                     </TabList>
 
                     <TabPanel>
@@ -79,7 +80,8 @@ export const Main: React.FC = () => {
                             <Radio value={false}>Female</Radio>
                         </Radio.Group>
                         <br></br>
-                        Goal:
+                        <Calories />
+                        <br></br>I want to:
                         <Radio.Group
                             name={"goal"}
                             onChange={(e) =>
@@ -91,16 +93,8 @@ export const Main: React.FC = () => {
                             <Radio value={"maintain"}>Maintain</Radio>
                             <Radio value={"gain"}>Gain muscle</Radio>
                         </Radio.Group>
-                        {/* <input
-                            type="number"
-                            value={Number(height)}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                                setHeight(e.target.value)
-                            }
-                        /> */}
-                        <Calories />
-                        <br></br>
                         <Diet />
+                        <br></br>
                     </TabPanel>
                     <TabPanel>
                         <Calories />
