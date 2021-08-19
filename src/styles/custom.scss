@@ -1,19 +1,38 @@
-.meals{
-    h1{
-        font-size: 2em;
-        font-variant-caps: all-small-caps;
-    }
-    h2{
-        font-size: 1.5em;
-        font-variant-caps: all-small-caps;
-    }
-    h3{
-        font-size: 1.5em;
-    }
-    p{
-        font-size: 0.8em;
-        font-style: italic;
-        margin-bottom: -2em;
-    }
+.meals {
+  h1 {
+    font-size: 2.5em;
+    font-variant-caps: all-small-caps;
+  }
+  h2 {
+    font-size: 1.6em;
+    font-variant-caps: all-small-caps;
+  }
+  h3 {
+    font-variant-caps: all-small-caps;
+    font-size: 1.2em;
+  }
+  p {
+    font-size: 0.8em;
+    font-style: italic;
+    margin-bottom: -2em;
+  }
+}
 
+.reactTabs {
+  @media only screen and (max-width: 600px) {
+    .tab {
+      font-size: 1.2em;
+      font-variant-caps: all-small-caps;
+      font-weight: 500;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.gymRoutine {
+  text-align: left;
+  h2 {
+    font-size: 1.2em;
+    font-variant-caps: all-small-caps;
+  }
 }

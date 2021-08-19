@@ -3,5 +3,13 @@
     "trailingComma": "all",
     "singleQuote": false,
     "printWidth": 80,
-    "tabWidth": 4
+    "tabWidth": 2,
+    "overrides": [
+        {
+            "files": "src/components/main/data-better.js",
+            "options": {
+                "printWidth": 100
+            }
+        }
+    ]
 }
