@@ -13,6 +13,7 @@ import { Col } from "react-bootstrap";
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Calories from "./calories";
 import DietBetter from "./diet-better";
+import Fasting from "./fasting";
 import GymRoutine from "./gymroutine";
 
 export const Main: React.FC = () => {
@@ -34,15 +35,16 @@ export const Main: React.FC = () => {
       <Col md="6" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
         <p className="lead">The fitness website with superpowers</p>
-        <Tabs className="reactTabs">
-          <TabList className="tab">
+        <Tabs>
+          <TabList className="reactTabs">
             <Tab>General {"\n"}Data</Tab>
             <Tab>Meal {"\n"}Plans</Tab>
             <Tab>Gym {"\n"}routines</Tab>
+            <Tab>Fasting {"\n"}notes</Tab>
           </TabList>
 
           <TabPanel>
-            <Col className="mx-auto text-left" md="6">
+            <Col className="mx-auto text-left" md="12" lg="8">
               My weight is:&nbsp;&nbsp;
               <Input
                 suffix="KG"
@@ -102,6 +104,9 @@ export const Main: React.FC = () => {
           </TabPanel>
           <TabPanel>
             <GymRoutine />
+          </TabPanel>
+          <TabPanel>
+            <Fasting />
           </TabPanel>
         </Tabs>
       </Col>{" "}
