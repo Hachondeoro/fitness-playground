@@ -1,15 +1,15 @@
 {
-    "semi": true,
-    "trailingComma": "all",
-    "singleQuote": false,
-    "printWidth": 80,
-    "tabWidth": 2,
-    "overrides": [
-        {
-            "files": "src/components/main/data-better.js",
-            "options": {
-                "printWidth": 100
-            }
-        }
-    ]
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": false,
+  "printWidth": 80,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": "src/components/main/data-better.js",
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ]
 }

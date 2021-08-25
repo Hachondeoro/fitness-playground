@@ -35,42 +35,68 @@ const DietBetter: React.FC = () => {
   }
 
   function calcMeasure(number, key) {
-    return `${
+    const value =
       Math.round(
-        (((number * 100) / conversion[key].foodCalories) * 100) /
+        (((number * 100) / conversion[key].foodCalories) *
+          conversion[key].roundFactor) /
           conversion[key].measureGrams,
-      ) / 100
-    } 
-    ${conversion[key].measure}`;
+      ) / conversion[key].roundFactor;
+
+    const valueback = Math.round(
+      ((value * conversion[key].measureGrams) / 100) *
+        conversion[key].foodCalories,
+    );
+    const sentence = `${value} ${conversion[key].measure} ~ ${valueback} calories`;
+
+    return { value, valueback, sentence };
   }
 
   function calcFoods(data, calories) {
     const calsMeal = calories * data.proportion;
-    return (
-      <>
-        {Object.keys(data.foods).map((key) => (
-          <div>
-            {equivalent
-              ? calcGrams(data.foods[key] * calsMeal, key)
-              : calcMeasure(data.foods[key] * calsMeal, key)}
-          </div>
-        ))}
-      </>
-    );
+    const calsMain = Object.keys(data.foods).map((key) => (
+      <div>
+        {equivalent
+          ? calcGrams(data.foods[key] * calsMeal, key)
+          : calcMeasure(data.foods[key] * calsMeal, key).sentence}
+      </div>
+    ));
+    const calsMealBack = Object.keys(data.foods)
+      .map((key) => calcMeasure(data.foods[key] * calsMeal, key).valueback)
+      .reduce((a, v) => a + v);
+    const totalcalsMealBack = equivalent ? null : calsMealBack;
+
+    return { calsMain, totalcalsMealBack };
   }
 
-  function dietFoods(goal, day) {
+  function dietComposition(goal, day) {
     const targetCalories = calorieGoal(calories, goal);
+    const totalcalsMealBack = Object.keys(Data[goal])
+      .map(
+        (key) =>
+          calcFoods(Data[goal][key], targetCalories[day]).totalcalsMealBack,
+      )
+      .reduce((a, v) => a + v);
+
+    const totalCals = equivalent
+      ? Math.round(targetCalories[day])
+      : totalcalsMealBack;
+
     return (
       <div>
+        Target calories = {Math.round(targetCalories[day])}
         <h3>Morning</h3>
-        {calcFoods(Data[goal].breakfast, targetCalories[day])}
+        {calcFoods(Data[goal].breakfast, targetCalories[day]).calsMain}
+        {/* {calcFoods(Data[goal].breakfast, targetCalories[day]).totalcalsMealBack} */}
         <h3>Lunch</h3>
-        {calcFoods(Data[goal].lunch, targetCalories[day])}
+        {calcFoods(Data[goal].lunch, targetCalories[day]).calsMain}
+        {/* {calcFoods(Data[goal].lunch, targetCalories[day]).totalcalsMealBack} */}
         <h3>Snack</h3>
-        {calcFoods(Data[goal].snack, targetCalories[day])}
+        {calcFoods(Data[goal].snack, targetCalories[day]).calsMain}
+        {/* {calcFoods(Data[goal].snack, targetCalories[day]).totalcalsMealBack} */}
         <h3>Dinner</h3>
-        {calcFoods(Data[goal].dinner, targetCalories[day])}
+        {calcFoods(Data[goal].dinner, targetCalories[day]).calsMain}
+        {/* {calcFoods(Data[goal].dinner, targetCalories[day]).totalcalsMealBack} */}
+        Total {totalCals} calories
       </div>
     );
   }
@@ -90,11 +116,11 @@ const DietBetter: React.FC = () => {
             <Row className="justify-content-center">
               <Col className="mt-2 mx-auto text-left" md="6">
                 <h2>Training days</h2>
-                {dietFoods(goal, "training")}
+                {dietComposition(goal, "training")}
               </Col>
               <Col className="mt-2 mx-auto text-left" md="6">
                 <h2>Resting days </h2>
-                {dietFoods(goal, "resting")}
+                {dietComposition(goal, "resting")}
               </Col>
             </Row>
           </div>
