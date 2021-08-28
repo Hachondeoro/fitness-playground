@@ -8,7 +8,7 @@
     {
       "files": "src/components/main/data-better.js",
       "options": {
-        "printWidth": 80
+        "printWidth": 100
       }
     }
   ]

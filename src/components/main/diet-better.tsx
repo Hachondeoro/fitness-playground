@@ -4,7 +4,7 @@ import { Checkbox } from "antd";
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import { conversion, Data } from "./data-better.js";
+import { conversion, SampleMealOne, SampleMealTwo} from "./data-better.js";
 
 const DietBetter: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ const DietBetter: React.FC = () => {
     (state: RootState) => state.bodydata.calories,
   );
 
-  const [equivalent, setEquivalent] = useState(true);
+  const [equivalent, setEquivalent] = useState(false);
   function onChange() {
     setEquivalent(!equivalent);
   }
@@ -29,51 +29,83 @@ const DietBetter: React.FC = () => {
     }
   }
   function calcGrams(number, key) {
-    return `${Math.round(
-      (number * 100) / conversion[key].foodCalories,
-    )} grams of ${key}`;
+    const foodGrams = Math.round((number * 100) / conversion[key].foodCalories);
+    const proteinGrams = Math.round(
+      (foodGrams / 100) * conversion[key].protein,
+    );
+    const sentenceGrams = `${foodGrams} grams of ${key}`;
+    return { foodGrams, proteinGrams, sentenceGrams };
   }
 
   function calcMeasure(number, key) {
-    const value =
+    const valMeasure =
       Math.round(
         (((number * 100) / conversion[key].foodCalories) *
           conversion[key].roundFactor) /
           conversion[key].measureGrams,
       ) / conversion[key].roundFactor;
 
-    const valueback = Math.round(
-      ((value * conversion[key].measureGrams) / 100) *
+    const valMeasureBack = Math.round(
+      ((valMeasure * conversion[key].measureGrams) / 100) *
         conversion[key].foodCalories,
     );
-    const sentence = `${value} ${conversion[key].measure} ~ ${valueback} calories`;
+    const protein = Math.round(
+      ((valMeasure * conversion[key].measureGrams) / 100) *
+        conversion[key].protein,
+    );
+    const sentence = `${valMeasure} ${conversion[key].measure} ~ ${valMeasureBack} calories`;
 
-    return { value, valueback, sentence };
+    return { valMeasure, valMeasureBack, protein, sentence };
   }
 
-  function calcFoods(data, calories) {
+  function calcMealsStats(data, calories) {
     const calsMeal = calories * data.proportion;
     const calsMain = Object.keys(data.foods).map((key) => (
       <div>
         {equivalent
-          ? calcGrams(data.foods[key] * calsMeal, key)
+          ? calcGrams(data.foods[key] * calsMeal, key).sentenceGrams
           : calcMeasure(data.foods[key] * calsMeal, key).sentence}
       </div>
     ));
     const calsMealBack = Object.keys(data.foods)
-      .map((key) => calcMeasure(data.foods[key] * calsMeal, key).valueback)
+      .map((key) => calcMeasure(data.foods[key] * calsMeal, key).valMeasureBack)
       .reduce((a, v) => a + v);
     const totalcalsMealBack = equivalent ? null : calsMealBack;
 
-    return { calsMain, totalcalsMealBack };
+    const proteinMealGrams = Object.keys(data.foods)
+      .map((key) => calcGrams(data.foods[key] * calsMeal, key).proteinGrams)
+      .reduce((a, v) => a + v);
+
+    const proteinMealBack = Object.keys(data.foods)
+      .map((key) => calcMeasure(data.foods[key] * calsMeal, key).protein)
+      .reduce((a, v) => a + v);
+
+    const totalproteinMeal = equivalent ? proteinMealGrams : proteinMealBack;
+
+    return { calsMain, totalcalsMealBack, totalproteinMeal };
   }
 
-  function dietComposition(goal, day) {
+  function dietComposition(Data, goal, day) {
     const targetCalories = calorieGoal(calories, goal);
     const totalcalsMealBack = Object.keys(Data[goal])
       .map(
         (key) =>
-          calcFoods(Data[goal][key], targetCalories[day]).totalcalsMealBack,
+          calcMealsStats(Data[goal][key], targetCalories[day])
+            .totalcalsMealBack,
+      )
+      .reduce((a, v) => a + v);
+
+    const totalProteinGrams = Object.keys(Data[goal])
+      .map(
+        (key) =>
+          calcMealsStats(Data[goal][key], targetCalories[day]).totalproteinMeal,
+      )
+      .reduce((a, v) => a + v);
+
+    const totalProteinBack = Object.keys(Data[goal])
+      .map(
+        (key) =>
+          calcMealsStats(Data[goal][key], targetCalories[day]).totalproteinMeal,
       )
       .reduce((a, v) => a + v);
 
@@ -81,22 +113,21 @@ const DietBetter: React.FC = () => {
       ? Math.round(targetCalories[day])
       : totalcalsMealBack;
 
+    const totalProtein = equivalent ? totalProteinGrams : totalProteinBack;
+
     return (
       <div>
         Target calories = {Math.round(targetCalories[day])}
         <h3>Morning</h3>
-        {calcFoods(Data[goal].breakfast, targetCalories[day]).calsMain}
-        {/* {calcFoods(Data[goal].breakfast, targetCalories[day]).totalcalsMealBack} */}
+        {calcMealsStats(Data[goal].breakfast, targetCalories[day]).calsMain}
         <h3>Lunch</h3>
-        {calcFoods(Data[goal].lunch, targetCalories[day]).calsMain}
-        {/* {calcFoods(Data[goal].lunch, targetCalories[day]).totalcalsMealBack} */}
+        {calcMealsStats(Data[goal].lunch, targetCalories[day]).calsMain}
         <h3>Snack</h3>
-        {calcFoods(Data[goal].snack, targetCalories[day]).calsMain}
-        {/* {calcFoods(Data[goal].snack, targetCalories[day]).totalcalsMealBack} */}
+        {calcMealsStats(Data[goal].snack, targetCalories[day]).calsMain}
         <h3>Dinner</h3>
-        {calcFoods(Data[goal].dinner, targetCalories[day]).calsMain}
-        {/* {calcFoods(Data[goal].dinner, targetCalories[day]).totalcalsMealBack} */}
-        Total {totalCals} calories
+        {calcMealsStats(Data[goal].dinner, targetCalories[day]).calsMain}
+        Total {totalCals} calories <br></br>
+        Total {totalProtein} gr of protein
       </div>
     );
   }
@@ -112,22 +143,36 @@ const DietBetter: React.FC = () => {
         <TabPanel>
           <div className="meals">
             <h1 className="text-center">Sample meal plan 1</h1>
-            <Checkbox onChange={onChange}>Standard Measures</Checkbox>
+            <Checkbox onChange={onChange}>Measure in grams</Checkbox>
             <Row className="justify-content-center">
               <Col className="mt-2 mx-auto text-left" md="6">
                 <h2>Training days</h2>
-                {dietComposition(goal, "training")}
+                {dietComposition(SampleMealOne, goal, "training")}
               </Col>
               <Col className="mt-2 mx-auto text-left" md="6">
                 <h2>Resting days </h2>
-                {dietComposition(goal, "resting")}
+                {dietComposition(SampleMealOne, goal, "resting")}
               </Col>
             </Row>
           </div>
           <br></br>
         </TabPanel>
         <TabPanel>
-          <h2>Coming soon...</h2>
+          <div className="meals">
+            <h1 className="text-center">Sample meal plan 2</h1>
+            <Checkbox onChange={onChange}>Measure in grams</Checkbox>
+            <Row className="justify-content-center">
+              <Col className="mt-2 mx-auto text-left" md="6">
+                <h2>Training days</h2>
+                {dietComposition(SampleMealTwo, goal, "training")}
+              </Col>
+              <Col className="mt-2 mx-auto text-left" md="6">
+                <h2>Resting days </h2>
+                {dietComposition(SampleMealTwo, goal, "resting")}
+              </Col>
+            </Row>
+          </div>
+          <br></br>
         </TabPanel>
       </Tabs>
     </div>
