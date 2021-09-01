@@ -1,10 +1,9 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import type { RootState } from "@redux/store";
-import { Checkbox, Form, Select } from "antd";
+import { Form, Select } from "antd";
 import React, { useState } from "react";
-import { Col, Row } from "react-bootstrap";
-import { conversion, SampleMealOne } from "./data-better.js";
-import { dietComposition } from "./functions";
+import { Col } from "react-bootstrap";
+import { conversion } from "./data-better.js";
 
 const CustomDiet: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -53,7 +52,7 @@ const CustomDiet: React.FC = () => {
             <Select
               mode="tags"
               placeholder="Select 3 choices"
-              onChange={(value) => {
+              onChange={(value: any) => {
                 if (value.length > 3) {
                   setCarbsChoices(value);
                   value.pop();
@@ -79,7 +78,7 @@ const CustomDiet: React.FC = () => {
             <Select
               mode="tags"
               placeholder="Select 3 choices"
-              onChange={(value) => {
+              onChange={(value: any) => {
                 if (value.length > 3) {
                   setProteinChoices(value);
                   value.pop();
@@ -105,7 +104,7 @@ const CustomDiet: React.FC = () => {
             <Select
               mode="tags"
               placeholder="Select 3 choices"
-              onChange={(value) => {
+              onChange={(value: any) => {
                 if (value.length > 3) {
                   setFatChoices(value);
                   value.pop();
