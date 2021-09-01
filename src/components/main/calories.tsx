@@ -22,16 +22,7 @@ const Calories: React.FC = () => {
   const protein = (calories * 0.25) / 4;
   const fat = (calories * 0.25) / 9;
   const carbs = (calories * 0.5) / 4;
-
-  // if (goal == "cut") {
-  //     // 24, 32, 28
-  //     dispatch(updateCalories(bmr * 1.03));
-  // } else if (goal == "maintain") {
-  //     dispatch(updateCalories(bmr * 1.38));
-  // } else if (goal == "gain") {
-  //     dispatch(updateCalories(bmr * 1.64));
-  // }
-
+  
   return (
     <div className="mt-3">
       <ul>

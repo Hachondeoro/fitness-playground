@@ -22,11 +22,8 @@ export const Main: React.FC = () => {
   const age = useAppSelector((state: RootState) => state.bodydata.age);
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
-  // const weight = useAppSelector(selectWeight);f
 
   const dispatch = useAppDispatch();
-  // const [age, setAge] = useState<string>("28");
-  // const [height, setHeight] = useState<string>("170");
   useEffect(() => {
     resetIdCounter();
   }, []);
@@ -97,6 +94,7 @@ export const Main: React.FC = () => {
               {/* <Diet /> */}
               <br></br>
             </Col>
+            
             <DietBetter />
           </TabPanel>
           <TabPanel>
