@@ -21,3 +21,20 @@ export interface MealsStats {
   totalcalsMealBack: number;
   totalproteinMeal: number;
 }
+
+interface mealInfo {
+  proportion: number;
+  foods: { [key: string]: number };
+}
+
+export interface MealPlan {
+  gain: {
+    [key: string]: mealInfo;
+  };
+  cut: {
+    [key: string]: mealInfo;
+  };
+  maintain: {
+    [key: string]: mealInfo;
+  };
+}

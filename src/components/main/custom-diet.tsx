@@ -1,9 +1,12 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import type { RootState } from "@redux/store";
-import { Form, Select } from "antd";
+import { Checkbox, Form, Select } from "antd";
 import React, { useState } from "react";
-import { Col } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
+import { createMealPlan } from "./custom-diet-functions";
 import { conversion } from "./data-better.js";
+import { dietComposition } from "./functions";
+import { MealPlan } from "./interfaces";
 
 const CustomDiet: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -14,6 +17,8 @@ const CustomDiet: React.FC = () => {
 
   const { Option } = Select;
   const [equivalent, setEquivalent] = useState(false);
+  const [showCustomDiet, setshowCustomDiet] = useState(false);
+  const [sampleMealPlan, setsampleMealPlan] = useState<MealPlan>();
   const carbs = getFoods("carbs");
   const protein = getFoods("protein");
   const fats = getFoods("fats");
@@ -59,6 +64,16 @@ const CustomDiet: React.FC = () => {
     const keys = Object.keys(foods);
 
     return { foods, keys };
+  }
+
+  function showMealPlan() {
+    const customMealPlan = createMealPlan(
+      carbsChoices,
+      proteinChoices,
+      fatChoices,
+    );
+    setshowCustomDiet(!showCustomDiet);
+    setsampleMealPlan(customMealPlan);
   }
 
   return (
@@ -178,31 +193,37 @@ const CustomDiet: React.FC = () => {
           </Form.Item>
         </Form>
       </Col>
-
-      {/* <h1 className="text-center"> MY CUSTOM DIET </h1>
-      <Checkbox onChange={onChange}>Measure in grams</Checkbox>
-      <Row className="justify-content-center">
-        <Col className="mt-2 mx-auto text-left" md="6">
-          <h2>Training days</h2>
-          {dietComposition(
-            SampleMealOne,
-            goal,
-            "training",
-            calories,
-            equivalent,
-          )}
-        </Col>
-        <Col className="mt-2 mx-auto text-left" md="6">
-          <h2>Resting days </h2>
-          {dietComposition(
-            SampleMealOne,
-            goal,
-            "resting",
-            calories,
-            equivalent,
-          )}
-        </Col>
-      </Row> */}
+      <Button type="primary" onClick={showMealPlan}>
+        Get custom diet
+      </Button>
+      {showCustomDiet ? (
+        <>
+          <h1 className="text-center"> MY CUSTOM DIET </h1>
+          <Checkbox onChange={onChange}>Measure in grams</Checkbox>
+          <Row className="justify-content-center">
+            <Col className="mt-2 mx-auto text-left" md="6">
+              <h2>Training days</h2>
+              {dietComposition(
+                sampleMealPlan,
+                goal,
+                "training",
+                calories,
+                equivalent,
+              )}
+            </Col>
+            <Col className="mt-2 mx-auto text-left" md="6">
+              <h2>Resting days </h2>
+              {dietComposition(
+                sampleMealPlan,
+                goal,
+                "resting",
+                calories,
+                equivalent,
+              )}
+            </Col>
+          </Row>
+        </>
+      ) : null}
     </div>
   );
 };

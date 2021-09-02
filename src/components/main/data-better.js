@@ -112,7 +112,11 @@ export const SampleMealOne = {
   maintain: {
     breakfast: {
       proportion: 0.32,
-      foods: { Muesli: 0.55, "Peanut Butter": 0.3, Honey: 0.15 },
+      foods: { 
+        Muesli: 0.55, 
+        "Peanut Butter": 0.3, 
+        Honey: 0.15 
+      },
     },
     lunch: {
       proportion: 0.36,
