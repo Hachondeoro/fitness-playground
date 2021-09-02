@@ -14,9 +14,40 @@ const CustomDiet: React.FC = () => {
 
   const { Option } = Select;
   const [equivalent, setEquivalent] = useState(false);
-  const [carbsChoices, setCarbsChoices] = useState([]);
+  const carbs = getFoods("carbs");
+  const protein = getFoods("protein");
+  const fats = getFoods("fats");
   const [proteinChoices, setProteinChoices] = useState([]);
   const [fatChoices, setFatChoices] = useState([]);
+
+  const [carbsChoices, setCarbsChoices] = useState([]);
+  const carbsRef = React.useRef(null);
+  const protRef = React.useRef(null);
+  const fatRef = React.useRef(null);
+  const [selectedItems, setselectedItems] = useState([]);
+  const filteredCarbsOptions = carbs.keys.filter(
+    (o) => !selectedItems.includes(o),
+  );
+  const filteredProteinOptions = protein.keys.filter(
+    (o) => !selectedItems.includes(o),
+  );
+  const filteredFatOptions = fats.keys.filter(
+    (o) => !selectedItems.includes(o),
+  );
+
+  function foodChoiceChange(
+    value: string[],
+    functionSet: any,
+    numberChoices: number,
+    ref: any,
+  ) {
+    functionSet(value);
+    setselectedItems(value);
+    if (value.length == numberChoices) {
+      setTimeout(() => ref.current.blur(), 0);
+    }
+  }
+
   function onChange() {
     setEquivalent(!equivalent);
   }
@@ -29,10 +60,6 @@ const CustomDiet: React.FC = () => {
 
     return { foods, keys };
   }
-
-  const carbs = getFoods("carbs");
-  const protein = getFoods("protein");
-  const fats = getFoods("fats");
 
   return (
     <div className="meals">
@@ -50,19 +77,30 @@ const CustomDiet: React.FC = () => {
             ]}
           >
             <Select
-              mode="tags"
+              mode="multiple"
               placeholder="Select 3 choices"
-              onChange={(value: any) => {
-                if (value.length > 3) {
-                  setCarbsChoices(value);
-                  value.pop();
-                }
-              }}
+              ref={carbsRef}
+              onChange={(e: string[]) =>
+                foodChoiceChange(e, setCarbsChoices, 3, carbsRef)
+              }
             >
-              {carbs.keys.map((item) => (
-                <Option value={item}>{item}</Option>
+              {filteredCarbsOptions.map((item) => (
+                <Option
+                  disabled={
+                    carbsChoices.length == 3
+                      ? carbsChoices.includes(item)
+                        ? false
+                        : true
+                      : false
+                  }
+                  key={item}
+                  value={item}
+                >
+                  {item}
+                </Option>
               ))}
             </Select>
+            {carbsChoices}
           </Form.Item>
           <Form.Item
             name="selected-protein"
@@ -76,19 +114,30 @@ const CustomDiet: React.FC = () => {
             ]}
           >
             <Select
-              mode="tags"
+              mode="multiple"
               placeholder="Select 3 choices"
-              onChange={(value: any) => {
-                if (value.length > 3) {
-                  setProteinChoices(value);
-                  value.pop();
-                }
-              }}
+              onChange={(e: string[]) =>
+                foodChoiceChange(e, setProteinChoices, 2, protRef)
+              }
+              ref={protRef}
             >
-              {protein.keys.map((item) => (
-                <Option value={item}>{item}</Option>
+              {filteredProteinOptions.map((item) => (
+                <Option
+                  disabled={
+                    proteinChoices.length == 2
+                      ? proteinChoices.includes(item)
+                        ? false
+                        : true
+                      : false
+                  }
+                  key={item}
+                  value={item}
+                >
+                  {item}
+                </Option>
               ))}
             </Select>
+            {proteinChoices}
           </Form.Item>
           <Form.Item
             name="selected-fats"
@@ -102,22 +151,32 @@ const CustomDiet: React.FC = () => {
             ]}
           >
             <Select
-              mode="tags"
+              mode="multiple"
               placeholder="Select 3 choices"
-              onChange={(value: any) => {
-                if (value.length > 3) {
-                  setFatChoices(value);
-                  value.pop();
-                }
-              }}
+              onChange={(e: string[]) =>
+                foodChoiceChange(e, setFatChoices, 2, fatRef)
+              }
+              ref={fatRef}
             >
-              {fats.keys.map((item) => (
-                <Option value={item}>{item}</Option>
+              {filteredFatOptions.map((item) => (
+                <Option
+                  disabled={
+                    fatChoices.length == 2
+                      ? fatChoices.includes(item)
+                        ? false
+                        : true
+                      : false
+                  }
+                  key={item}
+                  value={item}
+                >
+                  {item}
+                </Option>
               ))}
             </Select>
+            {fatChoices}
           </Form.Item>
         </Form>
-        {console.log(proteinChoices)}
       </Col>
 
       {/* <h1 className="text-center"> MY CUSTOM DIET </h1>

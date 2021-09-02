@@ -15,7 +15,7 @@ const DietBetter: React.FC = () => {
   );
 
   const [equivalent, setEquivalent] = useState(false);
-  const [customDiet, setCustomDiet] = useState(false);
+  const [customDiet, setCustomDiet] = useState(true);
   const onChangeEquivalent = () => setEquivalent(!equivalent);
   const onChangeCustomDiet = () => setCustomDiet(!customDiet);
 
