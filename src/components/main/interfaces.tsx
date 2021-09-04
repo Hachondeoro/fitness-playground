@@ -13,7 +13,8 @@ export interface StandardMeasure {
   valMeasure: number;
   valMeasureBack: number;
   protein: number;
-  sentence: string;
+  foodportion: string;
+  foodportionCalories: string;
 }
 
 export interface MealsStats {
@@ -37,4 +38,20 @@ export interface MealPlan {
   maintain: {
     [key: string]: mealInfo;
   };
+}
+
+export interface foodsByClass {
+  [key: string]: {
+    class: string;
+    foodCalories: number;
+    measure: string;
+    measureGrams: number;
+    protein: number;
+    roundFactor: number;
+  };
+}
+export interface FoodFormItems {
+  // foodFormItem: () => void;
+  // foodFormItem: (arg1:number) => React.ReactElement;
+  foodFormItem: () => React.ReactElement;
 }

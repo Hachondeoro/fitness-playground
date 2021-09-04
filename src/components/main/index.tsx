@@ -4,7 +4,7 @@ import {
   updateGoal,
   updateHeight,
   updateSex,
-  updateWeight
+  updateWeight,
 } from "@redux/slices/bodydata";
 import type { RootState } from "@redux/store";
 import { Input, Radio } from "antd";

@@ -1,74 +1,74 @@
 /* eslint-disable prettier/prettier */
 // prettier-ignore
 export const conversion = {
-  Muesli: { foodCalories: 360, protein: 5, measureGrams: 140, 
-          measure: "cups of Muesli", roundFactor: 10, class:"carbs" },
-  Oats: { foodCalories: 360, protein: 5, measureGrams: 140, 
-          measure: "cups of Muesli", roundFactor: 10, class:"carbs" },
-  Quinoa: { foodCalories: 360, protein: 5, measureGrams: 140, 
-          measure: "cups of Muesli", roundFactor: 10, class:"carbs" },
-  Rice: { foodCalories: 360, protein: 4, measureGrams: 100,                                 // 150 grams rice raw should convert to approx 250 grams cooked ~ XXX cups
-          measure: "cups of Cooked Rice", roundFactor: 20, class:"carbs" },                                        // 80 grams muesli ~ 0.57 cups ~ 1/2 of a medium sized cup
-  "Brown Rice": { foodCalories: 360, protein: 4, measureGrams: 100,                                 // 150 grams rice raw should convert to approx 250 grams cooked ~ XXX cups
-          measure: "cups of Cooked Rice", roundFactor: 20, class:"carbs" },                                        // 80 grams muesli ~ 0.57 cups ~ 1/2 of a medium sized cup
-  "Wholemeal Bread": { foodCalories: 360, protein: 4, measureGrams: 100,                                 // 150 grams rice raw should convert to approx 250 grams cooked ~ XXX cups
-          measure: "cups of Cooked Rice", roundFactor: 20, class:"carbs" },                                        // 80 grams muesli ~ 0.57 cups ~ 1/2 of a medium sized cup
-  Potatoes: { foodCalories: 85, protein: 0, measureGrams: 110, 
-          measure: "small Potatoes", roundFactor: 2, class:"carbs" },                                                 // potato average
-  "Sweet potatoes": { foodCalories: 85, protein: 0, measureGrams: 110, 
-          measure: "small Sweet Potatoes", roundFactor: 2, class:"carbs" },
-  Honey: { foodCalories: 320, protein: 0, measureGrams: 10, 
-          measure: "spoons of Honey", roundFactor: 1, class:"carbs" },                                                // 40 grams of honey ~ 4 spoons  (1 regular spoon is 10 grams)
-  "Peanut Butter": { foodCalories: 600, protein: 12.5, measureGrams: 13, 
-          measure: "spoons of Peanut Butter", roundFactor: 1, class:"fats" },                                        // 40 grams pb ~ 3 spoons (1 regular spoon is 13 grams)
-  "Almonds": { foodCalories: 600, protein: 12.5, measureGrams: 13, 
-          measure: "spoons of Peanut Butter", roundFactor: 1, class:"fats" },                                        // 40 grams pb ~ 3 spoons (1 regular spoon is 13 grams)
-  "Cashews": { foodCalories: 600, protein: 12.5, measureGrams: 13, 
-          measure: "spoons of Peanut Butter", roundFactor: 1, class:"fats" },                                        // 40 grams pb ~ 3 spoons (1 regular spoon is 13 grams)
-  "Avocado": { foodCalories: 600, protein: 12.5, measureGrams: 13, 
-          measure: "spoons of Peanut Butter", roundFactor: 1, class:"fats" },                                        // 40 grams pb ~ 3 spoons (1 regular spoon is 13 grams)
-  Tofu: { foodCalories: 360, protein: 25, measureGrams: 10, 
-          measure: "small slices of Cheese", roundFactor: 1, class:"fats" },                                          //
-  Eggs: { foodCalories: 360, protein: 25, measureGrams: 10, 
-          measure: "small slices of Cheese", roundFactor: 1, class:"protein" },                                          //
-  Cheese: { foodCalories: 360, protein: 25, measureGrams: 10, 
-          measure: "small slices of Cheese", roundFactor: 1, class:"protein" },                                          //
-  "Goat cheese": { foodCalories: 360, protein: 25, measureGrams: 10, 
-          measure: "small slices of Cheese", roundFactor: 1, class:"protein" },                                          //
-  "Greek Yoghurt": { foodCalories: 100, protein: 8, measureGrams: 250, 
-          measure: "cups of Greek Yogurt", roundFactor: 1, class:"protein" },                                           // 260 grams greek yogurt ~ 1 whole medium cup
-  Lettuce: { foodCalories: 15, protein: 0, measureGrams: 250, 
-          measure: "Lettuce heads", roundFactor: 2, class:"veggies" },                                                  // 250 grams lettuce ~ 1/3 regular sized lettuce
-  Veggies: { foodCalories: 20, protein: 0, measureGrams: 200, 
-          measure: "handful of Veggies", roundFactor: 1, class:"veggies" },                                             //                                        
-  Broccoli: { foodCalories: 20, protein: 0, measureGrams: 200, 
-          measure: "handful of Veggies", roundFactor: 1, class:"veggies" },                                             //                                        
-  Cauliflower: { foodCalories: 20, protein: 0, measureGrams: 200, 
-          measure: "handful of Veggies", roundFactor: 1, class:"veggies" },                                             //                                        
-  Apples: { foodCalories: 52, protein: 0, measureGrams: 130, 
-          measure: "small Apples", roundFactor: 1, class:"fruits" },                                                   // 1 medium apple ~ 130 grams
-  Oranges: { foodCalories: 60, protein: 0, measureGrams: 150, 
-          measure: "small Oranges", roundFactor: 1, class:"fruits" },                                                  // 150 grams is the average weight of a medium sized orange
-  Strawberries: { foodCalories: 60, protein: 0, measureGrams: 150, 
-          measure: "small Oranges", roundFactor: 1, class:"fruits" },                                                  // 150 grams is the average weight of a medium sized orange
-  "Blue berries": { foodCalories: 60, protein: 0, measureGrams: 150, 
-          measure: "small Oranges", roundFactor: 1, class:"fruits" },                                                  // 150 grams is the average weight of a medium sized orange
-  "Chicken breast": { foodCalories: 110, protein: 20, measureGrams: 200, 
-          measure: "Chicken breast fillets", roundFactor: 2, class:"protein" },                                         // XXXX average weight of a chicken fillet breast
-  Steak: { foodCalories: 235, protein: 20, measureGrams: 250, 
-          measure: "small Steak scotch fillet", roundFactor: 5, class:"protein" },                                      // 260 grams of steak ~ 1 6$ scotch fillet
-  Tuna: { foodCalories: 110, protein: 25, measureGrams: 120, 
-          measure: "cans of Tuna", roundFactor: 1, class:"protein" },                                                   // 250 grams ~ 2 cans (120 grams each)
-  Fish: { foodCalories: 110, protein: 25, measureGrams: 120, 
-          measure: "cans of Tuna", roundFactor: 1, class:"protein" },                                                   // 250 grams ~ 2 cans (120 grams each)
-  Coffee: { foodCalories: 25, protein: 0, measureGrams: 10, 
-          measure: "cups of Coffee", roundFactor: 2, class:"protein" },                                                 //
+  "Muesli": { foodCalories: 360, protein: 5, class:"carbs",
+          measure: "cups of Muesli", measureGrams: 140, roundFactor: 10},
+  "Oats": { foodCalories: 360, protein: 5, class:"carbs",
+          measure: "cups of Oats", measureGrams: 140, roundFactor: 10},
+  "Quinoa (Cooked)": { foodCalories: 150, protein: 5, class:"carbs",
+          measure: "cups of Cooked quinoa", measureGrams: 160, roundFactor: 10},
+  "Rice": { foodCalories: 360, protein: 4, class:"carbs",
+          measure: "cups of Cooked Rice", measureGrams: 100, roundFactor: 20},
+  "Brown Rice": { foodCalories: 360, protein: 4, class:"carbs",
+          measure: "cups of Cooked Rice", measureGrams: 100, roundFactor: 20},
+  "Mixed grain Bread": { foodCalories: 250, protein: 4, class:"carbs",
+          measure: "slices of mixed grain bread", measureGrams: 47, roundFactor: 20},
+  "Potatoes": { foodCalories: 85, protein: 0, class:"carbs",
+          measure: "small Potatoes", measureGrams: 110, roundFactor: 2},
+  "Sweet potatoes": { foodCalories: 85, protein: 0, class:"carbs",
+          measure: "small Sweet Potatoes", measureGrams: 110, roundFactor: 2},
+  "Honey": { foodCalories: 320, protein: 0, class:"carbs",
+          measure: "spoons of Honey", measureGrams: 10, roundFactor: 1},
+  "Peanut Butter": { foodCalories: 600, protein: 15, class:"fats",
+          measure: "spoons of Peanut Butter", measureGrams: 13, roundFactor: 1},
+  "Almonds": { foodCalories: 600, protein: 15, class:"fats",
+          measure: "spoons of Almonds", measureGrams: 13, roundFactor: 1},
+  "Cashews": { foodCalories: 600, protein: 15, class:"fats",
+          measure: "spoons of Cashews", measureGrams: 13, roundFactor: 1},
+  "Avocado": { foodCalories: 160, protein: 0, class:"fats",
+          measure: "Avocados", measureGrams: 200, roundFactor: 1},
+  "Tofu": { foodCalories: 70, protein: 5, class:"fats",
+          measure: "small servings Tofu", measureGrams: 125, roundFactor: 1},
+  "Eggs": { foodCalories: 140, protein: 14, class:"protein",
+          measure: "eggs", measureGrams: 50, roundFactor: 1},
+  "Cheese": { foodCalories: 360, protein: 25, class:"protein",
+          measure: "small slices of Cheese", measureGrams: 10, roundFactor: 1},
+  "Goat cheese": { foodCalories: 360, protein: 25, class:"protein",
+          measure: "small slices of Goat Cheese", measureGrams: 10, roundFactor: 1},
+  "Greek Yoghurt": { foodCalories: 100, protein: 8, class:"protein",
+          measure: "cups of Greek Yogurt", measureGrams: 250, roundFactor: 1},
+  "Lettuce": { foodCalories: 15, protein: 0, class:"veggies",
+          measure: "Lettuce heads", measureGrams: 250, roundFactor: 2},
+  "Veggies": { foodCalories: 20, protein: 0, class:"veggies",
+          measure: "handful of Veggies", measureGrams: 200, roundFactor: 1},
+  "Broccoli": { foodCalories: 34, protein: 0, class:"veggies",
+          measure: "servings of Broccoli", measureGrams: 150, roundFactor: 1},
+  "Cauliflower": { foodCalories: 25, protein: 0, class:"veggies",
+          measure: "cups of Cauliflower", measureGrams: 100, roundFactor: 1},
+  "Apples": { foodCalories: 52, protein: 0, class:"snack",
+          measure: "small Apples", measureGrams: 130, roundFactor: 1},
+  "Oranges": { foodCalories: 60, protein: 0, class:"snack",
+          measure: "small Oranges", measureGrams: 150, roundFactor: 1},
+  "Strawberries": { foodCalories: 30, protein: 0, class:"snack",
+          measure: "cups of Strawberries", measureGrams: 140, roundFactor: 1},
+  "Blueberries": { foodCalories: 60, protein: 0, class:"snack",
+          measure: "cups of Blueberries", measureGrams: 145, roundFactor: 1},
+  "Chicken breast": { foodCalories: 110, protein: 20, class:"protein",
+          measure: "Chicken breast fillets", measureGrams: 200, roundFactor: 2},
+  "Steak": { foodCalories: 235, protein: 20, class:"protein",
+          measure: "small Steak scotch fillet", measureGrams: 250, roundFactor: 5},
+  "Tuna": { foodCalories: 130, protein: 27, class:"protein",
+          measure: "cans of Tuna", measureGrams: 120, roundFactor: 1},
+  "Fish": { foodCalories: 140, protein: 20, class:"protein",
+          measure: "fish fillets", measureGrams: 80, roundFactor: 1},
+  "Coffee": { foodCalories: 25, protein: 0, class:"protein",
+          measure: "cups of Coffee", measureGrams: 10, roundFactor: 2},
   
   
 };
 // strawberries, blue berries
 // broccoli, cauliflower
-// oats, quinoa, brown rice, wholemeal bread, 
+// oats, quinoa, brown rice, wholemeal bread,
 // avocado, goat cheese, eggs, tofu, almonds, cashews
 // fish, change tuna to Canned tuna
 // 6 in total, for each meal plan (2 for maintain, 2 for fasting, 2 for bulk)
@@ -112,10 +112,10 @@ export const SampleMealOne = {
   maintain: {
     breakfast: {
       proportion: 0.32,
-      foods: { 
-        Muesli: 0.55, 
-        "Peanut Butter": 0.3, 
-        Honey: 0.15 
+      foods: {
+        Muesli: 0.55,
+        "Peanut Butter": 0.3,
+        Honey: 0.15,
       },
     },
     lunch: {
@@ -189,3 +189,20 @@ export const SampleMealTwo = {
     },
   },
 };
+
+// 150 grams rice raw should convert to approx 250 grams cooked ~ XXX cups
+// 80 grams muesli ~ 0.57 cups ~ 1/2 of a medium sized cup
+// 150 grams rice raw should convert to approx 250 grams cooked ~ XXX cups
+// 80 grams muesli ~ 0.57 cups ~ 1/2 of a medium sized cup
+// 150 grams rice raw should convert to approx 250 grams cooked ~ XXX cups
+// 80 grams muesli ~ 0.57 cups ~ 1/2 of a medium sized cup
+// potato average
+// 40 grams of honey ~ 4 spoons  (1 regular spoon is 10 grams)
+// 40 grams pb ~ 3 spoons (1 regular spoon is 13 grams)
+// 260 grams greek yogurt ~ 1 whole medium cup
+// 250 grams lettuce ~ 1/3 regular sized lettuce
+// 1 medium apple ~ 130 grams
+// 150 grams is the average weight of a medium sized orange
+// XXXX average weight of a chicken fillet breast
+// 260 grams of steak ~ 1 6$ scotch fillet
+// 250 grams ~ 2 cans (120 grams each)

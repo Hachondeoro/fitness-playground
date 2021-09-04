@@ -1,4 +1,5 @@
 import bodyReducer from "@redux/slices/bodydata";
+import mealReducer from "@redux/slices/mealplan";
 import { configureStore } from "@reduxjs/toolkit";
 
 // import rootReducer from "./reducers";
@@ -6,6 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 const store = configureStore({
   reducer: {
     bodydata: bodyReducer,
+    mealplan: mealReducer,
   },
 });
 
