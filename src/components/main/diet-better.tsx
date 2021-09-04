@@ -23,7 +23,7 @@ const DietBetter: React.FC = () => {
     <div>
       <div className="meals">
         <Checkbox onChange={onChangeCustomDiet}>
-          <strong>Want customised meal plan?</strong>
+          <strong>Want standard meal plan?</strong>
         </Checkbox>
         {customDiet ? (
           <CustomDiet />

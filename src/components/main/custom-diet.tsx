@@ -24,13 +24,13 @@ const CustomDiet: React.FC = () => {
   const onChange = () => setEquivalent(!equivalent);
 
   function showMealPlan() {
-    const customMealPlan = createMealPlan(
-      proteinChoice,
-      proteinChoice,
-      fatChoice,
-    );
-    setshowCustomDiet(!showCustomDiet);
-    setsampleMealPlan(customMealPlan);
+    const customMealPlan = createMealPlan(carbChoice, proteinChoice, fatChoice);
+    if (showCustomDiet == true) {
+      setsampleMealPlan(customMealPlan);
+    } else {
+      setshowCustomDiet(!showCustomDiet);
+      setsampleMealPlan(customMealPlan);
+    }
   }
 
   return (

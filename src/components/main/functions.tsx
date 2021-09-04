@@ -75,6 +75,7 @@ export const FoodForm = (
           placeholder={`Select ${numberChoices} choices`}
           ref={macroRef}
           onChange={(e: string[]) => foodChoiceChange(e, macroRef)}
+          showSearch={false}
         >
           <OptGroup label="Breakfast">
             {filteredFoodOptions.map((item) => (
