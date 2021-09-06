@@ -63,9 +63,8 @@ export const conversion:foodsByClass = {
           measure: "cups of Strawberries", measureGrams: 140, roundFactor: 1},
   "Blueberries": { foodCalories: 60, protein: 0, class:"snack",
           measure: "cups of Blueberries", measureGrams: 145, roundFactor: 1},
-
-//   "Coffee": { foodCalories: 25, protein: 0, class:"protein",
-//           measure: "cups of Coffee", measureGrams: 10, roundFactor: 2},
+  "Coffee": { foodCalories: 25, protein: 0, class:"others",
+          measure: "cups of Coffee", measureGrams: 10, roundFactor: 2},
   
   
 };

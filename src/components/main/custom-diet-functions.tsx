@@ -32,12 +32,12 @@ export const createMealPlan = (
     cut: {
       breakfast:{proportion:0.01,
         foods: { Coffee: 0.3 }},
-      lunch:{proportion:0.5,
+      lunch:{proportion:0.49,
         foods:{ [P[0]]:  0.55, [C[2]]:  0.35, [F[1]]:  0.1}},
       snack:{proportion:0.1,
         foods:{ [S[0]]:  0.55, [S[1]]:  0.45, }},
       dinner:{proportion:0.4,
-        foods:{ [C[2]]:  0.35, [P[1]]:  0.65, }},
+        foods:{ [C[1]]:  0.35, [P[1]]:  0.65, }},
     },
     gain: {
       breakfast:{proportion:0.32,
