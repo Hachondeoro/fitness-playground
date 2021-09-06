@@ -29,13 +29,13 @@ interface mealInfo {
 }
 
 export interface MealPlan {
-  gain: {
+  maintain: {
     [key: string]: mealInfo;
   };
   cut: {
     [key: string]: mealInfo;
   };
-  maintain: {
+  gain: {
     [key: string]: mealInfo;
   };
 }
@@ -54,4 +54,11 @@ export interface FoodFormItems {
   // foodFormItem: () => void;
   // foodFormItem: (arg1:number) => React.ReactElement;
   foodFormItem: () => React.ReactElement;
+}
+
+export interface fc {
+  dispatch: (p: object) => void;
+  carbChoice: string[];
+  proteinChoice: string[];
+  fatChoice: string[];
 }

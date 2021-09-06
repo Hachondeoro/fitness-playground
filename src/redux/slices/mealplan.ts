@@ -8,10 +8,10 @@ interface IMeals {
 }
 
 const initialState: IMeals = {
-  carb: null,
-  protein: null,
-  fat: null,
-  snack: null,
+  carb: [],
+  protein: [],
+  fat: [],
+  snack: [],
 };
 
 export const MealPlan = createSlice({
@@ -33,7 +33,6 @@ export const MealPlan = createSlice({
     updateSnack: (state, action) => {
       const food = action.payload;
       state.snack = food;
-      console.log(food);
     },
   },
 });

@@ -2,7 +2,6 @@ import store from "@redux/store";
 import "@styles/antd.css";
 import "@styles/app.scss";
 import "@styles/custom.scss";
-import "@styles/global.scss";
 import { AppProps } from "next/app";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";

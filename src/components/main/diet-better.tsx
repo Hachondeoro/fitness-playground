@@ -4,7 +4,7 @@ import { Checkbox } from "antd";
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import CustomDiet from "./custom-diet";
-import { SampleMealOne } from "./data-better.js";
+import { SampleMealOne } from "./data-better";
 import { dietComposition } from "./functions";
 
 const DietBetter: React.FC = () => {

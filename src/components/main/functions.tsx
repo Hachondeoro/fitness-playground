@@ -1,104 +1,11 @@
-import { useAppDispatch } from "@redux/hooks";
+import React from "react";
+import { conversion } from "./data-better";
 import {
-  updateCarb,
-  updateFat,
-  updateProtein,
-  updateSnack
-} from "@redux/slices/mealplan";
-import { Form, Select } from "antd";
-import React, { useRef, useState } from "react";
-import { conversion } from "./data-better.js";
-import {
-  foodsByClass,
   GoalCalorie,
   GramsMeasure,
   MealsStats,
   StandardMeasure
 } from "./interfaces";
-
-const getFoods = (type: string): { foods: foodsByClass; keys: string[] } => {
-  const foods = Object.keys(conversion)
-    .filter((key) => conversion[key].class == type)
-    .reduce((res, key) => ((res[key] = conversion[key]), res), {});
-  const keys = Object.keys(foods);
-
-  return { foods, keys };
-};
-
-export const FoodForm = (
-  foodClass: string,
-  numberChoices: number,
-): React.ReactElement => {
-  const { Option, OptGroup } = Select;
-  const dispatch = useAppDispatch();
-  const foodChoice = getFoods(foodClass);
-
-  const [macroChoice, setmacroChoice] = useState([]);
-  const macroRef = useRef(null); // for closing menu once 3 choices are reached
-  const [selectedItems, setselectedItems] = useState([]);
-  const filteredFoodOptions = foodChoice.keys.filter(
-    // Hiding selected options
-    (o) => !selectedItems.includes(o),
-  );
-
-  const foodChoiceChange = (value: string[], ref: any) => {
-    if (foodClass == "carbs") {
-      dispatch(updateCarb(value));
-    } else if (foodClass == "protein") {
-      dispatch(updateProtein(value));
-    } else if (foodClass == "fats") {
-      dispatch(updateFat(value));
-    } else if (foodClass == "snack") {
-      dispatch(updateSnack(value));
-    }
-    setselectedItems(value);
-    setmacroChoice(value);
-    if (value.length == numberChoices) {
-      setTimeout(() => ref.current.blur(), 0);
-    }
-  };
-
-  return (
-    <div>
-      <Form.Item
-        label={`Pick some ${foodClass} :)`}
-        rules={[
-          {
-            required: true,
-            message: `Please select your favourite ${foodClass}!`,
-            type: "array",
-          },
-        ]}
-      >
-        <Select
-          mode="multiple"
-          placeholder={`Select ${numberChoices} choices`}
-          ref={macroRef}
-          onChange={(e: string[]) => foodChoiceChange(e, macroRef)}
-          showSearch={false}
-        >
-          <OptGroup label="Breakfast">
-            {filteredFoodOptions.map((item) => (
-              <Option
-                disabled={
-                  macroChoice.length == numberChoices
-                    ? macroChoice.includes(item)
-                      ? false
-                      : true
-                    : false
-                }
-                key={item}
-                value={item}
-              >
-                {item}
-              </Option>
-            ))}
-          </OptGroup>
-        </Select>
-      </Form.Item>
-    </div>
-  );
-};
 
 export const calorieGoal = (calories: number, goal: string): GoalCalorie => {
   switch (goal) {

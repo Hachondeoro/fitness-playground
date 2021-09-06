@@ -1,10 +1,10 @@
 import { useAppSelector } from "@redux/hooks";
 import type { RootState } from "@redux/store";
-import { Checkbox, Form } from "antd";
+import { Alert, Checkbox, Form } from "antd";
 import React, { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
-import { createMealPlan } from "./custom-diet-functions";
-import { dietComposition, FoodForm } from "./functions";
+import { createMealPlan, FoodForm } from "./custom-diet-functions";
+import { dietComposition } from "./functions";
 import { MealPlan } from "./interfaces";
 
 const CustomDiet: React.FC = () => {
@@ -14,22 +14,40 @@ const CustomDiet: React.FC = () => {
     (state: RootState) => state.mealplan.protein,
   );
   const fatChoice = useAppSelector((state: RootState) => state.mealplan.fat);
+  const snackChoice = useAppSelector(
+    (state: RootState) => state.mealplan.snack,
+  );
   const calories = useAppSelector(
     (state: RootState) => state.bodydata.calories,
   );
   const [equivalent, setEquivalent] = useState(false);
+  const [showAlert, setshowAlert] = useState(false);
   const [showCustomDiet, setshowCustomDiet] = useState(false);
   const [sampleMealPlan, setsampleMealPlan] = useState<MealPlan>();
 
   const onChange = () => setEquivalent(!equivalent);
 
   function showMealPlan() {
-    const customMealPlan = createMealPlan(carbChoice, proteinChoice, fatChoice);
-    if (showCustomDiet == true) {
-      setsampleMealPlan(customMealPlan);
+    if (
+      carbChoice.length == 3 &&
+      proteinChoice.length == 2 &&
+      fatChoice.length == 2 &&
+      snackChoice.length == 2
+    ) {
+      const customMealPlan = createMealPlan(
+        carbChoice,
+        proteinChoice,
+        fatChoice,
+        snackChoice,
+      );
+      if (showCustomDiet == true) {
+        setsampleMealPlan(customMealPlan);
+      } else {
+        setshowCustomDiet(!showCustomDiet);
+        setsampleMealPlan(customMealPlan);
+      }
     } else {
-      setshowCustomDiet(!showCustomDiet);
-      setsampleMealPlan(customMealPlan);
+      setshowAlert(!showAlert);
     }
   }
 
@@ -43,11 +61,22 @@ const CustomDiet: React.FC = () => {
           {proteinChoice}
           {FoodForm("fats", 2)}
           {fatChoice}
+          {FoodForm("snack", 2)}
+          {snackChoice}
         </Form>
       </Col>
       <Button type="primary" onClick={showMealPlan}>
         Get custom diet
       </Button>
+      {showAlert ? (
+        <Alert
+          message="Please fill in all spaces!"
+          type="warning"
+          showIcon
+          closable
+        />
+      ) : null}
+
       {showCustomDiet ? (
         <>
           <h1 className="text-center"> MY CUSTOM DIET </h1>

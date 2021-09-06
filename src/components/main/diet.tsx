@@ -15,7 +15,6 @@ const Diet: React.FC = () => {
   const dispatch = useAppDispatch();
   function onChange(e) {
     setEquivalent(!equivalent);
-    console.log(`checked = ${equivalent}`);
   }
 
   function currentGoal(goal, day, calories) {

@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 // prettier-ignore
-export const conversion = {
+import {foodsByClass} from "./interfaces"
+
+export const conversion:foodsByClass = {
   "Muesli": { foodCalories: 360, protein: 5, class:"carbs",
           measure: "cups of Muesli", measureGrams: 140, roundFactor: 10},
   "Oats": { foodCalories: 360, protein: 5, class:"carbs",
@@ -21,14 +23,22 @@ export const conversion = {
           measure: "spoons of Honey", measureGrams: 10, roundFactor: 1},
   "Peanut Butter": { foodCalories: 600, protein: 15, class:"fats",
           measure: "spoons of Peanut Butter", measureGrams: 13, roundFactor: 1},
+  "Avocado": { foodCalories: 160, protein: 0, class:"fats",
+          measure: "Avocados", measureGrams: 200, roundFactor: 10},
+  "Tofu": { foodCalories: 70, protein: 5, class:"fats",
+          measure: "small servings Tofu", measureGrams: 125, roundFactor: 1},
   "Almonds": { foodCalories: 600, protein: 15, class:"fats",
           measure: "spoons of Almonds", measureGrams: 13, roundFactor: 1},
   "Cashews": { foodCalories: 600, protein: 15, class:"fats",
           measure: "spoons of Cashews", measureGrams: 13, roundFactor: 1},
-  "Avocado": { foodCalories: 160, protein: 0, class:"fats",
-          measure: "Avocados", measureGrams: 200, roundFactor: 1},
-  "Tofu": { foodCalories: 70, protein: 5, class:"fats",
-          measure: "small servings Tofu", measureGrams: 125, roundFactor: 1},
+  "Chicken breast": { foodCalories: 110, protein: 20, class:"protein",
+          measure: "Chicken breast fillets", measureGrams: 200, roundFactor: 2},
+  "Steak": { foodCalories: 235, protein: 20, class:"protein",
+          measure: "small Steak scotch fillet", measureGrams: 250, roundFactor: 5},
+  "Tuna": { foodCalories: 130, protein: 27, class:"protein",
+          measure: "cans of Tuna", measureGrams: 120, roundFactor: 1},
+  "Fish": { foodCalories: 140, protein: 20, class:"protein",
+          measure: "fish fillets", measureGrams: 80, roundFactor: 1},
   "Eggs": { foodCalories: 140, protein: 14, class:"protein",
           measure: "eggs", measureGrams: 50, roundFactor: 1},
   "Cheese": { foodCalories: 360, protein: 25, class:"protein",
@@ -53,16 +63,9 @@ export const conversion = {
           measure: "cups of Strawberries", measureGrams: 140, roundFactor: 1},
   "Blueberries": { foodCalories: 60, protein: 0, class:"snack",
           measure: "cups of Blueberries", measureGrams: 145, roundFactor: 1},
-  "Chicken breast": { foodCalories: 110, protein: 20, class:"protein",
-          measure: "Chicken breast fillets", measureGrams: 200, roundFactor: 2},
-  "Steak": { foodCalories: 235, protein: 20, class:"protein",
-          measure: "small Steak scotch fillet", measureGrams: 250, roundFactor: 5},
-  "Tuna": { foodCalories: 130, protein: 27, class:"protein",
-          measure: "cans of Tuna", measureGrams: 120, roundFactor: 1},
-  "Fish": { foodCalories: 140, protein: 20, class:"protein",
-          measure: "fish fillets", measureGrams: 80, roundFactor: 1},
-  "Coffee": { foodCalories: 25, protein: 0, class:"protein",
-          measure: "cups of Coffee", measureGrams: 10, roundFactor: 2},
+
+//   "Coffee": { foodCalories: 25, protein: 0, class:"protein",
+//           measure: "cups of Coffee", measureGrams: 10, roundFactor: 2},
   
   
 };
@@ -117,63 +120,6 @@ export const SampleMealOne = {
         "Peanut Butter": 0.3,
         Honey: 0.15,
       },
-    },
-    lunch: {
-      proportion: 0.36,
-      foods: { Tuna: 0.32, Lettuce: 0.04, Rice: 0.64 },
-    },
-    snack: {
-      proportion: 0.07,
-      foods: { Apples: 1 },
-    },
-    dinner: {
-      proportion: 0.25,
-      foods: { Potatoes: 0.35, Steak: 0.65 },
-    },
-  },
-};
-
-export const SampleMealTwo = {
-  gain: {
-    breakfast: {
-      proportion: 0.28,
-      foods: { Muesli: 0.15, "Peanut Butter": 0.7, Honey: 0.15 },
-    },
-    lunch: {
-      proportion: 0.4,
-      foods: { Tuna: 0.25, Lettuce: 0.03, Rice: 0.72 },
-    },
-    snack: {
-      proportion: 0.06,
-      foods: { Apples: 1 },
-    },
-    dinner: {
-      proportion: 0.25,
-      foods: { Potatoes: 0.35, Steak: 0.65 },
-    },
-  },
-  cut: {
-    breakfast: {
-      proportion: 0.01,
-      foods: { Coffee: 0.3 },
-    },
-    lunch: {
-      proportion: 0.5,
-      foods: { Tuna: 0.3, Lettuce: 0.04, "Sweet potatoes": 0.3, Cheese: 0.36 },
-    },
-    snack: {
-      proportion: 0.1,
-      foods: { Apples: 1 },
-    },
-    dinner: {
-      proportion: 0.4,
-      foods: { Rice: 0.5, "Chicken breast": 0.45, Veggies: 0.05 },
-    },
-  },
-  maintain: {
-    breakfast: {
-      proportion: 0.32,
-      foods: { Muesli: 0.55, "Peanut Butter": 0.3, Honey: 0.15 },
     },
     lunch: {
       proportion: 0.36,

@@ -31,7 +31,7 @@ export const Main: React.FC = () => {
     <div className="text-center py-4 mx-1">
       <Col md="6" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
-        <p className="lead">The fitness website with superpowers</p>
+        <p className="lead">Simplified fitness</p>
         <Tabs>
           <TabList className="reactTabs">
             <Tab>General {"\n"}Data</Tab>

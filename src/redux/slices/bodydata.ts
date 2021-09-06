@@ -39,7 +39,6 @@ export const BodyData = createSlice({
     updateSex: (state, action) => {
       const boolean = action.payload;
       state.sex = boolean;
-      console.log(boolean);
     },
     updateGoal: (state, action) => {
       const string = action.payload;
