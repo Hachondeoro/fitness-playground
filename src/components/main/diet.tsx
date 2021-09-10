@@ -8,9 +8,7 @@ import { conversion, Data } from "./data.js";
 
 const Diet: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
-  const calories = useAppSelector(
-    (state: RootState) => state.bodydata.calories,
-  );
+  const calories = useAppSelector((state: RootState) => state.bodydata.calories);
   const [equivalent, setEquivalent] = useState(false);
   const dispatch = useAppDispatch();
   function onChange(e) {
@@ -25,17 +23,13 @@ const Diet: React.FC = () => {
           <div key={i}>
             {equivalent ? (
               <div>
-                {Math.round(
-                  ((calories * item.factor) / conversion[item.food].number) *
-                    100,
-                ) / 100}{" "}
+                {Math.round(((calories * item.factor) / conversion[item.food].number) * 100) / 100}{" "}
                 {"  "}
                 {conversion[item.food].measure}
               </div>
             ) : (
               <div>
-                {Math.round((calories * item.factor) / 10) * 10} grams of{" "}
-                {item.food}
+                {Math.round((calories * item.factor) / 10) * 10} grams of {item.food}
               </div>
             )}
           </div>
@@ -65,22 +59,14 @@ const Diet: React.FC = () => {
                   <h2>Training days</h2>&nbsp;
                   <Tooltip message={Data[goal].exercise_tooltip} />
                 </Row>
-                {currentGoal(
-                  goal,
-                  "exercise",
-                  calories + Data[goal].exercise_surplus,
-                )}
+                {currentGoal(goal, "exercise", calories + Data[goal].exercise_surplus)}
               </Col>
               <Col xs={{ span: 12 }} lg={{ span: 8 }} className="m-auto">
                 <Row align="top" justify="center">
                   <h2>Resting days </h2>&nbsp;
                   <Tooltip message={Data[goal].normal_tooltip} />
                 </Row>
-                {currentGoal(
-                  goal,
-                  "normal",
-                  calories + Data[goal].normal_surplus,
-                )}
+                {currentGoal(goal, "normal", calories + Data[goal].normal_surplus)}
               </Col>
             </Row>
           </div>

@@ -1,5 +1,11 @@
 const withPlugins = require("next-compose-plugins");
 
-const config = {};
-
-module.exports = withPlugins([], config);
+module.exports = withPlugins([], {
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.csv$/i,
+      use: "raw-loader",
+    });
+    return config;
+  },
+});

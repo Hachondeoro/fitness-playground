@@ -15,7 +15,7 @@ const initialState: ICounter = {
   height: 170,
   age: 28,
   sex: true,
-  goal: "maintain",
+  goal: "cut",
   calories: null,
   bmr: null,
 };

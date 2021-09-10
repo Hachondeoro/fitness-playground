@@ -5,13 +5,15 @@ interface IMeals {
   protein: string[];
   fat: string[];
   snack: string[];
+  veggies: string[];
 }
 
 const initialState: IMeals = {
-  carb: [],
-  protein: [],
-  fat: [],
-  snack: [],
+  carb: ["Muesli", "Oats", "Rice"],
+  protein: ["Tuna", "Steak"],
+  fat: ["Avocado", "Tofu"],
+  snack: ["Blueberries", "Apples"],
+  veggies: ["Broccoli", "Lettuce"],
 };
 
 export const MealPlan = createSlice({
@@ -34,6 +36,10 @@ export const MealPlan = createSlice({
       const food = action.payload;
       state.snack = food;
     },
+    updateVeggies: (state, action) => {
+      const food = action.payload;
+      state.veggies = food;
+    },
   },
 });
 
@@ -42,6 +48,7 @@ export const {
   updateProtein,
   updateFat,
   updateSnack,
+  updateVeggies,
 } = MealPlan.actions;
 
 export default MealPlan.reducer;

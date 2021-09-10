@@ -2,8 +2,9 @@
   "semi": true,
   "trailingComma": "all",
   "singleQuote": false,
-  "printWidth": 80,
+  "printWidth": 100,
   "tabWidth": 2,
+  "jsxBracketSameLine":true,
   "overrides": [
     {
       "files": "src/components/main/data-better.js",

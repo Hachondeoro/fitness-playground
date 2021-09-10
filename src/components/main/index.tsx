@@ -4,7 +4,7 @@ import {
   updateGoal,
   updateHeight,
   updateSex,
-  updateWeight,
+  updateWeight
 } from "@redux/slices/bodydata";
 import type { RootState } from "@redux/store";
 import { Input, Radio } from "antd";
@@ -31,7 +31,7 @@ export const Main: React.FC = () => {
     <div className="text-center py-4 mx-1">
       <Col md="6" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
-        <p className="lead">Simplified fitness</p>
+        <p className="lead">Dead simple</p>
         <Tabs>
           <TabList className="reactTabs">
             <Tab>General {"\n"}Data</Tab>
@@ -73,8 +73,7 @@ export const Main: React.FC = () => {
               <Radio.Group
                 name={"sex"}
                 onChange={(e) => dispatch(updateSex(e.target.value))}
-                value={sex}
-              >
+                value={sex}>
                 <Radio value={true}>Male</Radio>
                 <Radio value={false}>Female</Radio>
               </Radio.Group>
@@ -85,8 +84,7 @@ export const Main: React.FC = () => {
               <Radio.Group
                 name={"goal"}
                 onChange={(e) => dispatch(updateGoal(e.target.value))}
-                value={goal}
-              >
+                value={goal}>
                 <Radio value={"cut"}>Cut fat</Radio>
                 <Radio value={"maintain"}>Maintain</Radio>
                 <Radio value={"gain"}>Gain muscle</Radio>
@@ -94,7 +92,7 @@ export const Main: React.FC = () => {
               {/* <Diet /> */}
               <br></br>
             </Col>
-            
+
             <DietBetter />
           </TabPanel>
           <TabPanel>

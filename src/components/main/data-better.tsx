@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-// prettier-ignore
-import {foodsByClass} from "./interfaces"
+import { foodsByClass } from "./interfaces";
 
+// prettier-ignore
 export const conversion:foodsByClass = {
   "Muesli": { foodCalories: 360, protein: 5, class:"carbs",
           measure: "cups of Muesli", measureGrams: 140, roundFactor: 10},
@@ -32,13 +32,13 @@ export const conversion:foodsByClass = {
   "Cashews": { foodCalories: 600, protein: 15, class:"fats",
           measure: "spoons of Cashews", measureGrams: 13, roundFactor: 1},
   "Chicken breast": { foodCalories: 110, protein: 20, class:"protein",
-          measure: "Chicken breast fillets", measureGrams: 200, roundFactor: 2},
+          measure: "grams of chicken breast", measureGrams: 1, roundFactor: 10},
   "Steak": { foodCalories: 235, protein: 20, class:"protein",
-          measure: "small Steak scotch fillet", measureGrams: 250, roundFactor: 5},
+          measure: "grams of steak", measureGrams: 1, roundFactor: 10},
   "Tuna": { foodCalories: 130, protein: 27, class:"protein",
-          measure: "cans of Tuna", measureGrams: 120, roundFactor: 1},
+          measure: "gr of Tuna", measureGrams: 1, roundFactor: 10},
   "Fish": { foodCalories: 140, protein: 20, class:"protein",
-          measure: "fish fillets", measureGrams: 80, roundFactor: 1},
+          measure: "grams of Fish", measureGrams: 1, roundFactor: 10},
   "Eggs": { foodCalories: 140, protein: 14, class:"protein",
           measure: "eggs", measureGrams: 50, roundFactor: 1},
   "Cheese": { foodCalories: 360, protein: 25, class:"protein",
@@ -59,10 +59,10 @@ export const conversion:foodsByClass = {
           measure: "small Apples", measureGrams: 130, roundFactor: 1},
   "Oranges": { foodCalories: 60, protein: 0, class:"snack",
           measure: "small Oranges", measureGrams: 150, roundFactor: 1},
-  "Strawberries": { foodCalories: 30, protein: 0, class:"snack",
-          measure: "cups of Strawberries", measureGrams: 140, roundFactor: 1},
-  "Blueberries": { foodCalories: 60, protein: 0, class:"snack",
-          measure: "cups of Blueberries", measureGrams: 145, roundFactor: 1},
+  "Strawberries": { foodCalories: 30, protein: 0, class:"snackGrams",
+          measure: "grams of Strawberries", measureGrams: 1, roundFactor: 10},
+  "Blueberries": { foodCalories: 60, protein: 0, class:"snackGrams",
+          measure: "grams of Blueberries", measureGrams: 1, roundFactor: 10},
   "Coffee": { foodCalories: 25, protein: 0, class:"others",
           measure: "cups of Coffee", measureGrams: 10, roundFactor: 2},
   

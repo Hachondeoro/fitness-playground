@@ -10,16 +10,11 @@ import { MealPlan } from "./interfaces";
 const CustomDiet: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const carbChoice = useAppSelector((state: RootState) => state.mealplan.carb);
-  const proteinChoice = useAppSelector(
-    (state: RootState) => state.mealplan.protein,
-  );
+  const proteinChoice = useAppSelector((state: RootState) => state.mealplan.protein);
   const fatChoice = useAppSelector((state: RootState) => state.mealplan.fat);
-  const snackChoice = useAppSelector(
-    (state: RootState) => state.mealplan.snack,
-  );
-  const calories = useAppSelector(
-    (state: RootState) => state.bodydata.calories,
-  );
+  const snackChoice = useAppSelector((state: RootState) => state.mealplan.snack);
+  const veggiesChoice = useAppSelector((state: RootState) => state.mealplan.veggies);
+  const calories = useAppSelector((state: RootState) => state.bodydata.calories);
   const [equivalent, setEquivalent] = useState(false);
   const [showAlert, setshowAlert] = useState(false);
   const [showCustomDiet, setshowCustomDiet] = useState(false);
@@ -32,14 +27,10 @@ const CustomDiet: React.FC = () => {
       carbChoice.length == 3 &&
       proteinChoice.length == 2 &&
       fatChoice.length == 2 &&
-      snackChoice.length == 2
+      snackChoice.length == 2 &&
+      veggiesChoice.length == 2
     ) {
-      const customMealPlan = createMealPlan(
-        carbChoice,
-        proteinChoice,
-        fatChoice,
-        snackChoice,
-      );
+      const customMealPlan = createMealPlan(carbChoice, proteinChoice, fatChoice, snackChoice, veggiesChoice);
       if (showCustomDiet == true) {
         setsampleMealPlan(customMealPlan);
       } else {
@@ -56,25 +47,17 @@ const CustomDiet: React.FC = () => {
       <Col className="mx-auto text-left" md="12" lg="8">
         <Form layout="vertical">
           {FoodForm("carbs", 3)}
-          {carbChoice}
           {FoodForm("protein", 2)}
-          {proteinChoice}
           {FoodForm("fats", 2)}
-          {fatChoice}
+          {FoodForm("veggies", 2)}
           {FoodForm("snack", 2)}
-          {snackChoice}
         </Form>
       </Col>
-      <Button type="primary" onClick={showMealPlan}>
+      <Button type="primary" onClick={showMealPlan} className="customDietButton">
         Get custom diet
       </Button>
       {showAlert ? (
-        <Alert
-          message="Please fill in all spaces!"
-          type="warning"
-          showIcon
-          closable
-        />
+        <Alert message="Please fill in all spaces!" type="warning" showIcon closable />
       ) : null}
 
       {showCustomDiet ? (
@@ -84,23 +67,11 @@ const CustomDiet: React.FC = () => {
           <Row className="justify-content-center">
             <Col className="mt-2 mx-auto text-left" md="6">
               <h2>Training days</h2>
-              {dietComposition(
-                sampleMealPlan,
-                goal,
-                "training",
-                calories,
-                equivalent,
-              )}
+              {dietComposition(sampleMealPlan, goal, "training", calories, equivalent)}
             </Col>
             <Col className="mt-2 mx-auto text-left" md="6">
               <h2>Resting days </h2>
-              {dietComposition(
-                sampleMealPlan,
-                goal,
-                "resting",
-                calories,
-                equivalent,
-              )}
+              {dietComposition(sampleMealPlan, goal, "resting", calories, equivalent)}
             </Col>
           </Row>
         </>
