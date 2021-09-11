@@ -9,11 +9,11 @@ interface IMeals {
 }
 
 const initialState: IMeals = {
-  carb: ["Muesli", "Oats", "Rice"],
+  carb: ["Muesli", "Potatoes", "Rice"],
   protein: ["Tuna", "Steak"],
   fat: ["Avocado", "Tofu"],
   snack: ["Blueberries", "Apples"],
-  veggies: ["Broccoli", "Lettuce"],
+  veggies: ["Broccoli", "Carrots"],
 };
 
 export const MealPlan = createSlice({

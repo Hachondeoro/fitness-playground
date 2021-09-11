@@ -32,6 +32,7 @@
         "react-tabs": "^3.2.2",
         "react-tooltip": "^4.2.21",
         "react-use": "^15.3.8",
+        "reactstrap": "^8.10.0",
         "sass": "^1.32.5",
         "swr": "^0.4.0"
     },

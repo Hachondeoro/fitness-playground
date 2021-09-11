@@ -1,6 +1,20 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+:root {
+  font-size: 62.5%;
+}
+body {
+  color: #818181;
+  font-size: 1.6rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+@function width($pixelSize) {
+  $result: $pixelSize/10;
+  @return $result + rem;
+}
+
 h1,
 h2,
 h3,
@@ -11,15 +25,6 @@ h5 h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
     "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
-}
-
-body {
-  // line-height: 32px;
-  color: #818181;
-  // letter-spacing: 0.64px;
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  // font-weight: 400;
 }
 
 .meals {
@@ -60,6 +65,7 @@ body {
 }
 
 .gymRoutine {
+  white-space: pre-wrap;
   text-align: left;
   h2 {
     font-size: 1.2em;
@@ -141,41 +147,50 @@ body {
   }
 }
 
-.ant-select-multiple.carbs .ant-select-selection-item{
-  background: #FFFBE6;
-  color:#d39308;
+.ant-select-multiple.carbs .ant-select-selection-item {
+  background: #fffbe6;
+  color: #d39308;
   border: 1px solid #d69405;
 }
-.ant-select-multiple.veggies .ant-select-selection-item{
+.ant-select-multiple.veggies .ant-select-selection-item {
   background: #e9ffe6;
-  color:#08d331;
+  color: #08d331;
   border: 1px solid #63d605;
 }
-.ant-select-multiple.protein .ant-select-selection-item{
+.ant-select-multiple.protein .ant-select-selection-item {
   background: #ffe6e6;
-  color:#d30f08;
+  color: #d30f08;
   border: 1px solid #d62405;
 }
-.ant-select-multiple.fats .ant-select-selection-item{
+.ant-select-multiple.fats .ant-select-selection-item {
   background: #feffe6;
-  color:#d3cc08;
+  color: #d3cc08;
   border: 1px solid #d2d605;
 }
-.ant-select-multiple.snack .ant-select-selection-item{
+.ant-select-multiple.snack .ant-select-selection-item {
   background: #e9ffe6;
-  color:#08d331;
+  color: #08d331;
   border: 1px solid #63d605;
 }
 
-.statsButton{
-  font-size: 0.8em;
+.statsButton {
+  font-size: 1.2rem;
   padding-top: 1px;
   padding-bottom: 1px;
-  background-color:#085EA9;
+  background-color: #085ea9;
 }
 
-.customDietButton{
+.customDietButton {
   padding-top: 1px;
   padding-bottom: 1px;
-  background-color:#085EA9;
+  font-size: 1.6rem;
+  background-color: #085ea9;
+}
+
+.exerciseVideo {
+  width: width(350);
+  justify-content: center;
+  align-items: center;
+  display: block;
+  margin: 1em auto 1em;   //top, right and left margin, bot
 }

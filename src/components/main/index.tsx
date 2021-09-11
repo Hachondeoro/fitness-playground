@@ -29,7 +29,7 @@ export const Main: React.FC = () => {
   }, []);
   return (
     <div className="text-center py-4 mx-1">
-      <Col md="6" className="mx-auto">
+      <Col md="8" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
         <p className="lead">Dead simple</p>
         <Tabs>

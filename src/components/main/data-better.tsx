@@ -68,12 +68,7 @@ export const conversion:foodsByClass = {
   
   
 };
-// strawberries, blue berries
-// broccoli, cauliflower
-// oats, quinoa, brown rice, wholemeal bread,
-// avocado, goat cheese, eggs, tofu, almonds, cashews
-// fish, change tuna to Canned tuna
-// 6 in total, for each meal plan (2 for maintain, 2 for fasting, 2 for bulk)
+
 export const SampleMealOne = {
   gain: {
     breakfast: {
@@ -108,7 +103,7 @@ export const SampleMealOne = {
     },
     dinner: {
       proportion: 0.4,
-      foods: { Rice: 0.5, "Chicken breast": 0.45, Veggies: 0.05 },
+      foods: { Rice: 0.5, "Chicken breast": 0.45, Broccoli: 0.05 },
     },
   },
   maintain: {

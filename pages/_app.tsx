@@ -1,4 +1,5 @@
 import store from "@redux/store";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "@styles/antd.css";
 import "@styles/app.scss";
 import "@styles/custom.scss";

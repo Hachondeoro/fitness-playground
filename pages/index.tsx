@@ -5,10 +5,10 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Header />
+      {/* <Header /> */}
       <Main />
       {/* <Cards /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
