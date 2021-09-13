@@ -4,14 +4,13 @@ import { updateAge, updateGoal, updateHeight, updateSex, updateWeight } from "@r
 import { updateMainTab } from "@redux/slices/controls";
 import type { RootState } from "@redux/store";
 import { Input, Radio } from "antd";
-import React, {useState, useEffect } from "react";
-import { Col } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Col, Row } from "react-bootstrap";
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Calories from "./calories";
 import DietBetter from "./diet-better";
 import Fasting from "./fasting";
 import GymRoutine from "./gymroutine";
-
 
 export const Main: React.FC = () => {
   const height = useAppSelector((state: RootState) => state.bodydata.height);
@@ -39,42 +38,54 @@ export const Main: React.FC = () => {
 
           <TabPanel>
             <Col className="mx-auto text-left" md="12" lg="8">
-              My weight is:&nbsp;&nbsp;
-              <Input
-                suffix="KG"
-                type="number"
-                value={weight}
-                onChange={(e) => dispatch(updateWeight(e.target.value))}
-                style={{ width: 100 }}
-              />
-              <br></br>
-              My age is:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Input
-                suffix="years"
-                type="number"
-                value={age}
-                onChange={(e) => dispatch(updateAge(e.target.value))}
-                style={{ width: 100 }}
-              />
-              <br></br>
-              My height is:&nbsp;&nbsp;
-              <Input
-                suffix="CM"
-                type="number"
-                value={height}
-                onChange={(e) => dispatch(updateHeight(e.target.value))}
-                style={{ width: 100 }}
-              />
-              <br></br>
-              I'm : &nbsp;&nbsp;
-              <Radio.Group
-                name={"sex"}
-                onChange={(e) => dispatch(updateSex(e.target.value))}
-                value={sex}>
-                <Radio value={true}>Male</Radio>
-                <Radio value={false}>Female</Radio>
-              </Radio.Group>
-              <br></br>
+              <Row>
+                <Col xs="5">My weight is:</Col>
+                <Col xs="4">
+                  <Input
+                    suffix="KG"
+                    type="number"
+                    value={weight}
+                    onChange={(e) => dispatch(updateWeight(e.target.value))}
+                    style={{ width: 100 }}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="5">My age is:</Col>
+                <Col xs="4">
+                  <Input
+                    suffix="years"
+                    type="number"
+                    value={age}
+                    onChange={(e) => dispatch(updateAge(e.target.value))}
+                    style={{ width: 100 }}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="5">My height is:</Col>
+                <Col xs="4">
+                  <Input
+                    suffix="CM"
+                    type="number"
+                    value={height}
+                    onChange={(e) => dispatch(updateHeight(e.target.value))}
+                    style={{ width: 100 }}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs="5">I'm :</Col>
+                <Col xs="4">
+                  <Radio.Group
+                    name={"sex"}
+                    onChange={(e) => dispatch(updateSex(e.target.value))}
+                    value={sex}>
+                    <Radio value={true}>Male</Radio>
+                    <Radio value={false}>Female</Radio>
+                  </Radio.Group>
+                </Col>
+              </Row>
               <Calories />
               <br></br>
               <h3>I want to:</h3>
@@ -86,10 +97,8 @@ export const Main: React.FC = () => {
                 <Radio value={"maintain"}>Maintain</Radio>
                 <Radio value={"gain"}>Gain muscle</Radio>
               </Radio.Group>
-              {/* <Diet /> */}
               <br></br>
             </Col>
-
             <DietBetter />
           </TabPanel>
           <TabPanel>
@@ -99,7 +108,7 @@ export const Main: React.FC = () => {
             <Fasting />
           </TabPanel>
         </Tabs>
-      </Col>{" "}
+      </Col>
     </div>
   );
 };

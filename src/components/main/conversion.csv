@@ -1,34 +1,35 @@
-meal,foodCalories,protein,class,measure,measureGrams,roundFactor
-Mushroom,22,0,veggies,cups of Mushrooms,95,1
-Brussels Sprouts,43,0,veggies,cups of Brussels Sprouts,90,1
-Carrots,40,0,veggies,medium sized carrots,62,1
-Muesli,360,5,carbsBreakfast,cups of Muesli,140,10
-Oats,360,5,carbsBreakfast,cups of Oats,140,10
-Quinoa (Cooked),150,5,carbsLunch,cups of Cooked quinoa,160,10
-Rice,360,4,carbsLunch,cups of cooked Rice,100,20
-Brown Rice,360,4,carbsLunch,cups of cooked Brown Rice,100,20
-Toasted Bread,250,4,carbsBreakfast,slices of toasted bread,47,20
-Potatoes,85,0,carbsLunch,small Potatoes,110,2
-Sweet potatoes,85,0,carbsLunch,small Sweet Potatoes,110,2
-Honey,320,0,Others,spoons of Honey,10,1
-Peanut Butter,600,15,fats,spoons of Peanut Butter,13,1
-Avocado,160,0,fats,Avocados,200,10
-Tofu,70,5,fats,small servings Tofu,125,1
-Almonds,600,15,fats,spoons of Almonds,13,1
-Cashews,600,15,fats,spoons of Cashews,13,1
-Chicken breast,110,20,protein,grams of chicken breast,1,10
-Steak,235,20,protein,grams of steak,1,10
-Tuna,130,27,protein,gr of Tuna,1,10
-Fish,140,20,protein,grams of Fish,1,10
-Eggs,140,14,protein,eggs,50,1
-Cheese,360,25,protein,small slices of Cheese,10,1
-Goat cheese,360,25,protein,small slices of Goat Cheese,10,1
-Greek Yoghurt,100,8,protein,cups of Greek Yogurt,250,1
-Lettuce,15,0,veggies,Lettuce heads,250,2
-Broccoli,34,0,veggies,servings of Broccoli,150,1
-Cauliflower,25,0,veggies,cups of Cauliflower,100,1
-Apples,52,0,snack,small Apples,130,1
-Oranges,60,0,snack,small Oranges,150,1
-Strawberries,30,0,snackGrams,grams of Strawberries,1,10
-Blueberries,60,0,snackGrams,grams of Blueberries,1,10
-Coffee,25,0,others,cups of Coffee,10,2
+meal             ,foodCalories ,protein ,class          ,measure                   ,measureGrams ,roundFactor
+Muesli           ,360          ,5       ,carbsBreakfast ,cups of Muesli            ,140          ,10
+Oats             ,360          ,5       ,carbsBreakfast ,cups of Oats              ,140          ,10
+Toasted Bread    ,250          ,4       ,carbsBreakfast ,slices of toasted bread   ,47           ,20
+Weet Bix         ,360          ,0       ,carbsBreakfast ,weet bix biscuits         ,15           ,1
+Quinoa (Cooked)  ,150          ,5       ,carbsLunch     ,cups of Cooked quinoa     ,160          ,10
+Rice             ,360          ,4       ,carbsLunch     ,cups of cooked Rice       ,100          ,20
+Brown Rice       ,360          ,4       ,carbsLunch     ,cups of cooked Brown Rice ,100          ,20
+Potatoes         ,85           ,0       ,carbsLunch     ,small Potatoes            ,110          ,2
+Sweet potatoes   ,85           ,0       ,carbsLunch     ,small Sweet Potatoes      ,110          ,2
+Peanut Butter    ,600          ,15      ,fats           ,spoons of Peanut Butter   ,13           ,1
+Avocado          ,160          ,0       ,fats           ,Avocados                  ,200          ,10
+Tofu             ,70           ,5       ,fats           ,small servings Tofu       ,125          ,1
+Almonds          ,600          ,15      ,fats           ,spoons of Almonds         ,13           ,1
+Cashews          ,600          ,15      ,fats           ,spoons of Cashews         ,13           ,1
+Chicken breast   ,110          ,20      ,protein        ,grams of chicken breast   ,1            ,10
+Steak            ,235          ,20      ,protein        ,grams of steak            ,1            ,10
+Tuna             ,130          ,27      ,protein        ,gr of Tuna                ,1            ,10
+Fish             ,140          ,20      ,protein        ,grams of Fish             ,1            ,10
+Eggs             ,140          ,14      ,protein        ,eggs                      ,50           ,1
+Cheese           ,360          ,25      ,protein        ,slices of Cheese          ,28           ,1
+Goat cheese      ,360          ,25      ,protein        ,slices of Goat Cheese     ,28           ,1
+Greek Yoghurt    ,100          ,8       ,protein        ,cups of Greek Yogurt      ,250          ,1
+Lettuce          ,15           ,0       ,veggies        ,Lettuce heads             ,250          ,2
+Broccoli         ,34           ,0       ,veggies        ,servings of Broccoli      ,150          ,1
+Cauliflower      ,25           ,0       ,veggies        ,cups of Cauliflower       ,100          ,1
+Mushroom         ,22           ,0       ,veggies        ,cups of Mushrooms         ,95           ,1
+Brussels Sprouts ,43           ,0       ,veggies        ,cups of Brussels Sprouts  ,90           ,1
+Carrots          ,40           ,0       ,veggies        ,medium sized carrots      ,62           ,1
+Apples           ,52           ,0       ,snack          ,small Apples              ,130          ,1
+Oranges          ,60           ,0       ,snack          ,small Oranges             ,150          ,1
+Strawberries     ,30           ,0       ,snackGrams     ,grams of Strawberries     ,1            ,10
+Blueberries      ,60           ,0       ,snackGrams     ,grams of Blueberries      ,1            ,10
+Honey            ,320          ,0       ,Others         ,spoons of Honey           ,10           ,1
+Coffee           ,25           ,0       ,others         ,cups of Coffee            ,10           ,2

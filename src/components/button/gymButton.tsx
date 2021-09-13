@@ -3,7 +3,7 @@ import { updateMainTab, updateRoutineTab } from "@redux/slices/controls";
 import type { RootState } from "@redux/store";
 import React from "react";
 import { Button } from "react-bootstrap";
-import { CgGym } from "react-icons/cg";
+import { GiBiceps } from "react-icons/gi";
 import * as Scroll from "react-scroll";
 
 var scroll = Scroll.animateScroll;
@@ -23,7 +23,7 @@ const GymButton = () => {
   return (
     <>
       <Button onClick={() => gotoGymroutines()} className="gymButton">
-        <CgGym color="#ffffff" size={36} className="gymIcon" />
+        <GiBiceps color="#ffffff" size={20} className="gymIcon" />
         <p className="gymTitle">Gym time!</p>
       </Button>
     </>

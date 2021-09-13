@@ -46,9 +46,9 @@ h5 h6 {
   }
 
   .foodportion {
-    @media only screen and (max-width: 650px) {
-      margin-left: 15%;
-    }
+    // @media only screen and (max-width: 650px) {
+    //   margin-left: 15%;
+    // }
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1em;
@@ -60,6 +60,10 @@ h5 h6 {
     font-size: 0.7em;
     font-style: italic;
     display: inline-block;
+  }
+
+  .foodsGroup{
+    margin-left: 10%;
   }
   // margin-bottom: -2em;
 }
@@ -226,10 +230,11 @@ h5 h6 {
 
 .gymTitle{
   display: inline-block;
-  margin: 0.2em 1em 0.2em;
+  margin: 0.1em 1em 0.1em;
   font-weight: 900;
-  font-size: 1.3rem;
-  color:#fff
+  font-size: 1.5rem;
+  color:#fff;
+  font-variant-caps: all-small-caps;
 }
 
 .gymButton {

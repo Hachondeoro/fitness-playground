@@ -153,7 +153,8 @@ export const FoodForm = (foodClass: string, numberChoices: number): React.ReactE
         ]}>
         <Select
           mode="multiple"
-          placeholder={`Select ${numberChoices} choices`}
+          // prettier-ignore
+          placeholder={foodClass=="carbs"? "2 Breakfast 2 Lunch" :`Select ${numberChoices} choices`}
           ref={macroRef}
           onChange={(e: string[]) => foodChoiceChange(e, macroRef)}
           showSearch={false}

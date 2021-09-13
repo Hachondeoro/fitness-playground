@@ -49,8 +49,7 @@ const Diet: React.FC = () => {
         <TabPanel>
           <div className="meals">
             <Row align="top" justify="center">
-              <h1>Sample meal plan 1</h1>
-              <Tooltip message="hueahuehaue" />
+              <h1>Sample meal plan</h1>
             </Row>
             <Checkbox onChange={onChange}>Standard Measures</Checkbox>
             <Row>

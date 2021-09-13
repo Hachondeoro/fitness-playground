@@ -29,7 +29,7 @@ const DietBetter: React.FC = () => {
           <CustomDiet />
         ) : (
           <>
-            <h1 className="text-center">Sample meal plan 1</h1>
+            <h1 className="text-center">Sample meal plan</h1>
             <Checkbox onChange={onChangeEquivalent}>Measure in grams</Checkbox>
             <Row className="justify-content-center">
               <Col className="mt-2 mx-auto text-left" md="6">

@@ -80,21 +80,19 @@ export const calcMeasure = (foodCalories: number, key: string): StandardMeasure 
 
 export const calcMealsStats = (data: any, calories: number, equivalent: boolean): MealsStats => {
   const calsMeal = calories * data.proportion;
-  const calsMain = Object.keys(data.foods).map((key) => (
+  const calsMain = Object.keys(data.foods).map((key) =>
+    // prettier-ignore
     <div>
       {equivalent ? (
         <p className="foodportion">{calcGrams(data.foods[key] * calsMeal, key).sentenceGrams}</p>
-      ) : (
-        <>
-          <p className="foodportion">{calcMeasure(data.foods[key] * calsMeal, key).foodportion}</p>
-          &nbsp;
-          <p className="foodportionCalories">
-            {calcMeasure(data.foods[key] * calsMeal, key).foodportionCalories}
-          </p>
-        </>
-      )}
-    </div>
-  ));
+      ) : (<>
+        <p className="foodportion">{calcMeasure(data.foods[key] * calsMeal, key).foodportion}</p>&nbsp;
+        <p className="foodportionCalories">
+          {calcMeasure(data.foods[key] * calsMeal, key).foodportionCalories}
+        </p>
+      </>)}
+    </div>,
+  );
   const calsMealBack = Object.keys(data.foods)
     .map((key) => calcMeasure(data.foods[key] * calsMeal, key).valMeasureBack)
     .reduce((a, v) => a + v);
@@ -143,14 +141,22 @@ export const dietComposition = (
     <div>
       Target calories = {Math.round(targetCalories[day])}
       <h3>Morning</h3>
-      {calcMealsStats(Data[goal].breakfast, targetCalories[day], equivalent).calsMain}
+      <div className="foodsGroup">
+        {calcMealsStats(Data[goal].breakfast, targetCalories[day], equivalent).calsMain}
+      </div>
       <h3>Lunch</h3>
-      {calcMealsStats(Data[goal].lunch, targetCalories[day], equivalent).calsMain}
+      <div className="foodsGroup">
+        {calcMealsStats(Data[goal].lunch, targetCalories[day], equivalent).calsMain}
+      </div>
       <h3>Snack</h3>
-      {calcMealsStats(Data[goal].snack, targetCalories[day], equivalent).calsMain}
+      <div className="foodsGroup">
+        {calcMealsStats(Data[goal].snack, targetCalories[day], equivalent).calsMain}
+      </div>
       {day == "training" ? <GymButton /> : null}
       <h3>Dinner</h3>
-      {calcMealsStats(Data[goal].dinner, targetCalories[day], equivalent).calsMain}
+      <div className="foodsGroup">
+        {calcMealsStats(Data[goal].dinner, targetCalories[day], equivalent).calsMain}
+      </div>
       Total {totalCals} calories <br></br>
       Total {totalProtein} gr of protein
     </div>
