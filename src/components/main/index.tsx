@@ -1,14 +1,10 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import {
-  updateAge,
-  updateGoal,
-  updateHeight,
-  updateSex,
-  updateWeight
-} from "@redux/slices/bodydata";
+// prettier-ignore
+import { updateAge, updateGoal, updateHeight, updateSex, updateWeight } from "@redux/slices/bodydata";
+import { updateMainTab } from "@redux/slices/controls";
 import type { RootState } from "@redux/store";
 import { Input, Radio } from "antd";
-import React, { useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { Col } from "react-bootstrap";
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import Calories from "./calories";
@@ -16,14 +12,16 @@ import DietBetter from "./diet-better";
 import Fasting from "./fasting";
 import GymRoutine from "./gymroutine";
 
+
 export const Main: React.FC = () => {
   const height = useAppSelector((state: RootState) => state.bodydata.height);
   const weight = useAppSelector((state: RootState) => state.bodydata.weight);
   const age = useAppSelector((state: RootState) => state.bodydata.age);
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
-
+  const mainTab = useAppSelector((state: RootState) => state.controls.mainTab);
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     resetIdCounter();
   }, []);
@@ -32,10 +30,9 @@ export const Main: React.FC = () => {
       <Col md="8" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
         <p className="lead">Dead simple</p>
-        <Tabs>
+        <Tabs selectedIndex={mainTab} onSelect={(index) => dispatch(updateMainTab(index))}>
           <TabList className="reactTabs">
             <Tab>General {"\n"}Data</Tab>
-            <Tab>Meal {"\n"}Plans</Tab>
             <Tab>Gym {"\n"}routines</Tab>
             <Tab>Fasting {"\n"}notes</Tab>
           </TabList>
@@ -93,9 +90,6 @@ export const Main: React.FC = () => {
               <br></br>
             </Col>
 
-            <DietBetter />
-          </TabPanel>
-          <TabPanel>
             <DietBetter />
           </TabPanel>
           <TabPanel>

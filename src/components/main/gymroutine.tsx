@@ -1,17 +1,29 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import { updateRoutineTab } from "@redux/slices/controls";
 import type { RootState } from "@redux/store";
 import React from "react";
 import { Col } from "react-bootstrap";
-import { Workout, standardWorkout } from "./data-gymroutines";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { MenWorkout,WomenWorkout, Workout } from "./data-gymroutines";
 
 const GymRoutine: React.FC = () => {
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
+  const routineTab = useAppSelector((state: RootState) => state.controls.routineTab);
+
   const dispatch = useAppDispatch();
   return (
     <div className="mt-3 gymRoutine">
       <Col md="10" className="mx-auto">
-        {Workout(standardWorkout)}
+        <Tabs selectedIndex={routineTab} onSelect={(index) => dispatch(updateRoutineTab(index))}>
+          <TabList className="reactTabs">
+            <Tab>Men</Tab>
+            <Tab>Women</Tab>
+          </TabList>
+          <TabPanel>{Workout(MenWorkout)}</TabPanel>
+          <TabPanel>{Workout(WomenWorkout)}</TabPanel>
+        </Tabs>
+
         <h2>Guidelines</h2>
         <p>
           The first two exercises of every workout are your key movements. These exercises are the

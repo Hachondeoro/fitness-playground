@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
-import { updateCarb, updateFat, updateProtein, updateSnack, updateVeggies} from "@redux/slices/mealplan";
+// prettier-ignore
+import { updateCarb, updateFat, updateProtein, updateSnack, updateVeggies } from "@redux/slices/mealplan";
 import type { RootState } from "@redux/store";
 import { Form, Select } from "antd";
 import React, { useRef, useState } from "react";
@@ -19,33 +20,33 @@ export const createMealPlan = (
   const MealPlan = {
     maintain: {
       breakfast:{proportion:0.32,
-        foods:{ [C[0]]:  0.55, [C[1]]:  0.3, [F[1]]:  0.15}},
+        foods:{ [C[0]]:  0.55, [C[1]]:  0.3, [S[0]]:  0.15}},
       lunch:{proportion:0.36,
         foods:{ [P[0]]:  0.55, [C[2]]:  0.35, [F[1]]:  0.1}},
       snack:{proportion:0.07,
         foods:{ [S[0]]:  0.55, [S[1]]:  0.45, }},
       dinner:{proportion:0.25,
-        foods:{ [C[2]]:  0.35, [P[1]]:  0.65, }},
+        foods:{ [C[3]]:  0.35, [P[1]]:  0.65, }},
     },
     cut: {
       breakfast:{proportion:0.01,
         foods: { Coffee: 0.3 }},
       lunch:{proportion:0.49,
-        foods:{ [P[0]]:  0.5, [C[2]]:  0.3, [F[1]]:  0.1, [V[0]]:  0.05, [V[1]]:  0.05}},
+        foods:{ [P[0]]:  0.5, [C[2]]:  0.3, [F[0]]:  0.1, [V[0]]:  0.05, [V[1]]:  0.05}},
       snack:{proportion:0.1,
         foods:{ [S[0]]:  0.55, [S[1]]:  0.45, }},
       dinner:{proportion:0.4,
-        foods:{ [C[1]]:  0.3, [P[1]]:  0.65, [V[0]]:  0.05 }},
+        foods:{ [C[3]]:  0.3, [P[1]]:  0.65, [V[0]]:  0.05 }},
     },
     gain: {
       breakfast:{proportion:0.32,
-        foods:{ [C[0]]:  0.55, [C[1]]:  0.3, [F[1]]:  0.15}},
+        foods:{ [C[0]]:  0.55, [C[1]]:  0.3, [S[1]]:  0.15}},
       lunch:{proportion:0.36,
-        foods:{ [P[0]]:  0.55, [C[2]]:  0.35, [F[1]]:  0.1}},
+        foods:{ [P[0]]:  0.55, [C[2]]:  0.35, [F[0]]:  0.1}},
       snack:{proportion:0.07,
         foods:{ [S[0]]:  0.55, [S[1]]:  0.45, }},
       dinner:{proportion:0.25,
-        foods:{ [C[2]]:  0.35, [P[1]]:  0.65, }},
+        foods:{ [C[3]]:  0.35, [P[1]]:  0.65, }},
     },
   };
 
@@ -61,7 +62,7 @@ export const createMealPlan = (
 
 const getFoods = (type: string): { foods: foodsByClass; keys: string[] } => {
   const foods = Object.keys(conversion)
-    .filter((key) => conversion[key].class.includes(type.toLowerCase()))
+    .filter((key) => conversion[key].class.includes(type))
     .reduce((res, key) => ((res[key] = conversion[key]), res), {});
   const keys = Object.keys(foods);
 
@@ -103,8 +104,6 @@ export const FoodForm = (foodClass: string, numberChoices: number): React.ReactE
 
   const [macroChoice, setmacroChoice] = useState([]);
   const macroRef = useRef(null); // for closing menu once 3 choices are reached
-  const [selectedItems, setselectedItems] = useState([]);
-  const filteredFoodOptions = foodChoice.keys.filter((o) => !selectedItems.includes(o));
 
   const excludeFoods = (food1: string, food2: string, item: string) => {
     return (
@@ -112,31 +111,26 @@ export const FoodForm = (foodClass: string, numberChoices: number): React.ReactE
       (macroChoice.includes(food2) && item == food1)
     );
   };
-  const checkIfDisabled = (item: string) => {
+  const checkIfDisabled = (item: string, limitChoices: number) => {
     // if contains Muesli
     const containsFood =
       excludeFoods("Muesli", "Oats", item) ||
       excludeFoods("Sweet potatoes", "Potatoes", item) ||
       excludeFoods("Rice", "Brown Rice", item);
-
-    const disabled =
-      macroChoice.length == numberChoices ? (macroChoice.includes(item) ? false : true) : false;
+    // prettier-ignore
+    const disabled = macroChoice.length == limitChoices ? 
+                    (macroChoice.includes(item) ? false : true) : false;
     const finalDisabled = containsFood || disabled;
     return finalDisabled;
   };
   const foodChoiceChange = (value: string[], ref: any) => {
-    if (foodClass == "carbs") {
-      dispatch(updateCarb(value));
-    } else if (foodClass == "protein") {
-      dispatch(updateProtein(value));
-    } else if (foodClass == "fats") {
-      dispatch(updateFat(value));
-    } else if (foodClass == "snack") {
-      dispatch(updateSnack(value));
-    } else if (foodClass == "veggies") {
-      dispatch(updateVeggies(value));
-    }
-    setselectedItems(value);
+    // prettier-ignore
+    (foodClass == "carbs")? dispatch(updateCarb(value)):
+     (foodClass == "protein")? dispatch(updateProtein(value)):
+     (foodClass == "fats")? dispatch(updateFat(value)):
+     (foodClass == "snack")? dispatch(updateSnack(value)):
+     (foodClass == "veggies")? dispatch(updateVeggies(value)):console.log();
+
     setmacroChoice(value);
     if (value.length == numberChoices) {
       setTimeout(() => ref.current.blur(), 0);
@@ -165,29 +159,37 @@ export const FoodForm = (foodClass: string, numberChoices: number): React.ReactE
           showSearch={false}
           className={`${foodClass}`}
           bordered={false}
+          // prettier-ignore
           value={
-            foodClass == "carbs"
-              ? carbChoice
-              : foodClass == "protein"
-              ? proteinChoice
-              : foodClass == "fats"
-              ? fatChoice
-              : foodClass == "snack"
-              ? snackChoice
-              : foodClass == "veggies"
-              ? veggiesChoice
+                foodClass.includes("carbs")? carbChoice
+              : foodClass == "protein"? proteinChoice
+              : foodClass == "fats"? fatChoice
+              : foodClass == "snack"? snackChoice
+              : foodClass == "veggies"? veggiesChoice
               : null
           }>
-          <OptGroup label={toTitleCase(foodClass)}>
-            {filteredFoodOptions.map((item) => (
-              <Option
-                disabled={checkIfDisabled(item)}
-                key={item}
-                value={item}>
-                {item}
-              </Option>
-            ))}
-          </OptGroup>
+          {foodClass.includes("carbs") ? (
+            //prettier-ignore
+            <>
+              <OptGroup label="Breakfast">
+                {getFoods("carbsBreakfast").keys.map((item) => (
+                  <Option disabled={checkIfDisabled(item, 4)} key={item} value={item}> {item} </Option>
+                ))}
+              </OptGroup>
+              <OptGroup label="Lunch">
+                {getFoods("carbsLunch").keys.map((item) => (
+                  <Option disabled={checkIfDisabled(item, 4)} key={item} value={item}> {item} </Option>
+                ))}
+              </OptGroup>
+            </>
+          ) : (
+            //prettier-ignore
+            <OptGroup label={toTitleCase(foodClass)}>
+              {foodChoice.keys.map((item) => (
+                <Option disabled={checkIfDisabled(item, numberChoices)} key={item} value={item}>{item}</Option>
+              ))}
+            </OptGroup>
+          )}
         </Select>
       </Form.Item>
     </div>

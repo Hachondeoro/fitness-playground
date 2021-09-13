@@ -181,9 +181,11 @@ h5 h6 {
 }
 
 .customDietButton {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  font-size: 1.6rem;
+  // padding-top: 1.5px;
+  // padding-bottom: 1.5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 2rem;
   background-color: #085ea9;
 }
 
@@ -192,5 +194,52 @@ h5 h6 {
   justify-content: center;
   align-items: center;
   display: block;
-  margin: 1em auto 1em;   //top, right and left margin, bot
+  margin: 1em auto 1em; //top, right and left margin, bot
+}
+
+.backArrow {
+  transition: opacity 1s;
+  opacity: 1;
+  z-index: 999;
+  position: fixed;
+  bottom: 3em;
+  right: 1em;
+}
+.backArrow.hide {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.infoTooltip {
+  display: inline-block;
+  margin-left: 0.2em;
+}
+
+.sameLine {
+  display: inline-block;
+}
+
+.gymIcon {
+  display: inline-block;
+ 
+}
+
+.gymTitle{
+  display: inline-block;
+  margin: 0.2em 1em 0.2em;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color:#fff
+}
+
+.gymButton {
+  // padding-top: 1.5px;
+  // padding-bottom: 1.5px;
+  border-radius: 1rem;
+  margin-left: 10%;
+  width: 16rem;
+  margin-top: 0.5em;
+  margin-bottom: 0.1em;
+  background-color: #085ea9;
+  border-color: #fff;
 }

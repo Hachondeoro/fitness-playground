@@ -2,15 +2,15 @@ meal,foodCalories,protein,class,measure,measureGrams,roundFactor
 Mushroom,22,0,veggies,cups of Mushrooms,95,1
 Brussels Sprouts,43,0,veggies,cups of Brussels Sprouts,90,1
 Carrots,40,0,veggies,medium sized carrots,62,1
-Muesli,360,5,carbs,cups of Muesli,140,10
-Oats,360,5,carbs,cups of Oats,140,10
-Quinoa (Cooked),150,5,carbs,cups of Cooked quinoa,160,10
-Rice,360,4,carbs,cups of cooked Rice,100,20
-Brown Rice,360,4,carbs,cups of cooked Brown Rice,100,20
-Mixed grain Bread,250,4,carbs,slices of mixed grain bread,47,20
-Potatoes,85,0,carbs,small Potatoes,110,2
-Sweet potatoes,85,0,carbs,small Sweet Potatoes,110,2
-Honey,320,0,carbs,spoons of Honey,10,1
+Muesli,360,5,carbsBreakfast,cups of Muesli,140,10
+Oats,360,5,carbsBreakfast,cups of Oats,140,10
+Quinoa (Cooked),150,5,carbsLunch,cups of Cooked quinoa,160,10
+Rice,360,4,carbsLunch,cups of cooked Rice,100,20
+Brown Rice,360,4,carbsLunch,cups of cooked Brown Rice,100,20
+Toasted Bread,250,4,carbsBreakfast,slices of toasted bread,47,20
+Potatoes,85,0,carbsLunch,small Potatoes,110,2
+Sweet potatoes,85,0,carbsLunch,small Sweet Potatoes,110,2
+Honey,320,0,Others,spoons of Honey,10,1
 Peanut Butter,600,15,fats,spoons of Peanut Butter,13,1
 Avocado,160,0,fats,Avocados,200,10
 Tofu,70,5,fats,small servings Tofu,125,1

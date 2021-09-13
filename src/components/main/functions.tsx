@@ -1,3 +1,4 @@
+import GymButton from "@components/button/gymButton";
 import React from "react";
 // import { conversion } from "./data-better";
 import { GoalCalorie, GramsMeasure, MealsStats, StandardMeasure } from "./interfaces";
@@ -147,6 +148,7 @@ export const dietComposition = (
       {calcMealsStats(Data[goal].lunch, targetCalories[day], equivalent).calsMain}
       <h3>Snack</h3>
       {calcMealsStats(Data[goal].snack, targetCalories[day], equivalent).calsMain}
+      {day == "training" ? <GymButton /> : null}
       <h3>Dinner</h3>
       {calcMealsStats(Data[goal].dinner, targetCalories[day], equivalent).calsMain}
       Total {totalCals} calories <br></br>

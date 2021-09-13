@@ -9,7 +9,7 @@ interface IMeals {
 }
 
 const initialState: IMeals = {
-  carb: ["Muesli", "Potatoes", "Rice"],
+  carb: ["Muesli", "Toasted Bread", "Potatoes", "Rice"],
   protein: ["Tuna", "Steak"],
   fat: ["Avocado", "Tofu"],
   snack: ["Blueberries", "Apples"],
