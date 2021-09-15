@@ -4,23 +4,23 @@ export const MenWorkout = {
     exercises: [
       {
         name: "Incline Bench Press:\n 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/male-incline-barbell-press-front_5tlUnQ9.gif.mp4",
-        video2: "/exerciseVideos/male-incline-barbell-press-side_VFI8X1n.gif.mp4",
+        video1: "/exerciseVideos/20210906_19_06_19_converted.mp4",
+        video2: "/exerciseVideos/20210906_19_06_19_converted.mp4",
       },
       {
         name: "Seating Militar Press:\n 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/ShoulderPress-Front-021316_TPQKWgi.gif.mp4",
-        video2: "/exerciseVideos/ShoulderPress-Side-021316_N2pSfpL.gif.mp4",
+        video1: "/exerciseVideos/ShoulderPress-Front-021316_TPQKWgi.mp4",
+        video2: "/exerciseVideos/ShoulderPress-Side-021316_N2pSfpL.mp4",
       },
       {
         name: "Lateral Raises:\n 3 sets x 8-12 reps",
-        video1: "/exerciseVideos/SideLateralRaise-Front-021316_FIRCTda.gif.mp4",
-        video2: "/exerciseVideos/SideLateralRaise-Side-021316_dXMKKnp.gif.mp4",
+        video1: "/exerciseVideos/SideLateralRaise-Front-021316_FIRCTda.mp4",
+        video2: "/exerciseVideos/SideLateralRaise-Side-021316_dXMKKnp.mp4",
       },
       {
         name: "Skull Crushers:\n 3 sets x 6-10 reps",
-        video1: "/exerciseVideos/barbell-male-laytingtricepextensions-front.gif.mp4",
-        video2: "/exerciseVideos/barbell-male-laytingtricepextensions-side.gif.mp4",
+        video1: "/exerciseVideos/barbell-male-laytingtricepextensions-front.mp4",
+        video2: "/exerciseVideos/barbell-male-laytingtricepextensions-side.mp4",
       },
     ],
   },
@@ -29,23 +29,23 @@ export const MenWorkout = {
     exercises: [
       {
         name: "Deadlifts: 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/barbell-male-deadlift-front_fFMvXc0.gif.mp4",
-        video2: "/exerciseVideos/barbell-male-deadlift-side_dnPUuTI.gif.mp4",
+        video1: "/exerciseVideos/barbell-male-deadlift-front_fFMvXc0.mp4",
+        video2: "/exerciseVideos/barbell-male-deadlift-side_dnPUuTI.mp4",
       },
       {
         name: "Weighted Chin ups: 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/bodyweight-male-pullup-front.gif.mp4",
-        video2: "/exerciseVideos/bodyweight-male-pullup-side.gif.mp4",
+        video1: "/exerciseVideos/bodyweight-male-pullup-front.mp4",
+        video2: "/exerciseVideos/bodyweight-male-pullup-side.mp4",
       },
       {
         name: "Dumbbell Rows: 3 sets x 8-12 reps",
-        video1: "/exerciseVideos/DumbbellRow-Front-021316.gif.mp4",
-        video2: "/exerciseVideos/DumbbellRow-Side-021316.gif.mp4",
+        video1: "/exerciseVideos/DumbbellRow-Front-021316.mp4",
+        video2: "/exerciseVideos/DumbbellRow-Side-021316.mp4",
       },
       {
         name: "Barbell Curls: 3 sets x 6-10 reps",
-        video1: "/exerciseVideos/Male-Barbell-BicepCurl-Front.gif.mp4",
-        video2: "/exerciseVideos/Male-Barbell-BicepCurl-side.gif.mp4",
+        video1: "/exerciseVideos/Male-Barbell-BicepCurl-Front.mp4",
+        video2: "/exerciseVideos/Male-Barbell-BicepCurl-side.mp4",
       },
     ],
   },
@@ -56,23 +56,23 @@ export const WomenWorkout = {
     exercises: [
       {
         name: "Deadlift:\n 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/male-incline-barbell-press-front_5tlUnQ9.gif.mp4",
-        video2: "/exerciseVideos/male-incline-barbell-press-side_VFI8X1n.gif.mp4",
+        video1: "/exerciseVideos/male-incline-barbell-press-front_5tlUnQ9.mp4",
+        video2: "/exerciseVideos/male-incline-barbell-press-side_VFI8X1n.mp4",
       },
       {
         name: "Seating Militar Press:\n 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/ShoulderPress-Front-021316_TPQKWgi.gif.mp4",
-        video2: "/exerciseVideos/ShoulderPress-Side-021316_N2pSfpL.gif.mp4",
+        video1: "/exerciseVideos/ShoulderPress-Front-021316_TPQKWgi.mp4",
+        video2: "/exerciseVideos/ShoulderPress-Side-021316_N2pSfpL.mp4",
       },
       {
         name: "Lateral Raises:\n 3 sets x 8-12 reps",
-        video1: "/exerciseVideos/SideLateralRaise-Front-021316_FIRCTda.gif.mp4",
-        video2: "/exerciseVideos/SideLateralRaise-Side-021316_dXMKKnp.gif.mp4",
+        video1: "/exerciseVideos/SideLateralRaise-Front-021316_FIRCTda.mp4",
+        video2: "/exerciseVideos/SideLateralRaise-Side-021316_dXMKKnp.mp4",
       },
       {
         name: "Skull Crushers:\n 3 sets x 6-10 reps",
-        video1: "/exerciseVideos/barbell-male-laytingtricepextensions-front.gif.mp4",
-        video2: "/exerciseVideos/barbell-male-laytingtricepextensions-side.gif.mp4",
+        video1: "/exerciseVideos/barbell-male-laytingtricepextensions-front.mp4",
+        video2: "/exerciseVideos/barbell-male-laytingtricepextensions-side.mp4",
       },
     ],
   },
@@ -81,23 +81,23 @@ export const WomenWorkout = {
     exercises: [
       {
         name: "Deadlifts: 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/barbell-male-deadlift-front_fFMvXc0.gif.mp4",
-        video2: "/exerciseVideos/barbell-male-deadlift-side_dnPUuTI.gif.mp4",
+        video1: "/exerciseVideos/barbell-male-deadlift-front_fFMvXc0.mp4",
+        video2: "/exerciseVideos/barbell-male-deadlift-side_dnPUuTI.mp4",
       },
       {
         name: "Weighted Chin ups: 3 sets (RPT - 5, 6, 8)",
-        video1: "/exerciseVideos/bodyweight-male-pullup-front.gif.mp4",
-        video2: "/exerciseVideos/bodyweight-male-pullup-side.gif.mp4",
+        video1: "/exerciseVideos/bodyweight-male-pullup-front.mp4",
+        video2: "/exerciseVideos/bodyweight-male-pullup-side.mp4",
       },
       {
         name: "Dumbbell Rows: 3 sets x 8-12 reps",
-        video1: "/exerciseVideos/DumbbellRow-Front-021316.gif.mp4",
-        video2: "/exerciseVideos/DumbbellRow-Side-021316.gif.mp4",
+        video1: "/exerciseVideos/DumbbellRow-Front-021316.mp4",
+        video2: "/exerciseVideos/DumbbellRow-Side-021316.mp4",
       },
       {
         name: "Barbell Curls: 3 sets x 6-10 reps",
-        video1: "/exerciseVideos/Male-Barbell-BicepCurl-Front.gif.mp4",
-        video2: "/exerciseVideos/Male-Barbell-BicepCurl-side.gif.mp4",
+        video1: "/exerciseVideos/Male-Barbell-BicepCurl-Front.mp4",
+        video2: "/exerciseVideos/Male-Barbell-BicepCurl-side.mp4",
       },
     ],
   },
@@ -127,13 +127,7 @@ export const Workout = (routine) => {
           <video className="exerciseVideo" autoPlay loop muted>
             <source src={initial.video1} type="video/mp4" />
           </video>
-          <video className="exerciseVideoPIXEL" autoPlay loop muted>
-            <source src={initial.video2} type="video/mp4" />
-          </video>
-          <video style={{width:"300px"}} autoPlay loop muted>
-            <source src={initial.video2} type="video/mp4" />
-          </video>
-          <video style={{width:"300px"}} autoPlay>
+          <video className="exerciseVideo" autoPlay loop muted>
             <source src={initial.video2} type="video/mp4" />
           </video>
         </ModalBody>
