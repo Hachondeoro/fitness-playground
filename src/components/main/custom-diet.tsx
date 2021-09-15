@@ -9,6 +9,8 @@ import * as Scroll from "react-scroll";
 import { createMealPlan, FoodForm } from "./custom-diet-functions";
 import { dietComposition } from "./functions";
 import { MealPlan } from "./interfaces";
+import { useAppDispatch } from "@redux/hooks";
+import { resetBodyData } from "@redux/slices/bodydata";
 
 const CustomDiet: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
@@ -21,11 +23,14 @@ const CustomDiet: React.FC = () => {
   const [equivalent, setEquivalent] = useState(false);
   const [showCustomDiet, setshowCustomDiet] = useState(false);
   const [sampleMealPlan, setsampleMealPlan] = useState<MealPlan>();
-  var scroll = Scroll.animateScroll;
+  const dispatch = useAppDispatch();
+  
+  
   var scroller = Scroll.scroller;
   var Element = Scroll.Element;
 
   const onChange = () => setEquivalent(!equivalent);
+
 
   function showMealPlan() {
     if (
@@ -62,15 +67,18 @@ const CustomDiet: React.FC = () => {
     <div className="meals">
       <Col className="mx-auto text-left" md="12" lg="8">
         <Form layout="vertical">
-          {FoodForm("carbs", 4)}
-          {FoodForm("protein", 2)}
-          {FoodForm("fats", 2)}
-          {FoodForm("veggies", 2)}
-          {FoodForm("snack", 2)}
+          {FoodForm("carbs", 4, "Select 2 for breakfast, 2 for lunch")}
+          {FoodForm("protein", 2, "Select 2 choices")}
+          {FoodForm("fats", 2, "Select 2 choices")}
+          {FoodForm("veggies", 2, "Select 2 choices")}
+          {FoodForm("snack", 2, "Select 2 choices")}
         </Form>
       </Col>
       <Button type="primary" onClick={showMealPlan} className="customDietButton">
         Get custom diet
+      </Button>
+      <Button type="primary" onClick={() => dispatch(resetBodyData())} className="customDietButton">
+        Reset
       </Button>
       <BackArrow />
       {showCustomDiet ? (

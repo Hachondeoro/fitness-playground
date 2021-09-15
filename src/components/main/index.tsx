@@ -20,7 +20,7 @@ export const Main: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const mainTab = useAppSelector((state: RootState) => state.controls.mainTab);
   const dispatch = useAppDispatch();
-
+  
   useEffect(() => {
     resetIdCounter();
   }, []);

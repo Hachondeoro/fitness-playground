@@ -55,7 +55,7 @@ export const calcMeasure = (foodCalories: number, key: string): StandardMeasure 
     // For measures bigger than 2: 3 tsp honey, 4 tsp peanut butter
     if (valMeasure <= 2) {
       var equivalentValues = equivalents.find(
-        (item) => item.min < valMeasure && valMeasure <= item.max,
+        (item) => item.min <= valMeasure && valMeasure <= item.max,
       );
       var portionMeasure = equivalentValues.equivalent; // 3/4 cups of rice
       var valMeasure = equivalentValues.value; // convert 0.8 cups of rice to 0.75 cups (so it matches the equivalent)

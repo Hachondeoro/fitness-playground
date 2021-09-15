@@ -60,6 +60,7 @@ export const createMealPlan = (
   return MealPlan;
 };
 
+
 const getFoods = (type: string): { foods: foodsByClass; keys: string[] } => {
   const foods = Object.keys(conversion)
     .filter((key) => conversion[key].class.includes(type))
@@ -92,7 +93,11 @@ const toTitleCase = (str: string) => {
   });
 };
 
-export const FoodForm = (foodClass: string, numberChoices: number): React.ReactElement => {
+export const FoodForm = (
+  foodClass: string,
+  numberChoices: number,
+  message: string,
+): React.ReactElement => {
   const { Option, OptGroup } = Select;
   const dispatch = useAppDispatch();
   const foodChoice = getFoods(foodClass);
@@ -142,7 +147,7 @@ export const FoodForm = (foodClass: string, numberChoices: number): React.ReactE
   return (
     <div>
       <Form.Item
-        label={toTitleCase(foodClass)}
+        label={`${toTitleCase(foodClass)} : ${message}`}
         className="my-0"
         rules={[
           {
@@ -153,13 +158,14 @@ export const FoodForm = (foodClass: string, numberChoices: number): React.ReactE
         ]}>
         <Select
           mode="multiple"
+          showArrow={true}
           // prettier-ignore
-          placeholder={foodClass=="carbs"? "2 Breakfast 2 Lunch" :`Select ${numberChoices} choices`}
+          placeholder={`Select ${numberChoices} choices`}
           ref={macroRef}
           onChange={(e: string[]) => foodChoiceChange(e, macroRef)}
           showSearch={false}
           className={`${foodClass}`}
-          bordered={false}
+          // bordered={false}
           // prettier-ignore
           value={
                 foodClass.includes("carbs")? carbChoice

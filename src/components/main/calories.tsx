@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { updateBMR, updateCalories } from "@redux/slices/bodydata";
 import type { RootState } from "@redux/store";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 
 const Calories: React.FC = () => {
@@ -15,11 +15,13 @@ const Calories: React.FC = () => {
   const [stats, setstats] = useState(false);
   const showstats = () => setstats(!stats);
   const dispatch = useAppDispatch();
+
   sex
     ? dispatch(updateBMR(10 * weight + 6.25 * height - 5 * age + 5))
     : dispatch(updateBMR(10 * weight + 6.25 * height - 5 * age - 161));
 
   dispatch(updateCalories(bmr * 1.38));
+
   var protein = (calories * 0.225) / 4;
   var protein = protein > 140 ? 140 : protein;
   const fat = (calories * 0.275) / 9;

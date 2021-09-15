@@ -16,8 +16,8 @@ const initialState: ICounter = {
   age: 28,
   sex: true,
   goal: "cut",
-  calories: null,
-  bmr: null,
+  calories: 2245,
+  bmr: 1461,
 };
 
 export const BodyData = createSlice({
@@ -52,6 +52,9 @@ export const BodyData = createSlice({
       const number = action.payload;
       state.bmr = number;
     },
+    resetBodyData: state => {
+      // RESET STATE
+    }
   },
 });
 
@@ -63,6 +66,7 @@ export const {
   updateGoal,
   updateCalories,
   updateBMR,
+  resetBodyData
 } = BodyData.actions;
 
 export default BodyData.reducer;
