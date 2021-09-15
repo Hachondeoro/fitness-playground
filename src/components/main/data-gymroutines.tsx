@@ -127,7 +127,13 @@ export const Workout = (routine) => {
           <video className="exerciseVideo" autoPlay loop muted>
             <source src={initial.video1} type="video/mp4" />
           </video>
-          <video className="exerciseVideo" autoPlay loop muted>
+          <video className="exerciseVideoPIXEL" autoPlay loop muted>
+            <source src={initial.video2} type="video/mp4" />
+          </video>
+          <video style={{width:"300px"}} autoPlay loop muted>
+            <source src={initial.video2} type="video/mp4" />
+          </video>
+          <video style={{width:"300px"}} autoPlay>
             <source src={initial.video2} type="video/mp4" />
           </video>
         </ModalBody>
