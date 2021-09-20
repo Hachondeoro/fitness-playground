@@ -23,8 +23,8 @@ const GymButton = () => {
   return (
     <>
       <Button onClick={() => gotoGymroutines()} className="gymButton">
-        <GiBiceps color="#ffffff" size={20} className="gymIcon" />
-        <p className="gymTitle">Gym time!</p>
+        {/* <GiBiceps color="#ffffff" size={20} className="gymIcon" /> */}
+        <p className="gymTitle">Gym routine</p>
       </Button>
     </>
   );

@@ -238,17 +238,39 @@ h5 h6 {
 }
 
 .gymButton {
-  // padding-top: 1.5px;
-  // padding-bottom: 1.5px;
   border-radius: 1rem;
   margin-left: 10%;
   width: 16rem;
+  height:4rem;
   margin-top: 0.5em;
   margin-bottom: 0.1em;
   background-color: #085ea9;
   border-color: #fff;
 }
+.gymButton:before {
+  position: absolute;
+  margin-top: -0.75rem;
+  content: "";
+  width: 4rem;
+  height:4rem;
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+  transform: skew(-30deg);
+  /* transition: 1s; */
+  animation: shine 3s ease-in-out infinite;
+  animation-fill-mode: forwards;
+}
 
+@keyframes shine {
+  from {left: -500px;}
+  to {left: 655px;}
+}
 
 @-webkit-keyframes shapeMover {
   0%,
@@ -315,3 +337,4 @@ h5 h6 {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
+
