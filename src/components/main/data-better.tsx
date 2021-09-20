@@ -77,11 +77,11 @@ export const SampleMealOne = {
     },
     lunch: {
       proportion: 0.4,
-      foods: { Tuna: 0.25, Lettuce: 0.03, Rice: 0.72 },
+      foods: { "Chicken breast": 0.35, Cauliflower: 0.03, Carrots:0.02, Rice: 0.60 },
     },
     snack: {
       proportion: 0.06,
-      foods: { Apples: 1 },
+      foods: { Blueberries: 1 },
     },
     dinner: {
       proportion: 0.25,
@@ -95,7 +95,7 @@ export const SampleMealOne = {
     },
     lunch: {
       proportion: 0.5,
-      foods: { Tuna: 0.3, Lettuce: 0.04, "Sweet potatoes": 0.3, Cheese: 0.36 },
+      foods: { Tuna: 0.3, Broccoli: 0.1, "Brown Rice": 0.4, Almonds: 0.2 },
     },
     snack: {
       proportion: 0.1,
@@ -103,7 +103,7 @@ export const SampleMealOne = {
     },
     dinner: {
       proportion: 0.4,
-      foods: { Rice: 0.5, "Chicken breast": 0.45, Broccoli: 0.05 },
+      foods: { Rice: 0.5, "Chicken breast": 0.45, Cauliflower: 0.05 },
     },
   },
   maintain: {

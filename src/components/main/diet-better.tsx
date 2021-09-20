@@ -15,7 +15,7 @@ const DietBetter: React.FC = () => {
   );
 
   const [equivalent, setEquivalent] = useState(false);
-  const [customDiet, setCustomDiet] = useState(true);
+  const [customDiet, setCustomDiet] = useState(false);
   const onChangeEquivalent = () => setEquivalent(!equivalent);
   const onChangeCustomDiet = () => setCustomDiet(!customDiet);
 
@@ -23,7 +23,7 @@ const DietBetter: React.FC = () => {
     <div>
       <div className="meals">
         <Checkbox onChange={onChangeCustomDiet}>
-          <strong>Want standard meal plan?</strong>
+          <strong >I want a custom meal plan!</strong>
         </Checkbox>
         {customDiet ? (
           <CustomDiet />

@@ -4,6 +4,8 @@ import { updateAge, updateGoal, updateHeight, updateSex, updateWeight } from "@r
 import { updateMainTab } from "@redux/slices/controls";
 import type { RootState } from "@redux/store";
 import { Input, Radio } from "antd";
+import galleryDot from "public/shapes/gallery-dot-1-1.png";
+import serviceLine from "public/shapes/service-line-1-1.png";
 import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from "react-tabs";
@@ -20,7 +22,7 @@ export const Main: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const mainTab = useAppSelector((state: RootState) => state.controls.mainTab);
   const dispatch = useAppDispatch();
-  
+
   useEffect(() => {
     resetIdCounter();
   }, []);
@@ -29,6 +31,7 @@ export const Main: React.FC = () => {
       <Col md="8" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
         <p className="lead">Dead simple</p>
+        <img src={serviceLine} alt="" className="service-one__shape-1" />
         <Tabs selectedIndex={mainTab} onSelect={(index) => dispatch(updateMainTab(index))}>
           <TabList className="reactTabs">
             <Tab>General {"\n"}Data</Tab>
@@ -89,6 +92,7 @@ export const Main: React.FC = () => {
               <Calories />
               <br></br>
               <h3>I want to:</h3>
+
               <Radio.Group
                 name={"goal"}
                 onChange={(e) => dispatch(updateGoal(e.target.value))}
@@ -99,6 +103,7 @@ export const Main: React.FC = () => {
               </Radio.Group>
               <br></br>
             </Col>
+            <img src={galleryDot} alt="" className="gallery-home-two__dots" />
             <DietBetter />
           </TabPanel>
           <TabPanel>

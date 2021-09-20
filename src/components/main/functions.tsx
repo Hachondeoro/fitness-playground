@@ -2,6 +2,7 @@ import GymButton from "@components/button/gymButton";
 import React from "react";
 // import { conversion } from "./data-better";
 import { GoalCalorie, GramsMeasure, MealsStats, StandardMeasure } from "./interfaces";
+import galleryDot from "public/shapes/gallery-dot-1-1.png";
 import ConversionCSV from "./parse-conversion";
 const conversion = ConversionCSV();
 
@@ -157,8 +158,11 @@ export const dietComposition = (
       <div className="foodsGroup">
         {calcMealsStats(Data[goal].dinner, targetCalories[day], equivalent).calsMain}
       </div>
+      <div style={{ fontWeight:700, marginTop:"1em"}}>
+      <img src={galleryDot} alt="" className="gallery-home-two__dots" />
       Total {totalCals} calories <br></br>
       Total {totalProtein} gr of protein
+      </div>
     </div>
   );
 };
