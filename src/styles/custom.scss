@@ -218,6 +218,60 @@ h5 h6 {
   display: inline-block;
   margin-left: 0.2em;
 }
+.infoTooltip:before {
+  position: absolute;
+  // margin-top: -0.75rem;
+  margin-left: 5rem;
+  content: "";
+  width: 1rem;
+  height:3rem;
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+  transform: skew(-30deg);
+  /* transition: 1s; */
+  animation: shineIcon 1s ease-in-out infinite, delay-animationIcon 4s linear infinite;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes shineIcon {
+  // from {left: -40rem;}
+  // to {left: 20rem;}
+  0% {
+    opacity: 1;
+    left: -2rem;
+    transition-property: left, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 1;
+    left: 20rem;
+    transition-property: left, opacity;
+  }
+}
+
+
+@keyframes delay-animationIcon {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  25.01% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 .sameLine {
   display: inline-block;
@@ -263,13 +317,40 @@ h5 h6 {
   );
   transform: skew(-30deg);
   /* transition: 1s; */
-  animation: shine 3s ease-in-out infinite;
+  animation: shine 1s ease-in-out infinite, delay-animation 4s linear infinite;
   animation-fill-mode: forwards;
 }
 
 @keyframes shine {
-  from {left: -500px;}
-  to {left: 655px;}
+  // from {left: -40rem;}
+  // to {left: 20rem;}
+  0% {
+    opacity: 1;
+    left: -500px;
+    transition-property: left, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 0.5;
+    left: 20rem;
+    transition-property: left, opacity;
+  }
+}
+
+@keyframes delay-animation {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  25.01% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @-webkit-keyframes shapeMover {

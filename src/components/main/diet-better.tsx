@@ -6,13 +6,12 @@ import { Col, Row } from "react-bootstrap";
 import CustomDiet from "./custom-diet";
 import { SampleMealOne } from "./data-better";
 import { dietComposition } from "./functions";
+import InfoTooltip from "@components/button/infoTooltip"; 
 
 const DietBetter: React.FC = () => {
   const dispatch = useAppDispatch();
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
-  const calories = useAppSelector(
-    (state: RootState) => state.bodydata.calories,
-  );
+  const calories = useAppSelector((state: RootState) => state.bodydata.calories);
 
   const [equivalent, setEquivalent] = useState(false);
   const [customDiet, setCustomDiet] = useState(false);
@@ -23,7 +22,7 @@ const DietBetter: React.FC = () => {
     <Col md="8" className="mx-auto">
       <div className="meals">
         <Checkbox onChange={onChangeCustomDiet}>
-          <strong >I want a custom meal plan!</strong>
+          <strong>I want a custom meal plan!</strong>
         </Checkbox>
         {customDiet ? (
           <CustomDiet />
@@ -34,23 +33,15 @@ const DietBetter: React.FC = () => {
             <Row className="justify-content-center">
               <Col className="mt-2 mx-auto text-left" md="6">
                 <h2>Training days</h2>
-                {dietComposition(
-                  SampleMealOne,
-                  goal,
-                  "training",
-                  calories,
-                  equivalent,
-                )}
+                <p className="sameLine">3 times per week</p>
+                <InfoTooltip message="E.g. Monday, Wednesday, Friday<br />1 hour per day" />
+                {dietComposition(SampleMealOne, goal, "training", calories, equivalent)}
               </Col>
               <Col className="mt-2 mx-auto text-left" md="6">
                 <h2>Resting days </h2>
-                {dietComposition(
-                  SampleMealOne,
-                  goal,
-                  "resting",
-                  calories,
-                  equivalent,
-                )}
+                <p className="sameLine">4 times per week</p>
+                <InfoTooltip message="E.g. Tuesday, Thursday, Saturday, Sunday" />
+                {dietComposition(SampleMealOne, goal, "resting", calories, equivalent)}
               </Col>
             </Row>
           </>
