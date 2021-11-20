@@ -35,6 +35,8 @@
   "exclude": [
     "node_modules",
     "src/components/examples",
+    "src/components/redux-nonpersist",
+    "src/components/redux-persist",
     "src/redux",
     "src/redux-toolkit",
     "src/components/test"
