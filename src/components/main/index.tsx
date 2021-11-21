@@ -1,26 +1,46 @@
-import { useAppDispatch, useAppSelector } from "@redux/hooks";
+import {useAppDispatch, useAppSelector} from "@redux/hooks";
 // prettier-ignore
-import { updateAge, updateGoal, updateHeight, updateSex, updateWeight } from "@redux/slices/bodydata";
-import { updateMainTab } from "@redux/slices/controls";
-import type { RootState } from "@redux/store";
-import { Input, Radio } from "antd";
+import {updateAge, updateGoal, updateHeight, updateSex, updateWeight} from "@redux/slices/bodydata";
+import {updateMainTab} from "@redux/slices/controls";
+import type {RootState} from "@redux/store";
+import {Input, Radio} from "antd";
 import galleryDot from "public/shapes/gallery-dot-1-1.png";
 import serviceLine from "public/shapes/service-line-1-1.png";
-import React, { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
-import { resetIdCounter, Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import React, {useEffect, useState} from "react";
+import {Col, Row} from "react-bootstrap";
+import {resetIdCounter, Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import Calories from "./calories";
 import DietBetter from "./diet-better";
 import Fasting from "./fasting";
 import GymRoutine from "./gymroutine";
 
+
 export const Main: React.FC = () => {
-  const height = useAppSelector((state: RootState) => state.bodydata.height);
-  const weight = useAppSelector((state: RootState) => state.bodydata.weight);
-  const age = useAppSelector((state: RootState) => state.bodydata.age);
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const mainTab = useAppSelector((state: RootState) => state.controls.mainTab);
+  const [weight, setWeight] = useState<number|string>(72)
+  const [height, setHeight] = useState<number|string>(170)
+  const [age, setAge] = useState<number|string>(28)
+
+  useEffect(() => {
+    // const timeOutId = setTimeout(() => dispatch(updateWeight(weight)), 3000);
+    // return () => clearTimeout(timeOutId);
+    if (weight > 30 && weight < 150) {
+      dispatch(updateWeight(weight))
+    }
+  }, [weight]);
+  useEffect(() => {
+    if (height > 100 && height < 220) {
+      dispatch(updateHeight(height))
+    }
+  }, [height]);
+  useEffect(() => {
+    if (age > 10 && age < 100) {
+      dispatch(updateAge(age))
+    }
+  }, [age]);
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -31,7 +51,7 @@ export const Main: React.FC = () => {
       <Col md="8" className="mx-auto">
         <h1>FITNESS PLAYGROUND</h1>
         <p className="lead">Dead simple</p>
-        <img src={serviceLine} alt="" className="service-one__shape-1" />
+        <img src={serviceLine} alt="" className="service-one__shape-1"/>
         <Tabs selectedIndex={mainTab} onSelect={(index) => dispatch(updateMainTab(index))}>
           <TabList className="reactTabs">
             <Tab>General {"\n"}Data</Tab>
@@ -48,8 +68,8 @@ export const Main: React.FC = () => {
                     suffix="KG"
                     type="number"
                     value={weight}
-                    onChange={(e) => dispatch(updateWeight(e.target.value))}
-                    style={{ width: 100 }}
+                    onChange={(e) => setWeight(e.target.value)}
+                    style={{width: 100}}
                   />
                 </Col>
               </Row>
@@ -60,8 +80,8 @@ export const Main: React.FC = () => {
                     suffix="years"
                     type="number"
                     value={age}
-                    onChange={(e) => dispatch(updateAge(e.target.value))}
-                    style={{ width: 100 }}
+                    onChange={(e) => setAge(e.target.value)}
+                    style={{width: 100}}
                   />
                 </Col>
               </Row>
@@ -72,8 +92,8 @@ export const Main: React.FC = () => {
                     suffix="CM"
                     type="number"
                     value={height}
-                    onChange={(e) => dispatch(updateHeight(e.target.value))}
-                    style={{ width: 100 }}
+                    onChange={(e) => setHeight(e.target.value)}
+                    style={{width: 100}}
                   />
                 </Col>
               </Row>
@@ -89,7 +109,7 @@ export const Main: React.FC = () => {
                   </Radio.Group>
                 </Col>
               </Row>
-              <Calories />
+              <Calories/>
               <br></br>
               <h3>I want to:</h3>
 
@@ -103,14 +123,14 @@ export const Main: React.FC = () => {
               </Radio.Group>
               <br></br>
             </Col>
-            <img src={galleryDot} alt="" className="gallery-home-two__dots" />
-            <DietBetter />
+            <img src={galleryDot} alt="" className="gallery-home-two__dots"/>
+            <DietBetter/>
           </TabPanel>
           <TabPanel>
-            <GymRoutine />
+            <GymRoutine/>
           </TabPanel>
           <TabPanel>
-            <Fasting />
+            <Fasting/>
           </TabPanel>
         </Tabs>
       </Col>
