@@ -40,13 +40,13 @@ const UserInput: React.FC = () => {
   const dispatch = useAppDispatch();
   return (
     <div>
-      <h1>FITNESS PLAYGROUND</h1>
+      <h1 >FITNESS PLAYGROUND</h1>
       <p className="lead">Dead simple</p>
       {/*<img src={serviceLine} alt="" className="service-one__shape-1" />*/}
       <div style={{ marginTop: "2em"}}>
         <Col className="mx-auto text-left" md="9">
           <Row>
-            <Col xs="5">My weight is:</Col>
+            <Col xs="7">My weight is:</Col>
             <Col xs="4">
               <Input
                 suffix="KG"
@@ -58,7 +58,7 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="5">My age is:</Col>
+            <Col xs="7">My age is:</Col>
             <Col xs="4">
               <Input
                 suffix="years"
@@ -70,7 +70,7 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="5">My height is:</Col>
+            <Col xs="7">My height is:</Col>
             <Col xs="4">
               <Input
                 suffix="CM"
@@ -82,7 +82,7 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="5">I'm :</Col>
+            <Col xs="7">I'm :</Col>
             <Col xs="4">
               <Radio.Group
                 name={"sex"}

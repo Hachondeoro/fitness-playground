@@ -5,30 +5,28 @@ import DietBetter from "./diet-better";
 import Fasting from "./fasting";
 import GymRoutine from "./gymroutine";
 import UserInput from "./userinput";
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb } from "antd";
 import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
   UserOutlined,
-} from '@ant-design/icons';
-import Link from "next/link"
+} from "@ant-design/icons";
+import Link from "next/link";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 /**/
 export const Main: React.FC = () => {
-  const [collapsed, setCollapsed] = useState( false )
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <div className="text-center mx-1">
       <Col className="mx-auto">
-        <Layout className="site-layout">
-          <Content style={{ margin: '0 16px', marginTop: '5vh' }}>
-            <UserInput/>
-            <DietBetter/>
-          </Content>
-        </Layout>
+        <Content style={{ marginTop: "5vh" }}>
+          <UserInput />
+          <DietBetter />
+        </Content>
         {/*<TabPanel>*/}
 
         {/*</TabPanel>*/}
@@ -37,6 +35,5 @@ export const Main: React.FC = () => {
         {/*</TabPanel>*/}
       </Col>
     </div>
-  )
-    ;
+  );
 };

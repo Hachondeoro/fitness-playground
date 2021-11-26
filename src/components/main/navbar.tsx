@@ -22,27 +22,25 @@ export const Navbar: React.FC = ({ children }) => {
   return (
     <div className="text-center mx-1">
       <Col md="8" className="mx-auto">
-        <Layout style={{ minHeight: "100vh" }}>
-          <NavbarBS fixed="bottom" bg="light" expand="lg" className="navbarMobile">
-            <Container>
-              <NavbarBS.Brand href="/">
-                <MdInput size={36} color={"#746af7"}/>
-              </NavbarBS.Brand>
-              <NavbarBS.Brand href="/gymroutines">
-                <GiGymBag size={36} color={"#746af7"}/>
-              </NavbarBS.Brand>
-              <NavbarBS.Brand href="/fasting">
-                <MdEmojiFoodBeverage size={36} color={"#746af7"}/>
-              </NavbarBS.Brand>
-              <NavbarBS.Brand href="/about">
-                <RiInformationFill size={36} color={"#746af7"}/>
-              </NavbarBS.Brand>
-            </Container>
-          </NavbarBS>
-          <Col md="8" className="mx-auto">
-            {children}
-          </Col>
-        </Layout>
+        <NavbarBS fixed="bottom" bg="light" expand="lg" className="navbarMobile">
+          <Container>
+            <NavbarBS.Brand href="/">
+              <MdInput size={36} color={"#746af7"} />
+            </NavbarBS.Brand>
+            <NavbarBS.Brand href="/gymroutines">
+              <GiGymBag size={36} color={"#746af7"} />
+            </NavbarBS.Brand>
+            <NavbarBS.Brand href="/fasting">
+              <MdEmojiFoodBeverage size={36} color={"#746af7"} />
+            </NavbarBS.Brand>
+            <NavbarBS.Brand href="/about">
+              <RiInformationFill size={36} color={"#746af7"} />
+            </NavbarBS.Brand>
+          </Container>
+        </NavbarBS>
+        <Col md="8" className="mx-auto">
+          {children}
+        </Col>
       </Col>
     </div>
   );
