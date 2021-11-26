@@ -8,6 +8,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 import { Provider } from "react-redux";
+import {Navbar} from "@components/main/navbar"
 // import "react-tabs/style/react-tabs.css";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Provider store={store}>
-            <Component {...pageProps} />
+            <Navbar>
+              <Component {...pageProps} />
+            </Navbar>
           </Provider>
         </Hydrate>
       </QueryClientProvider>

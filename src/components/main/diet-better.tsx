@@ -19,7 +19,7 @@ const DietBetter: React.FC = () => {
   const onChangeCustomDiet = () => setCustomDiet(!customDiet);
 
   return (
-    <Col md="8" className="mx-auto">
+    <Col md="9" className="mx-auto">
       <div className="meals">
         <Checkbox onChange={onChangeCustomDiet}>
           <strong>I want a custom meal plan!</strong>

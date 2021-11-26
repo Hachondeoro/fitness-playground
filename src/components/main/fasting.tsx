@@ -9,7 +9,7 @@ const GymRoutine: React.FC = () => {
   const dispatch = useAppDispatch();
   return (
     <div className="mt-3 gymRoutine">
-      <Col md="6" className="mx-auto">
+      <Col md="10" className="mx-auto">
         <h2>What to do while Fasting</h2>
         <p>
           The number one thing you need to remember to do is to drink a lot of

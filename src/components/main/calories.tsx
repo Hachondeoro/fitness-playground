@@ -12,7 +12,7 @@ const Calories: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const calories = useAppSelector((state: RootState) => state.bodydata.calories);
   const bmr = useAppSelector((state: RootState) => state.bodydata.bmr);
-  const [stats, setstats] = useState(true);
+  const [stats, setstats] = useState(false);
   const showstats = () => setstats(!stats);
   const dispatch = useAppDispatch();
 
@@ -28,7 +28,7 @@ const Calories: React.FC = () => {
   const carbs = (calories * 0.5) / 4;
 
   return (
-    <div className="mt-3" style={{ fontSize:"1.3rem"}}>
+    <div className="mt-3" style={{ fontSize:"1.4rem"}}>
       <Button onClick={showstats} className="statsButton">
         Stats
       </Button>

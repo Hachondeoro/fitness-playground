@@ -4,10 +4,21 @@
 :root {
   font-size: 62.5%;
 }
+
 body {
   color: #818181;
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
+}
+@media screen and (min-width: 601px) {
+  .navbarMobile {
+    display:none;
+  }
+}
+.navbarMobile{
+  height:80px;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 @function width($pixelSize) {
@@ -23,23 +34,26 @@ h5 h6 {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
-    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+  "Noto Color Emoji";
 }
-
+h1{
+  margin-top: 1em;
+}
 .meals {
   h1 {
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-variant-caps: all-small-caps;
   }
+
   h2 {
-    font-size: 1.6em;
+    font-size: 1.2em;
     font-variant-caps: all-small-caps;
   }
+
   h3 {
     margin-top: 10px;
     font-variant-caps: all-small-caps;
-    font-size: 1.2em;
     @media only screen and (max-width: 650px) {
       margin-left: 10%;
     }
@@ -51,26 +65,30 @@ h5 h6 {
     // }
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 1em;
-    display: inline-block;
-  }
-  .foodportionCalories {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 0.7em;
-    font-style: italic;
+    font-size: 0.8em;
     display: inline-block;
   }
 
-  .foodsGroup{
-    margin-left: 10%;
+  .foodportionCalories {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.8em;
+    text-align: right;
+    //font-style: italic;
+    display: inline-block;
   }
+
+  .foodsGroup {
+    //margin-left: 10%;
+  }
+
   // margin-bottom: -2em;
 }
 
 .gymRoutine {
   white-space: pre-wrap;
   text-align: left;
+
   h2 {
     font-size: 1.2em;
     font-variant-caps: all-small-caps;
@@ -108,8 +126,8 @@ h5 h6 {
     white-space: pre-wrap;
 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
-      "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 
     &--selected {
       background: #fff;
@@ -156,21 +174,25 @@ h5 h6 {
   color: #d39308;
   border: 1px solid #d69405;
 }
+
 .ant-select-multiple.veggies .ant-select-selection-item {
   background: #e9ffe6;
   color: #08d331;
   border: 1px solid #63d605;
 }
+
 .ant-select-multiple.protein .ant-select-selection-item {
   background: #ffe6e6;
   color: #d30f08;
   border: 1px solid #d62405;
 }
+
 .ant-select-multiple.fats .ant-select-selection-item {
   background: #feffe6;
   color: #d3cc08;
   border: 1px solid #d2d605;
 }
+
 .ant-select-multiple.snack .ant-select-selection-item {
   background: #e9ffe6;
   color: #08d331;
@@ -209,6 +231,7 @@ h5 h6 {
   bottom: 3em;
   right: 1em;
 }
+
 .backArrow.hide {
   opacity: 0;
   transition: opacity 1s;
@@ -218,20 +241,21 @@ h5 h6 {
   display: inline-block;
   margin-left: 0.2em;
 }
+
 .infoTooltip:before {
   position: absolute;
   // margin-top: -0.75rem;
   margin-left: 5rem;
   content: "";
   width: 1rem;
-  height:3rem;
+  height: 3rem;
   background: rgba(255, 255, 255, 0.13);
   background: linear-gradient(
-    to right, 
-    rgba(255, 255, 255, 0.13) 0%,
-    rgba(255, 255, 255, 0.13) 77%,
-    rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
+                  to right,
+                  rgba(255, 255, 255, 0.13) 0%,
+                  rgba(255, 255, 255, 0.13) 77%,
+                  rgba(255, 255, 255, 0.5) 92%,
+                  rgba(255, 255, 255, 0.0) 100%
   );
   transform: skew(-30deg);
   /* transition: 1s; */
@@ -279,15 +303,15 @@ h5 h6 {
 
 .gymIcon {
   display: inline-block;
- 
+
 }
 
-.gymTitle{
+.gymTitle {
   display: inline-block;
   margin: 0.1em 1em 0.1em;
   font-weight: 900;
   font-size: 1.5rem;
-  color:#fff;
+  color: #fff;
   font-variant-caps: all-small-caps;
 }
 
@@ -295,25 +319,26 @@ h5 h6 {
   border-radius: 1rem;
   margin-left: 10%;
   width: 16rem;
-  height:4rem;
+  height: 4rem;
   margin-top: 0.5em;
   margin-bottom: 0.1em;
   background-color: #085ea9;
   border-color: #fff;
 }
+
 .gymButton:before {
   position: absolute;
   margin-top: -0.75rem;
   content: "";
   width: 4rem;
-  height:4rem;
+  height: 4rem;
   background: rgba(255, 255, 255, 0.13);
   background: linear-gradient(
-    to right, 
-    rgba(255, 255, 255, 0.13) 0%,
-    rgba(255, 255, 255, 0.13) 77%,
-    rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
+                  to right,
+                  rgba(255, 255, 255, 0.13) 0%,
+                  rgba(255, 255, 255, 0.13) 77%,
+                  rgba(255, 255, 255, 0.5) 92%,
+                  rgba(255, 255, 255, 0.0) 100%
   );
   transform: skew(-30deg);
   /* transition: 1s; */
@@ -356,40 +381,32 @@ h5 h6 {
 @-webkit-keyframes shapeMover {
   0%,
   100% {
-    -webkit-transform: perspective(400px) translateY(0) rotate(0deg)
-      translateZ(0px) translateX(0);
-    transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px)
-      translateX(0);
+    -webkit-transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px) translateX(0);
+    transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px) translateX(0);
   }
   50% {
-    -webkit-transform: perspective(400px) rotate(-45deg) translateZ(20px)
-      translateY(20px) translateX(20px);
-    transform: perspective(400px) rotate(-45deg) translateZ(20px)
-      translateY(20px) translateX(20px);
+    -webkit-transform: perspective(400px) rotate(-45deg) translateZ(20px) translateY(20px) translateX(20px);
+    transform: perspective(400px) rotate(-45deg) translateZ(20px) translateY(20px) translateX(20px);
   }
 }
 
 @keyframes shapeMover {
   0%,
   100% {
-    -webkit-transform: perspective(400px) translateY(0) rotate(0deg)
-      translateZ(0px) translateX(0);
-    transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px)
-      translateX(0);
+    -webkit-transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px) translateX(0);
+    transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px) translateX(0);
   }
   50% {
-    -webkit-transform: perspective(400px) rotate(-45deg) translateZ(20px)
-      translateY(20px) translateX(20px);
-    transform: perspective(400px) rotate(-45deg) translateZ(20px)
-      translateY(20px) translateX(20px);
+    -webkit-transform: perspective(400px) rotate(-45deg) translateZ(20px) translateY(20px) translateX(20px);
+    transform: perspective(400px) rotate(-45deg) translateZ(20px) translateY(20px) translateX(20px);
   }
 }
 
 .service-one__shape-1 {
   position: absolute;
   z-index: -999;
-  width:20rem;
-  left:5%;
+  width: 20rem;
+  left: 5%;
   // bottom: 65%;
   // left: 95%;
   -webkit-animation-name: shapeMover;
@@ -405,8 +422,8 @@ h5 h6 {
 .gallery-home-two__dots {
   position: absolute;
   z-index: -999;
-  width:20rem;
-  left:20%;
+  width: 20rem;
+  left: 20%;
   // top: -70px;
   // left: calc(100% - 80px);
   -webkit-animation-name: shapeMover;
