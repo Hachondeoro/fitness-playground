@@ -12,6 +12,7 @@ const DietBetter: React.FC = () => {
   const dispatch = useAppDispatch();
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const calories = useAppSelector((state: RootState) => state.bodydata.calories);
+  const mealplan = useAppSelector((state: RootState) => state.bodydata.mealplan);
 
   const [equivalent, setEquivalent] = useState(false);
   const [customDiet, setCustomDiet] = useState(false);
@@ -21,10 +22,7 @@ const DietBetter: React.FC = () => {
   return (
     <Col md="9" className="mx-auto">
       <div className="meals">
-        <Checkbox onChange={onChangeCustomDiet}>
-          <strong>I want a custom meal plan!</strong>
-        </Checkbox>
-        {customDiet ? (
+        {mealplan == "custom" ? (
           <CustomDiet />
         ) : (
           <>

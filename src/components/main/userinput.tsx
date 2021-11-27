@@ -1,25 +1,37 @@
 import serviceLine from "@public/shapes/service-line-1-1.png";
 import { Col, Row } from "react-bootstrap";
-import { Input, Radio } from "antd";
+import { Input, Radio, Select } from "antd";
 import {
   updateAge,
   updateGoal,
   updateHeight,
   updateSex,
   updateWeight,
+  updateMealPlan,
 } from "@redux/slices/bodydata";
 import Calories from "@components/main/calories";
 import galleryDot from "@public/shapes/gallery-dot-1-1.png";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import { RootState } from "@redux/store";
+import Link from "next/link";
+import { Button } from "react-bootstrap";
 
+const { Option } = Select;
+// import logo from "/logo.png";
 const UserInput: React.FC = () => {
+  const [weight, setWeight] = useState<number | string>(
+    useAppSelector((state: RootState) => state.bodydata.weight),
+  );
+  const [height, setHeight] = useState<number | string>(
+    useAppSelector((state: RootState) => state.bodydata.height),
+  );
+  const [age, setAge] = useState<number | string>(
+    useAppSelector((state: RootState) => state.bodydata.age),
+  );
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
-  const [weight, setWeight] = useState<number | string>(72);
-  const [height, setHeight] = useState<number | string>(170);
-  const [age, setAge] = useState<number | string>(28);
+  const mealplan = useAppSelector((state: RootState) => state.bodydata.mealplan);
   useEffect(() => {
     // const timeOutId = setTimeout(() => dispatch(updateWeight(weight)), 3000);
     // return () => clearTimeout(timeOutId);
@@ -40,50 +52,53 @@ const UserInput: React.FC = () => {
   const dispatch = useAppDispatch();
   return (
     <div>
-      <h1 >FITNESS PLAYGROUND</h1>
-      <p className="lead">Dead simple</p>
+      <img src="/logo.png" alt="logo Fitness Playground" height="300rem" className="my-3" />
+
       {/*<img src={serviceLine} alt="" className="service-one__shape-1" />*/}
-      <div style={{ marginTop: "2em"}}>
+      <div style={{ marginTop: "2em" }}>
         <Col className="mx-auto text-left" md="9">
           <Row>
-            <Col xs="7">My weight is:</Col>
-            <Col xs="4">
+            <Col xs="6">My weight is:</Col>
+            <Col xs="4" className="my-1">
               <Input
                 suffix="KG"
                 type="number"
                 value={weight}
+                className="inputCustom"
                 onChange={(e) => setWeight(e.target.value)}
                 style={{ width: 100 }}
               />
             </Col>
           </Row>
           <Row>
-            <Col xs="7">My age is:</Col>
-            <Col xs="4">
+            <Col xs="6">My age is:</Col>
+            <Col xs="4" className="my-1">
               <Input
                 suffix="years"
                 type="number"
                 value={age}
+                className="inputCustom"
                 onChange={(e) => setAge(e.target.value)}
                 style={{ width: 100 }}
               />
             </Col>
           </Row>
           <Row>
-            <Col xs="7">My height is:</Col>
-            <Col xs="4">
+            <Col xs="6">My height is:</Col>
+            <Col xs="4" className="my-1">
               <Input
                 suffix="CM"
                 type="number"
                 value={height}
+                className="inputCustom"
                 onChange={(e) => setHeight(e.target.value)}
                 style={{ width: 100 }}
               />
             </Col>
           </Row>
           <Row>
-            <Col xs="7">I'm :</Col>
-            <Col xs="4">
+            <Col xs="6">I'm :</Col>
+            <Col xs="4" className="my-1">
               <Radio.Group
                 name={"sex"}
                 onChange={(e) => dispatch(updateSex(e.target.value))}
@@ -92,19 +107,48 @@ const UserInput: React.FC = () => {
                 <Radio value={false}>Female</Radio>
               </Radio.Group>
             </Col>
+          </Row>{" "}
+          <Row>
+            <Col xs="6">
+              <strong>I want to:</strong>
+            </Col>
+            <Col xs="4" className="my-1">
+              <Select
+                defaultValue={goal}
+                style={{
+                  background: "rgba(116, 105, 247, 0.15)",
+                  width: 140,
+                  borderRadius: "30px",
+                }}
+                onChange={(e) => dispatch(updateGoal(e))}>
+                <Option value={"cut"}>Lose weight</Option>
+                <Option value={"maintain"}>Maintain</Option>
+                <Option value={"gain"}>Gain muscle</Option>
+              </Select>
+            </Col>
           </Row>
+          <Row>
+            <Col xs="6">
+              <strong>I want my meal plan:</strong>
+            </Col>
+            <Col xs="4" className="my-1">
+              <Select
+                defaultValue={mealplan}
+                style={{
+                  background: "rgba(116, 105, 247, 0.15)",
+                  width: 140,
+                  borderRadius: "30px",
+                }}
+                onChange={(e) => dispatch(updateMealPlan(e))}>
+                <Option value={"standard"}>Standard</Option>
+                <Option value={"custom"}>Customized</Option>
+              </Select>
+            </Col>
+          </Row>
+          <Link href="/diets" passHref>
+            <Button className="purpleButton float-right">GO!</Button>
+          </Link>
           <Calories />
-          <br></br>
-          <h3>I want to:</h3>
-
-          <Radio.Group
-            name={"goal"}
-            onChange={(e) => dispatch(updateGoal(e.target.value))}
-            value={goal}>
-            <Radio value={"cut"}>Cut fat</Radio>
-            <Radio value={"maintain"}>Maintain</Radio>
-            <Radio value={"gain"}>Gain muscle</Radio>
-          </Radio.Group>
         </Col>
       </div>
       {/*<img src={galleryDot} alt="" className="gallery-home-two__dots" />*/}

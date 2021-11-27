@@ -8,6 +8,7 @@ interface ICounter {
   goal: string;
   calories: number;
   bmr: number;
+  mealplan: string;
 }
 
 const initialState: ICounter = {
@@ -18,6 +19,7 @@ const initialState: ICounter = {
   goal: "cut",
   calories: 2245,
   bmr: 1461,
+  mealplan:"custom"
 };
 
 export const BodyData = createSlice({
@@ -44,6 +46,10 @@ export const BodyData = createSlice({
       const string = action.payload;
       state.goal = string;
     },
+    updateMealPlan: (state, action) => {
+      const string = action.payload;
+      state.mealplan = string;
+    },
     updateCalories: (state, action) => {
       const number = action.payload;
       state.calories = number;
@@ -66,6 +72,7 @@ export const {
   updateGoal,
   updateCalories,
   updateBMR,
+  updateMealPlan,
   resetBodyData
 } = BodyData.actions;
 

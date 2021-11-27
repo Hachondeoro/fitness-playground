@@ -10,13 +10,15 @@ body {
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
 }
+
 @media screen and (min-width: 601px) {
   .navbarMobile {
-    display:none;
+    display: none;
   }
 }
-.navbarMobile{
-  height:80px;
+
+.navbarMobile {
+  height: 80px;
   padding-left: 2em;
   padding-right: 2em;
 }
@@ -25,6 +27,31 @@ body {
   $result: $pixelSize/10;
   @return $result + rem;
 }
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: rgba(116, 105, 247, 0);
+  border-radius: 30px;
+  border-color: rgba(116, 105, 247);;
+  color: rgba(116, 105, 247);
+
+}
+
+
+
+
+.inputCustom {
+  input {
+    background-color: rgba(116, 105, 247, 0);
+    color: rgba(116, 105, 247);
+  }
+
+  color: #7469F7;
+  background-color: rgba(116, 105, 247, 0.15);
+  //border-width: 1.5px;
+  border-color: rgba(116, 105, 247);
+  border-radius: 30px;
+}
+
 
 h1,
 h2,
@@ -37,9 +64,11 @@ h5 h6 {
   "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   "Noto Color Emoji";
 }
-h1{
+
+h1 {
   margin-top: 1em;
 }
+
 .meals {
   h1 {
     font-size: 1.5em;
@@ -203,7 +232,16 @@ h1{
   font-size: 1.2rem;
   padding-top: 1px;
   padding-bottom: 1px;
-  background-color: #085ea9;
+  background-color: #736AF7;
+}
+
+.purpleButton{
+  font-size: 2rem;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #736AF7;
+
+
 }
 
 .customDietButton {
