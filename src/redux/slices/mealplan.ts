@@ -20,7 +20,6 @@ const initialState: IMeals = {
   snack: [],
   veggies: [],
 };
-
 export const MealPlan = createSlice({
   name: "mealplan",
   initialState,
@@ -45,17 +44,17 @@ export const MealPlan = createSlice({
       const food = action.payload;
       state.veggies = food;
     },
+    resetFoodChoices: () => initialState,
   },
 });
-
 export const {
   updateCarb,
   updateProtein,
   updateFat,
   updateSnack,
   updateVeggies,
+  resetFoodChoices,
 } = MealPlan.actions;
-
 export default MealPlan.reducer;
 // 2. Then incorporate it into the Calories.tsx to multiply it by 30.
 // 3. It should also be incorporated in the MAIN component, to sync at the same time in MAIN.tsx and CALORIES.tsx

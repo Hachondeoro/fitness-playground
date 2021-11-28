@@ -13,7 +13,7 @@ const { SubMenu } = Menu;
 export const Main: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
-    <div className="text-center mx-1">
+    <div className="text-center mx-auto">
       <Col className="mx-auto">
         <Content style={{ marginTop: "5vh" }}>
           <UserInput />

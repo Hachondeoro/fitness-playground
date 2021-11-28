@@ -148,7 +148,7 @@ export const FoodForm = (
     <div>
       <Form.Item
         label={`${toTitleCase(foodClass)} : ${message}`}
-        className="my-0"
+        className="mt-3 mb-0"
         rules={[
           {
             required: true,

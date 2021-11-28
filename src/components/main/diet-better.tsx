@@ -15,18 +15,16 @@ const DietBetter: React.FC = () => {
   const mealplan = useAppSelector((state: RootState) => state.bodydata.mealplan);
 
   const [equivalent, setEquivalent] = useState(false);
-  const [customDiet, setCustomDiet] = useState(false);
   const onChangeEquivalent = () => setEquivalent(!equivalent);
-  const onChangeCustomDiet = () => setCustomDiet(!customDiet);
 
   return (
     <Col md="9" className="mx-auto">
-      <div className="meals">
+      <h1 className="text-center">Sample meal plan</h1>
+      <div className="meals paddingBottom">
         {mealplan == "custom" ? (
           <CustomDiet />
         ) : (
           <>
-            <h1 className="text-center">Sample meal plan</h1>
             <Checkbox onChange={onChangeEquivalent}>Measure in grams</Checkbox>
             <Row className="justify-content-center">
               <Col className="mt-2 mx-auto text-left" md="6">

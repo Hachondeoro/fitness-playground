@@ -13,7 +13,7 @@ const GymRoutine: React.FC = () => {
 
   const dispatch = useAppDispatch();
   return (
-    <div className="mt-3 gymRoutine">
+    <div className="mt-3 gymRoutine paddingBottom">
       <Col md="10" className="mx-auto">
         <h1>Gym Routines</h1>
         <Tabs selectedIndex={routineTab} onSelect={(index) => dispatch(updateRoutineTab(index))}>

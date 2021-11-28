@@ -8,7 +8,7 @@ const GymRoutine: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const dispatch = useAppDispatch();
   return (
-    <div className="mt-3 gymRoutine">
+    <div className="mt-3 gymRoutine paddingBottom">
       <Col md="10" className="mx-auto">
         <h2>What to do while Fasting</h2>
         <p>

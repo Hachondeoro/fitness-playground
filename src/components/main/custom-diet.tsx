@@ -11,6 +11,7 @@ import { dietComposition } from "./functions";
 import { MealPlan } from "./interfaces";
 import { useAppDispatch } from "@redux/hooks";
 import { resetBodyData } from "@redux/slices/bodydata";
+import { resetFoodChoices } from "@redux/slices/mealplan";
 
 const CustomDiet: React.FC = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
@@ -24,13 +25,9 @@ const CustomDiet: React.FC = () => {
   const [showCustomDiet, setshowCustomDiet] = useState(false);
   const [sampleMealPlan, setsampleMealPlan] = useState<MealPlan>();
   const dispatch = useAppDispatch();
-  
-  
   var scroller = Scroll.scroller;
   var Element = Scroll.Element;
-
   const onChange = () => setEquivalent(!equivalent);
-
 
   function showMealPlan() {
     if (
@@ -59,7 +56,32 @@ const CustomDiet: React.FC = () => {
         );
       }
     } else {
-      message.warning("Please select your choices");
+      const nCarbsToChoose = 4 - carbChoice.length;
+      if (nCarbsToChoose !== 0) {
+        message.warning(
+          `Please select ${nCarbsToChoose} more carb${nCarbsToChoose == 1 ? "!" : "s!"}`,
+        );
+      }const nProteinToChoose = 2 - proteinChoice.length;
+      if (nProteinToChoose !== 0) {
+        message.warning(
+          `Please select ${nProteinToChoose} more protein${nProteinToChoose == 1 ? "!" : "s!"}`,
+        );
+      }const nFatsToChoose = 2 - fatChoice.length;
+      if (nFatsToChoose !== 0) {
+        message.warning(
+          `Please select ${nFatsToChoose} more fat${nFatsToChoose == 1 ? "!" : "s!"}`,
+        );
+      }const nVeggiesToChoose = 2 - veggiesChoice.length;
+      if (nVeggiesToChoose !== 0) {
+        message.warning(
+          `Please select ${nVeggiesToChoose} more veggies${nVeggiesToChoose == 1 ? "!" : "s!"}`,
+        );
+      }const nSnackToChoose = 2 - snackChoice.length;
+      if (nSnackToChoose !== 0) {
+        message.warning(
+          `Please select ${nSnackToChoose} more snack${nSnackToChoose == 1 ? "!" : "s!"}`,
+        );
+      }
     }
   }
 
@@ -74,10 +96,10 @@ const CustomDiet: React.FC = () => {
           {FoodForm("snack", 2, "Select 2 choices")}
         </Form>
       </Col>
-      <Button type="primary" onClick={showMealPlan} className="customDietButton">
+      <Button type="primary" onClick={showMealPlan} className="purpleButton">
         Get custom diet
       </Button>
-      <Button type="primary" onClick={() => dispatch(resetBodyData())} className="customDietButton">
+      <Button type="primary" onClick={() => dispatch(resetFoodChoices())} className="purpleButton">
         Reset
       </Button>
       <BackArrow />
@@ -104,5 +126,4 @@ const CustomDiet: React.FC = () => {
     </div>
   );
 };
-
 export default CustomDiet;

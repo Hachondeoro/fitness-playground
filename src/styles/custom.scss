@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:wght@100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("//db.onlinewebfonts.com/c/e8c6a63541de0a4211a9358cbe74690f?family=Futura");
 
 :root {
   font-size: 62.5%;
@@ -28,15 +29,19 @@ body {
   @return $result + rem;
 }
 
+.inactiveTab{
+  color: rgba(116, 106, 247, 0.47)
+}
+
+.activeTab{
+  color: #746af7
+}
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background-color: rgba(116, 105, 247, 0);
   border-radius: 30px;
   border-color: rgba(116, 105, 247);;
   color: rgba(116, 105, 247);
-
 }
-
-
 
 
 .inputCustom {
@@ -58,15 +63,25 @@ h2,
 h3,
 h4,
 h5 h6 {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-family: Futura, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
   "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   "Noto Color Emoji";
+  color: #38398A;
+
 }
 
 h1 {
-  margin-top: 1em;
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+.paddingBottom {
+  margin-bottom: 150px
 }
 
 .meals {
@@ -76,17 +91,16 @@ h1 {
   }
 
   h2 {
-    font-size: 1.2em;
     font-variant-caps: all-small-caps;
+
   }
 
   h3 {
     margin-top: 10px;
     font-variant-caps: all-small-caps;
-    @media only screen and (max-width: 650px) {
-      margin-left: 10%;
-    }
+
   }
+
 
   .foodportion {
     // @media only screen and (max-width: 650px) {
@@ -101,7 +115,7 @@ h1 {
   .foodportionCalories {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 0.8em;
+    font-size: 0.7em;
     text-align: right;
     //font-style: italic;
     display: inline-block;
@@ -119,9 +133,9 @@ h1 {
   text-align: left;
 
   h2 {
-    font-size: 1.2em;
     font-variant-caps: all-small-caps;
   }
+
 }
 
 .reactTabs {
@@ -198,34 +212,49 @@ h1 {
   }
 }
 
-.ant-select-multiple.carbs .ant-select-selection-item {
-  background: #fffbe6;
-  color: #d39308;
-  border: 1px solid #d69405;
-}
 
-.ant-select-multiple.veggies .ant-select-selection-item {
-  background: #e9ffe6;
-  color: #08d331;
-  border: 1px solid #63d605;
-}
+.meals {
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background-color: rgba(116, 105, 247, 0);
+    border-radius: 15px;
+    border-color: rgba(116, 105, 247);;
+    color: rgba(116, 105, 247);
+  }
 
-.ant-select-multiple.protein .ant-select-selection-item {
-  background: #ffe6e6;
-  color: #d30f08;
-  border: 1px solid #d62405;
-}
+  .ant-select-multiple.carbs .ant-select-selection-item {
+    background: #fffbe6;
+    color: #d39308;
+    border: 1px solid #d69405;
+    border-radius: 10px;
+  }
 
-.ant-select-multiple.fats .ant-select-selection-item {
-  background: #feffe6;
-  color: #d3cc08;
-  border: 1px solid #d2d605;
-}
+  .ant-select-multiple.veggies .ant-select-selection-item {
+    background: #e9ffe6;
+    color: #08d331;
+    border: 1px solid #63d605;
+    border-radius: 10px;
+  }
 
-.ant-select-multiple.snack .ant-select-selection-item {
-  background: #e9ffe6;
-  color: #08d331;
-  border: 1px solid #63d605;
+  .ant-select-multiple.protein .ant-select-selection-item {
+    background: #ffe6e6;
+    color: #d30f08;
+    border: 1px solid #d62405;
+    border-radius: 10px;
+  }
+
+  .ant-select-multiple.fats .ant-select-selection-item {
+    background: #feffe6;
+    color: #d3cc08;
+    border: 1px solid #d2d605;
+    border-radius: 10px;
+  }
+
+  .ant-select-multiple.snack .ant-select-selection-item {
+    background: #e9ffe6;
+    color: #08d331;
+    border: 1px solid #63d605;
+    border-radius: 10px;
+  }
 }
 
 .statsButton {
@@ -235,11 +264,15 @@ h1 {
   background-color: #736AF7;
 }
 
-.purpleButton{
+.purpleButton {
   font-size: 2rem;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  margin-top: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
   background-color: #736AF7;
+  border-width: 0;
+  border-radius: 5px;
+
 
 
 }
@@ -266,7 +299,7 @@ h1 {
   opacity: 1;
   z-index: 999;
   position: fixed;
-  bottom: 3em;
+  bottom: 6em;
   right: 1em;
 }
 

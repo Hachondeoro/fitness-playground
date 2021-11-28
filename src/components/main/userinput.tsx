@@ -51,8 +51,8 @@ const UserInput: React.FC = () => {
   }, [age]);
   const dispatch = useAppDispatch();
   return (
-    <div>
-      <img src="/logo.png" alt="logo Fitness Playground" height="300rem" className="my-3" />
+    <div className="paddingBottom">
+      <img src="/logo.png" alt="logo Fitness Playground" height="250rem" className="my-3" />
 
       {/*<img src={serviceLine} alt="" className="service-one__shape-1" />*/}
       <div style={{ marginTop: "2em" }}>
