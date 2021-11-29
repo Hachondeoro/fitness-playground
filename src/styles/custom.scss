@@ -16,6 +16,41 @@ body {
   .navbarMobile {
     display: none;
   }
+  .sidebarFix{
+left: -7.5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ant-layout-sider, .service-one__shape-1, .gallery-home-two__dots {
+    display: none;
+  }
+
+}
+
+.ant-menu-inline {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ant-layout, .ant-layout-sider-trigger, .ant-layout-sider {
+  background: #fff;
+}
+
+.anticon-left {
+  color: #746af7;
+  font-size: 3em;
+}
+
+.ant-menu-inline > .ant-menu-item {
+  height: 100px
+}
+
+.ant-menu {
+  width: 120px;
+  height: 100vh
 }
 
 .navbarMobile {
@@ -29,13 +64,14 @@ body {
   @return $result + rem;
 }
 
-.inactiveTab{
+.inactiveTab {
   color: rgba(116, 106, 247, 0.47)
 }
 
-.activeTab{
+.activeTab {
   color: #746af7
 }
+
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background-color: rgba(116, 105, 247, 0);
   border-radius: 30px;
@@ -262,6 +298,7 @@ h2 {
   padding-top: 1px;
   padding-bottom: 1px;
   background-color: #736AF7;
+  border-color: #736AF7;
 }
 
 .purpleButton {
@@ -272,7 +309,6 @@ h2 {
   background-color: #736AF7;
   border-width: 0;
   border-radius: 5px;
-
 
 
 }
@@ -475,9 +511,13 @@ h2 {
 
 .service-one__shape-1 {
   position: absolute;
-  z-index: -999;
+  z-index: 0;
   width: 20rem;
-  left: 5%;
+  left: 30%;
+  //top:50%;
+
+  //text-align: center;
+
   // bottom: 65%;
   // left: 95%;
   -webkit-animation-name: shapeMover;
@@ -492,9 +532,10 @@ h2 {
 
 .gallery-home-two__dots {
   position: absolute;
-  z-index: -999;
+  z-index: 0;
   width: 20rem;
-  left: 20%;
+  left: 70%;
+  bottom: 20%;
   // top: -70px;
   // left: calc(100% - 80px);
   -webkit-animation-name: shapeMover;

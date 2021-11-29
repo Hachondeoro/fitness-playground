@@ -19134,7 +19134,7 @@ textarea.ant-input-number {
   flex: 1;
 }
 .ant-list-vertical .ant-list-item-extra {
-  margin-left: 40px;
+  margin-left: 0px;
 }
 .ant-list-vertical .ant-list-item-meta {
   margin-bottom: 16px;

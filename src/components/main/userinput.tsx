@@ -1,15 +1,7 @@
 import serviceLine from "@public/shapes/service-line-1-1.png";
 import { Col, Row } from "react-bootstrap";
 import { Input, Radio, Select } from "antd";
-import {
-  updateAge,
-  updateGoal,
-  updateHeight,
-  updateSex,
-  updateWeight,
-  updateMealPlan,
-} from "@redux/slices/bodydata";
-import Calories from "@components/main/calories";
+import { updateAge, updateGoal, updateHeight, updateSex, updateWeight, updateMealPlan } from "@redux/slices/bodydata";
 import galleryDot from "@public/shapes/gallery-dot-1-1.png";
 import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@redux/hooks";
@@ -20,15 +12,9 @@ import { Button } from "react-bootstrap";
 const { Option } = Select;
 // import logo from "/logo.png";
 const UserInput: React.FC = () => {
-  const [weight, setWeight] = useState<number | string>(
-    useAppSelector((state: RootState) => state.bodydata.weight),
-  );
-  const [height, setHeight] = useState<number | string>(
-    useAppSelector((state: RootState) => state.bodydata.height),
-  );
-  const [age, setAge] = useState<number | string>(
-    useAppSelector((state: RootState) => state.bodydata.age),
-  );
+  const [weight, setWeight] = useState<number | string>(useAppSelector((state: RootState) => state.bodydata.weight));
+  const [height, setHeight] = useState<number | string>(useAppSelector((state: RootState) => state.bodydata.height));
+  const [age, setAge] = useState<number | string>(useAppSelector((state: RootState) => state.bodydata.age));
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const mealplan = useAppSelector((state: RootState) => state.bodydata.mealplan);
@@ -53,12 +39,10 @@ const UserInput: React.FC = () => {
   return (
     <div className="paddingBottom">
       <img src="/logo.png" alt="logo Fitness Playground" height="250rem" className="my-3" />
-
-      {/*<img src={serviceLine} alt="" className="service-one__shape-1" />*/}
       <div style={{ marginTop: "2em" }}>
-        <Col className="mx-auto text-left" md="9">
+        <Col className="mx-auto text-left">
           <Row>
-            <Col xs="6">My weight is:</Col>
+            <Col xs="6" md="8">My weight is:</Col>
             <Col xs="4" className="my-1">
               <Input
                 suffix="KG"
@@ -71,7 +55,7 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="6">My age is:</Col>
+            <Col xs="6" md="8">My age is:</Col>
             <Col xs="4" className="my-1">
               <Input
                 suffix="years"
@@ -84,7 +68,7 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="6">My height is:</Col>
+            <Col xs="6" md="8">My height is:</Col>
             <Col xs="4" className="my-1">
               <Input
                 suffix="CM"
@@ -97,19 +81,16 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="6">I'm :</Col>
+            <Col xs="6" md="8">I'm :</Col>
             <Col xs="4" className="my-1">
-              <Radio.Group
-                name={"sex"}
-                onChange={(e) => dispatch(updateSex(e.target.value))}
-                value={sex}>
+              <Radio.Group name={"sex"} onChange={(e) => dispatch(updateSex(e.target.value))} value={sex}>
                 <Radio value={true}>Male</Radio>
                 <Radio value={false}>Female</Radio>
               </Radio.Group>
             </Col>
           </Row>{" "}
           <Row>
-            <Col xs="6">
+            <Col xs="6" md="8">
               <strong>I want to:</strong>
             </Col>
             <Col xs="4" className="my-1">
@@ -128,7 +109,7 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="6">
+            <Col xs="6" md="8">
               <strong>I want my meal plan:</strong>
             </Col>
             <Col xs="4" className="my-1">
@@ -144,11 +125,17 @@ const UserInput: React.FC = () => {
                 <Option value={"custom"}>Customized</Option>
               </Select>
             </Col>
+          </Row>{" "}
+          <Row>
+            <Col xs="6" md="8">
+
+            </Col>
+            <Col xs="3" className="my-1">
+              <Link href="/diets" passHref>
+                <Button className="purpleButton float-right">GO!</Button>
+              </Link>
+            </Col>
           </Row>
-          <Link href="/diets" passHref>
-            <Button className="purpleButton float-right">GO!</Button>
-          </Link>
-          <Calories />
         </Col>
       </div>
       {/*<img src={galleryDot} alt="" className="gallery-home-two__dots" />*/}

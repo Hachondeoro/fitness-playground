@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "@redux/hooks";
 import type { RootState } from "@redux/store";
 import { Checkbox } from "antd";
 import React, { useState } from "react";
+import Calories from "@components/main/calories";
 import { Col, Row } from "react-bootstrap";
 import CustomDiet from "./custom-diet";
 import { SampleMealOne } from "./data-better";
@@ -20,6 +21,7 @@ const DietBetter: React.FC = () => {
   return (
     <Col md="9" className="mx-auto">
       <h1 className="text-center">Sample meal plan</h1>
+      <Calories />
       <div className="meals paddingBottom">
         {mealplan == "custom" ? (
           <CustomDiet />
