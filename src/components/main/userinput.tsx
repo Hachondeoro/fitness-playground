@@ -42,7 +42,9 @@ const UserInput: React.FC = () => {
       <div style={{ marginTop: "2em" }}>
         <Col className="mx-auto text-left">
           <Row>
-            <Col xs="6" md="8">My weight is:</Col>
+            <Col xs="6" md="8">
+              My weight is:
+            </Col>
             <Col xs="4" className="my-1">
               <Input
                 suffix="KG"
@@ -55,20 +57,9 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="6" md="8">My age is:</Col>
-            <Col xs="4" className="my-1">
-              <Input
-                suffix="years"
-                type="number"
-                value={age}
-                className="inputCustom"
-                onChange={(e) => setAge(e.target.value)}
-                style={{ width: 100 }}
-              />
+            <Col xs="6" md="8">
+              My height is:
             </Col>
-          </Row>
-          <Row>
-            <Col xs="6" md="8">My height is:</Col>
             <Col xs="4" className="my-1">
               <Input
                 suffix="CM"
@@ -81,7 +72,24 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>
           <Row>
-            <Col xs="6" md="8">I'm :</Col>
+            <Col xs="6" md="8">
+              My age is:
+            </Col>
+            <Col xs="4" className="my-1">
+              <Input
+                suffix="years"
+                type="number"
+                value={age}
+                className="inputCustom"
+                onChange={(e) => setAge(e.target.value)}
+                style={{ width: 100 }}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs="6" md="8">
+              I'm :
+            </Col>
             <Col xs="4" className="my-1">
               <Radio.Group name={"sex"} onChange={(e) => dispatch(updateSex(e.target.value))} value={sex}>
                 <Radio value={true}>Male</Radio>
@@ -127,14 +135,15 @@ const UserInput: React.FC = () => {
             </Col>
           </Row>{" "}
           <Row>
-            <Col xs="6" md="8">
-
-            </Col>
+            <Col xs="6" md="8"></Col>
             <Col xs="3" className="my-1">
               <Link href="/diets" passHref>
                 <Button className="purpleButton float-right">GO!</Button>
               </Link>
             </Col>
+          </Row>
+          <Row style={{ fontSize: "0.7em", marginTop: "2em" }}>
+            <p>* Project submission for CDU IT Code Fair 2021 by Frank Espinoza</p>
           </Row>
         </Col>
       </div>

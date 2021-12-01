@@ -55,7 +55,8 @@ export const Navbar: React.FC = ({ children }) => {
         </NavbarBS>
         <Layout style={{ minHeight: "100vh" }}>
           <Sider collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)}>
-            <Menu mode="inline" className="navbarWeb" theme="light" style={{ alignContent: "center" }}>
+            <img src="ITCodeFair-logo.png" width="100px" alt="" style={{ marginLeft: "-40%", marginTop: "20%" }} />
+            <Menu mode="inline" className="navbarWeb" theme="light" style={{ alignContent: "center", marginTop:"-100px" }}>
               <Menu.Item>
                 <Link href="/" passHref>
                   <MdInput size={72} className={router.pathname == "/" ? "activeTab" : "inactiveTab"} />
@@ -86,7 +87,7 @@ export const Navbar: React.FC = ({ children }) => {
               </Menu.Item>
             </Menu>
           </Sider>
-          <Layout >
+          <Layout>
             <img src={serviceLine} alt="" className="service-one__shape-1" />
             <img src={galleryDot} alt="" className="gallery-home-two__dots" />
             <Col md="9" className="mx-auto sidebarFix">
