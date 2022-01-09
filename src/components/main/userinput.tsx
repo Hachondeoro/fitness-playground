@@ -142,9 +142,6 @@ const UserInput: React.FC = () => {
               </Link>
             </Col>
           </Row>
-          <Row style={{ fontSize: "0.7em", marginTop: "2em" }}>
-            <p>* Project submission for CDU IT Code Fair 2021 by Frank Espinoza</p>
-          </Row>
         </Col>
       </div>
       {/*<img src={galleryDot} alt="" className="gallery-home-two__dots" />*/}

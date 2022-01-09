@@ -3,7 +3,6 @@ import { updateMainTab, updateRoutineTab } from "@redux/slices/controls";
 import type { RootState } from "@redux/store";
 import React from "react";
 import { Button } from "react-bootstrap";
-import { GiBiceps } from "react-icons/gi";
 import * as Scroll from "react-scroll";
 
 var scroll = Scroll.animateScroll;

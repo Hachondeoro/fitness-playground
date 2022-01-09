@@ -16,16 +16,17 @@ body {
   .navbarMobile {
     display: none;
   }
-  .sidebarFix{
-left: -7.5%;
+  .sidebarFix {
+    left: -7.5%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .ant-layout-sider, .service-one__shape-1, .gallery-home-two__dots {
+  .ant-layout-sider,
+  .service-one__shape-1,
+  .gallery-home-two__dots {
     display: none;
   }
-
 }
 
 .ant-menu-inline {
@@ -35,7 +36,9 @@ left: -7.5%;
   justify-content: center;
 }
 
-.ant-layout, .ant-layout-sider-trigger, .ant-layout-sider {
+.ant-layout,
+.ant-layout-sider-trigger,
+.ant-layout-sider {
   background: #fff;
 }
 
@@ -45,12 +48,12 @@ left: -7.5%;
 }
 
 .ant-menu-inline > .ant-menu-item {
-  height: 100px
+  height: 100px;
 }
 
 .ant-menu {
   width: 120px;
-  height: 100vh
+  height: 100vh;
 }
 
 .navbarMobile {
@@ -65,20 +68,19 @@ left: -7.5%;
 }
 
 .inactiveTab {
-  color: rgba(116, 106, 247, 0.47)
+  color: rgba(116, 106, 247, 0.47);
 }
 
 .activeTab {
-  color: #746af7
+  color: #746af7;
 }
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   background-color: rgba(116, 105, 247, 0);
   border-radius: 30px;
-  border-color: rgba(116, 105, 247);;
+  border-color: rgba(116, 105, 247);
   color: rgba(116, 105, 247);
 }
-
 
 .inputCustom {
   input {
@@ -86,13 +88,12 @@ left: -7.5%;
     color: rgba(116, 105, 247);
   }
 
-  color: #7469F7;
+  color: #7469f7;
   background-color: rgba(116, 105, 247, 0.15);
   //border-width: 1.5px;
   border-color: rgba(116, 105, 247);
   border-radius: 30px;
 }
-
 
 h1,
 h2,
@@ -101,11 +102,9 @@ h4,
 h5 h6 {
   margin-top: 1em;
   margin-bottom: 0.5em;
-  font-family: Futura, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
-  "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-  "Noto Color Emoji";
-  color: #38398A;
-
+  font-family: Futura, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #38398a;
 }
 
 h1 {
@@ -117,7 +116,7 @@ h2 {
 }
 
 .paddingBottom {
-  margin-bottom: 150px
+  margin-bottom: 150px;
 }
 
 .meals {
@@ -128,15 +127,12 @@ h2 {
 
   h2 {
     font-variant-caps: all-small-caps;
-
   }
 
   h3 {
     margin-top: 10px;
     font-variant-caps: all-small-caps;
-
   }
-
 
   .foodportion {
     // @media only screen and (max-width: 650px) {
@@ -171,7 +167,6 @@ h2 {
   h2 {
     font-variant-caps: all-small-caps;
   }
-
 }
 
 .reactTabs {
@@ -204,9 +199,8 @@ h2 {
     font-weight: 500;
     white-space: pre-wrap;
 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
-    "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
     &--selected {
       background: #fff;
@@ -248,12 +242,11 @@ h2 {
   }
 }
 
-
 .meals {
   .ant-select:not(.ant-select-customize-input) .ant-select-selector {
     background-color: rgba(116, 105, 247, 0);
     border-radius: 15px;
-    border-color: rgba(116, 105, 247);;
+    border-color: rgba(116, 105, 247);
     color: rgba(116, 105, 247);
   }
 
@@ -297,8 +290,8 @@ h2 {
   font-size: 1.2rem;
   padding-top: 1px;
   padding-bottom: 1px;
-  background-color: #736AF7;
-  border-color: #736AF7;
+  background-color: #736af7;
+  border-color: #736af7;
 }
 
 .purpleButton {
@@ -306,11 +299,9 @@ h2 {
   margin-top: 0.5em;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
-  background-color: #736AF7;
+  background-color: #736af7;
   border-width: 0;
   border-radius: 5px;
-
-
 }
 
 .customDietButton {
@@ -358,18 +349,17 @@ h2 {
   height: 3rem;
   background: rgba(255, 255, 255, 0.13);
   background: linear-gradient(
-                  to right,
-                  rgba(255, 255, 255, 0.13) 0%,
-                  rgba(255, 255, 255, 0.13) 77%,
-                  rgba(255, 255, 255, 0.5) 92%,
-                  rgba(255, 255, 255, 0.0) 100%
+    to right,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0) 100%
   );
   transform: skew(-30deg);
   /* transition: 1s; */
   animation: shineIcon 1s ease-in-out infinite, delay-animationIcon 4s linear infinite;
   animation-fill-mode: forwards;
 }
-
 
 @keyframes shineIcon {
   // from {left: -40rem;}
@@ -388,7 +378,6 @@ h2 {
   }
 }
 
-
 @keyframes delay-animationIcon {
   0% {
     opacity: 1;
@@ -406,11 +395,15 @@ h2 {
 
 .sameLine {
   display: inline-block;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.explanation {
+  font-size: 0.8em;
 }
 
 .gymIcon {
   display: inline-block;
-
 }
 
 .gymTitle {
@@ -441,11 +434,11 @@ h2 {
   height: 4rem;
   background: rgba(255, 255, 255, 0.13);
   background: linear-gradient(
-                  to right,
-                  rgba(255, 255, 255, 0.13) 0%,
-                  rgba(255, 255, 255, 0.13) 77%,
-                  rgba(255, 255, 255, 0.5) 92%,
-                  rgba(255, 255, 255, 0.0) 100%
+    to right,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.13) 77%,
+    rgba(255, 255, 255, 0.5) 92%,
+    rgba(255, 255, 255, 0) 100%
   );
   transform: skew(-30deg);
   /* transition: 1s; */
@@ -548,3 +541,12 @@ h2 {
   animation-iteration-count: infinite;
 }
 
+.superscript {
+  position: relative;
+  top: -0.5em;
+  font-size: 70%;
+}
+
+.references {
+  font-size: 1.2rem;
+}

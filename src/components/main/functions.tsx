@@ -22,6 +22,7 @@ export const calcGrams = (number: number, key: string): GramsMeasure => {
   const sentenceGrams = `${foodGrams} grams of ${key}`;
   return { foodGrams, proteinGrams, sentenceGrams };
 };
+// prettier-ignore
 const equivalents = [
   { min: 0, max: 0.25, equivalent: "1/4", value: 0.25 },
   { min: 0.25, max: 0.4, equivalent: "1/3", value: 0.33 },
@@ -40,21 +41,14 @@ export const calcMeasure = (foodCalories: number, key: string): StandardMeasure 
   const food = conversion[key]; // greek yoghurt, almonds, apples
   // 332 grams of steak should be 330 grams of steak
   if (["protein", "snackGrams"].includes(food.class)) {
-    var valMeasure =
-      Math.round((foodCalories * 100) / food.foodCalories / food.measureGrams / food.roundFactor) *
-      food.roundFactor;
+    var valMeasure = Math.round((foodCalories * 100) / food.foodCalories / food.measureGrams / food.roundFactor) * food.roundFactor;
     var portionMeasure = valMeasure.toString();
   } else {
     // I still need this part for 0.8 cups of rice
-    var valMeasure =
-      Math.round(
-        (((foodCalories * 100) / food.foodCalories) * food.roundFactor) / food.measureGrams,
-      ) / food.roundFactor;
+    var valMeasure = Math.round((((foodCalories * 100) / food.foodCalories) * food.roundFactor) / food.measureGrams) / food.roundFactor;
     // For measures bigger than 2: 3 tsp honey, 4 tsp peanut butter
     if (valMeasure <= 2) {
-      var equivalentValues = equivalents.find(
-        (item) => item.min <= valMeasure && valMeasure <= item.max,
-      );
+      var equivalentValues = equivalents.find((item) => item.min <= valMeasure && valMeasure <= item.max);
       var portionMeasure = equivalentValues.equivalent; // 3/4 cups of rice
       var valMeasure = equivalentValues.value; // convert 0.8 cups of rice to 0.75 cups (so it matches the equivalent)
     } else {
@@ -65,32 +59,27 @@ export const calcMeasure = (foodCalories: number, key: string): StandardMeasure 
   const protein = Math.round(((valMeasure * food.measureGrams) / 100) * food.protein);
   const foodportion = `${portionMeasure} ${food.measure}${Math.ceil(eval(portionMeasure)) == 1 ? "" : "s"}`;
   const foodportionCalories = ` ${valMeasureBack} cals`;
-  return {
-    valMeasure,
-    valMeasureBack,
-    protein,
-    foodportion,
-    foodportionCalories,
-  };
+  return { valMeasure, valMeasureBack, protein, foodportion, foodportionCalories };
 };
 export const calcMealsStats = (data: any, calories: number, equivalent: boolean): MealsStats => {
   const calsMeal = calories * data.proportion;
   const calsMain = Object.keys(data.foods).map((key) =>
     // prettier-ignore
     <div>
-      {equivalent ? (
-        <p className="foodportion">{calcGrams( data.foods[ key ] * calsMeal, key ).sentenceGrams}</p>
-      ) : ( <>
-        <Row>
-          <Col xs="8"><p className="foodportion">{calcMeasure( data.foods[ key ] * calsMeal, key ).foodportion}</p>
+      {equivalent ? 
+        ( <p className="foodportion">{calcGrams( data.foods[ key ] * calsMeal, key ).sentenceGrams}</p> ) : 
+        ( <Row>
+          <Col xs="8">
+            <p className="foodportion">
+              {calcMeasure( data.foods[ key ] * calsMeal, key ).foodportion}
+            </p>
           </Col>
           <Col xs="4">
             <p className="foodportionCalories">
               {calcMeasure( data.foods[ key ] * calsMeal, key ).foodportionCalories}
             </p>
           </Col>
-        </Row>
-      </> )}
+        </Row>)}
     </div>,
   );
   const calsMealBack = Object.keys(data.foods)
@@ -104,20 +93,16 @@ export const calcMealsStats = (data: any, calories: number, equivalent: boolean)
     .map((key) => calcMeasure(data.foods[key] * calsMeal, key).protein)
     .reduce((a, v) => a + v);
   const totalproteinMeal = equivalent ? proteinMealGrams : proteinMealBack;
-  return { calsMain, totalcalsMealBack, totalproteinMeal };
+  return {
+    calsMain,
+    totalcalsMealBack,
+    totalproteinMeal,
+  };
 };
-export const dietComposition = (
-  Data: any,
-  goal: string,
-  day: string,
-  calories: number,
-  equivalent: boolean,
-): React.ReactElement => {
+export const dietComposition = (Data: any, goal: string, day: string, calories: number, equivalent: boolean): React.ReactElement => {
   const targetCalories = calorieGoal(calories, goal);
   const totalcalsMealBack = Object.keys(Data[goal])
-    .map(
-      (key) => calcMealsStats(Data[goal][key], targetCalories[day], equivalent).totalcalsMealBack,
-    )
+    .map((key) => calcMealsStats(Data[goal][key], targetCalories[day], equivalent).totalcalsMealBack)
     .reduce((a, v) => a + v);
   const totalProteinGrams = Object.keys(Data[goal])
     .map((key) => calcMealsStats(Data[goal][key], targetCalories[day], equivalent).totalproteinMeal)
@@ -128,29 +113,26 @@ export const dietComposition = (
   const totalCals = equivalent ? Math.round(targetCalories[day]) : totalcalsMealBack;
   const totalProtein = equivalent ? totalProteinGrams : totalProteinBack;
   return (
-    <div>
-      Target calories = {Math.round(targetCalories[day])}
-      <h3>Morning</h3>
-      <div className="foodsGroup">
-        {calcMealsStats(Data[goal].breakfast, targetCalories[day], equivalent).calsMain}
+    <>
+      {/* prettier-ignore */}
+      <div>
+        Target calories = {Math.round(targetCalories[day])}
+        <h3>Morning</h3>
+        {goal == "cut" ?
+          ( <p className="foodportion">Morning Fasting</p> ) :
+          ( <div className="foodsGroup">{calcMealsStats(Data[goal].breakfast, targetCalories[day], equivalent).calsMain}</div> )}
+        <h3>Lunch</h3>
+        <div className="foodsGroup">{calcMealsStats(Data[goal].lunch, targetCalories[day], equivalent).calsMain}</div>
+        <h3>Snack</h3>
+        <div className="foodsGroup">{calcMealsStats(Data[goal].snack, targetCalories[day], equivalent).calsMain}</div>
+        <h3>Dinner</h3>
+        <div className="foodsGroup">{calcMealsStats(Data[goal].dinner, targetCalories[day], equivalent).calsMain}</div>
+        <div style={{ fontWeight: 700, marginTop: "1em" }}>
+          Total {totalCals} calories <br />
+          Total {totalProtein} gr of protein
+        </div>
+        <div />
       </div>
-      <h3>Lunch</h3>
-      <div className="foodsGroup">
-        {calcMealsStats(Data[goal].lunch, targetCalories[day], equivalent).calsMain}
-      </div>
-      <h3>Snack</h3>
-      <div className="foodsGroup">
-        {calcMealsStats(Data[goal].snack, targetCalories[day], equivalent).calsMain}
-      </div>
-      <h3>Dinner</h3>
-      <div className="foodsGroup">
-        {calcMealsStats(Data[goal].dinner, targetCalories[day], equivalent).calsMain}
-      </div>
-      <div style={{ fontWeight: 700, marginTop: "1em" }}>
-
-        Total {totalCals} calories <br></br>
-        Total {totalProtein} gr of protein
-      </div>
-    </div>
+    </>
   );
 };

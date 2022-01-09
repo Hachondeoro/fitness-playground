@@ -11,6 +11,12 @@
       "options": {
         "printWidth": 100
       }
+    },
+    {
+      "files": "src/components/main/functions.tsx",
+      "options": {
+        "printWidth": 140
+      }
     }
   ]
 }

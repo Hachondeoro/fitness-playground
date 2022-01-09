@@ -55,7 +55,6 @@ export const Navbar: React.FC = ({ children }) => {
         </NavbarBS>
         <Layout style={{ minHeight: "100vh" }}>
           <Sider collapsed={collapsed} onCollapse={() => setCollapsed(!collapsed)}>
-            <img src="ITCodeFair-logo.png" width="100px" alt="" style={{ marginLeft: "-40%", marginTop: "20%" }} />
             <Menu mode="inline" className="navbarWeb" theme="light" style={{ alignContent: "center", marginTop:"-100px" }}>
               <Menu.Item>
                 <Link href="/" passHref>
