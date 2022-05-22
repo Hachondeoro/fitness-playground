@@ -14,31 +14,20 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "typeRoots" : ["node_modules/@types", "src/types"],
+    "baseUrl": "src",
+    "typeRoots": ["node_modules/@types", "src/types"],
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@components": ["src/components"],
-      "@styles/*": ["src/styles/*"],
-      "@styles": ["src/styles"],
-      "@public/*": ["public/*"],
-      "@public": ["public"],
-      "@components/icons/*": ["src/components/icons/*"],
-      "@components/icons": ["src/components/icons"],
-      "@graphqlTypes/*": ["__generated__/*"],
-      "@graphqlTypes": ["__generated__"],
-      "@redux/*": ["src/redux/*"],
-      "@redux": ["src/redux"]
+      "@public/*": ["./../public/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": [
     "node_modules",
-    "src/components/examples",
-    "src/components/redux-nonpersist",
-    "src/components/redux-persist",
-    "src/redux",
+    "src/ui/examples",
+    "src/ui/redux-nonpersist",
+    "src/ui/redux-persist",
+    "src/lib/redux",
     "src/redux-toolkit",
-    "src/components/test"
+    "src/ui/test"
   ]
 }
