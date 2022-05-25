@@ -1,5 +1,5 @@
 {
-    "name": "superplate-pankod",
+    "name": "fitness-playground",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -54,6 +54,6 @@
         "eslint": "^7.15.0",
         "eslint-config-prettier": "^7.0.0",
         "eslint-plugin-prettier": "^3.2.0",
-        "typescript": "^4.1.3"
+        "typescript": "^4.7.2"
     }
 }
