@@ -108,6 +108,7 @@ const UserInput = () => {
             <Col xs="4" className="my-1">
               <Select
                 defaultValue={goal}
+
                 style={{
                   background: "rgba(116, 105, 247, 0.15)",
                   width: 140,

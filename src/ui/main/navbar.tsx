@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 import { MdEmojiFoodBeverage, MdFoodBank, MdInput } from "react-icons/md";
 import { GiGymBag } from "react-icons/gi";
 import { RiInformationFill } from "react-icons/ri";
-import serviceLine from "@public/shapes/service-line-1-1.png";
-import galleryDot from "@public/shapes/gallery-dot-1-1.png";
+// import serviceLine from "@public/shapes/service-line-1-1.png";
+// import galleryDot from "@public/shapes/gallery-dot-1-1.png";
 
 const { Sider } = Layout;
 
@@ -71,8 +71,8 @@ export const Navbar = ({ children }) => {
             </div>
           </Sider>
 
-          <img src={serviceLine.src} alt="" className="service-one__shape-1" />
-          <img src={galleryDot.src} alt="" className="gallery-home-two__dots" />
+          {/*<img src={serviceLine.src} alt="" className="service-one__shape-1" />*/}
+          {/*<img src={galleryDot.src} alt="" className="gallery-home-two__dots" />*/}
           <Col md="9" className="mx-auto sidebarFix">
             {children}
           </Col>

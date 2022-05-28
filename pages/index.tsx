@@ -12,7 +12,7 @@ const Home = () => {
       <Col className="mx-auto" lg={6}>
         <Content style={{ marginTop: "5vh" }}>
           <UserInput />
-          <CaloriesInfo/>
+          {/*<CaloriesInfo/>*/}
         </Content>
       </Col>
     </div>
