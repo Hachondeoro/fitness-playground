@@ -3,7 +3,7 @@ import "ui/styles/fonts.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "ui/styles/antd.css";
 import "ui/styles/app.scss";
-import "ui/styles/custom.scss";
+// import "ui/styles/custom.scss";
 import { AppProps } from "next/app";
 import React, { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
