@@ -1,4 +1,5 @@
 import store from "lib/redux/store";
+import "ui/styles/fonts.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "ui/styles/antd.css";
 import "ui/styles/app.scss";

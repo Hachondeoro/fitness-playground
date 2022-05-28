@@ -27,12 +27,12 @@ const FastingSummary = () => {
           <li>
             Acheson, K J et al. “Caffeine and coffee: their influence on metabolic rate and substrate utilization in
             normal weight and obese individuals.” <em>The American journal of clinical nutrition</em> vol. 33,5 (1980):
-            989-97. doi:10.1093/ajcn/33.5.989
+            989-97. doi:10.1093/ajcn/ 33.5.989
           </li>
           <li>
             Pikosky, Matthew A et al. “Increased protein maintains nitrogen balance during exercise-induced energy
             deficit.” <em>Medicine and science in sports and exercise</em> vol. 40,3 (2008): 505-12.
-            doi:10.1249/MSS.0b013e31815f6643
+            doi:10.1249/ MSS.0b013e31815f6643
           </li>
         </ol>
       </Col>
