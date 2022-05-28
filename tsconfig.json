@@ -28,7 +28,7 @@
         "./../public/*"
       ]
     },
-    "incremental": true
+    "incremental": false
   },
   "include": [
     "next-env.d.ts",
