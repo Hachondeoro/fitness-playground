@@ -114,9 +114,9 @@ const UserInput = () => {
                   borderRadius: "30px",
                 }}
                 onChange={(e) => dispatch(updateGoal(e))}>
-                <Select.Option value={"cut"}>Lose weight</Select.Option>
-                <Select.Option value={"maintain"}>Maintain</Select.Option>
-                <Select.Option value={"gain"}>Gain muscle</Select.Option>
+                <Option value={"cut"}>Lose weight</Option>
+                <Option value={"maintain"}>Maintain</Option>
+                <Option value={"gain"}>Gain muscle</Option>
               </Select>
             </Col>
           </Row>
@@ -133,8 +133,8 @@ const UserInput = () => {
                   borderRadius: "30px",
                 }}
                 onChange={(e) => dispatch(updateMealPlan(e))}>
-                <Select.Option value={"standard"}>Standard</Select.Option>
-                <Select.Option value={"custom"}>Customized</Select.Option>
+                <Option value={"standard"}>Standard</Option>
+                <Option value={"custom"}>Customized</Option>
               </Select>
             </Col>
           </Row>{" "}

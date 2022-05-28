@@ -19,7 +19,7 @@ const initialState: ICounter = {
   goal: "cut",
   calories: 2245,
   bmr: 1461,
-  mealplan: "standard",
+  mealplan: "custom",
 };
 
 export const BodyData = createSlice({

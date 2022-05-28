@@ -24,12 +24,12 @@ const BulkingSummary = () => {
         <ol>
           <li>
             Arnal, M A et al. “Protein feeding pattern does not affect protein retention in young women.”{" "}
-            <em>The Journal of nutrition</em> vol. 130,7 (2000): 1700-4. doi:10.1093/jn/130.7.1700
+            <em>The Journal of nutrition</em> vol. 130,7 (2000): 1700-4. doi:10.1093/jn/ 130.7.1700
           </li>
           <li>
             Phillips, Stuart M, and Luc J C Van Loon. “Dietary protein for athletes: from requirements to optimum
             adaptation.” <em>Journal of sports sciences</em> vol. 29 Suppl 1 (2011): S29-38.
-            doi:10.1080/02640414.2011.619204
+            doi:10.1080/ 02640414.2011.619204
           </li>
         </ol>
       </Col>
