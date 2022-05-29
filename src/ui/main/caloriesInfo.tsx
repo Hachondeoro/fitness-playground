@@ -12,7 +12,7 @@ const CaloriesInfo = () => {
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const calories = useAppSelector((state: RootState) => state.bodydata.calories);
   const bmr = useAppSelector((state: RootState) => state.bodydata.bmr);
-  const [stats, setstats] = useState(true);
+  const [stats, setstats] = useState(false);
   const showstats = () => setstats(!stats);
   const dispatch = useAppDispatch();
   useEffect(() => {

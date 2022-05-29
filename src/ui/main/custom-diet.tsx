@@ -6,7 +6,8 @@ import { Checkbox, Form, message } from "antd";
 import React, { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import * as Scroll from "react-scroll";
-import { createMealPlan, FoodForm } from "./custom-diet-functions";
+import { FoodForm } from "./custom-diet-functions";
+import { createMealPlan } from "ui/diets/proportions";
 import { dietComposition } from "./functions";
 import { MealPlan } from "lib/interfaces";
 import { resetFoodChoices } from "lib/redux/slices/mealplan";
@@ -26,10 +27,11 @@ const CustomDiet = () => {
   var scroller = Scroll.scroller;
   var Element = Scroll.Element;
   const onChange = () => setEquivalent(!equivalent);
+  const nCarbsRequired = goal === "cut" ? 2 : 4;
 
   function showMealPlan() {
     if (
-      carbChoice.length == 4 &&
+      carbChoice.length == nCarbsRequired &&
       proteinChoice.length == 2 &&
       fatChoice.length == 2 &&
       snackChoice.length == 2 &&
@@ -45,7 +47,7 @@ const CustomDiet = () => {
         setTimeout(() => scroller.scrollTo("myCustomDiet", { duration: 800, delay: 0, smooth: true }), 500);
       }
     } else {
-      const nCarbsToChoose = 4 - carbChoice.length;
+      const nCarbsToChoose = nCarbsRequired - carbChoice.length;
       if (nCarbsToChoose !== 0) {
         message.warning(`Please select ${nCarbsToChoose} more carb${nCarbsToChoose == 1 ? "!" : "s!"}`);
       }
@@ -72,7 +74,9 @@ const CustomDiet = () => {
     <div className="meals">
       <Col className="mx-auto text-left" md="12" lg="8">
         <Form layout="vertical">
-          {FoodForm("carbs", 4, "Select 2 for breakfast, 2 for lunch")}
+          {goal === "cut"
+            ? FoodForm("carbs", 2, "Select 2 for lunch")
+            : FoodForm("carbs", 4, "Select 2 for breakfast, 2 for lunch")}
           {FoodForm("protein", 2, "Select 2 choices")}
           {FoodForm("fats", 2, "Select 2 choices")}
           {FoodForm("veggies", 2, "Select 2 choices")}

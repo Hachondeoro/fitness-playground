@@ -1,8 +1,16 @@
 import React from "react";
-// import { conversion } from "./data-better";
-import { GoalCalorie, GramsMeasure, MealsStats, StandardMeasure } from "lib/interfaces";
+import { equivalents } from "ui/diets/proportions";
+import { GoalCalorie, GramsMeasure, MealsStats } from "lib/interfaces";
 import ConversionCSV from "lib/parse-conversion";
 import { Col, Row } from "react-bootstrap";
+
+interface StandardMeasure {
+  valMeasure: number;
+  valMeasureBack: number;
+  protein: number;
+  foodportion: string;
+  foodportionCalories: string;
+}
 
 const conversion = ConversionCSV();
 export const calorieGoal = (calories: number, goal: string): GoalCalorie => {
@@ -21,40 +29,29 @@ export const calcGrams = (number: number, key: string): GramsMeasure => {
   const sentenceGrams = `${foodGrams} grams of ${key}`;
   return { foodGrams, proteinGrams, sentenceGrams };
 };
-// prettier-ignore
-const equivalents = [
-  { min: 0, max: 0.25, equivalent: "1/4", value: 0.25 },
-  { min: 0.25, max: 0.4, equivalent: "1/3", value: 0.33 },
-  { min: 0.4, max: 0.55, equivalent: "1/2", value: 0.5 },
-  { min: 0.55, max: 0.7, equivalent: "2/3", value: 0.66 },
-  { min: 0.7, max: 0.85, equivalent: "3/4", value: 0.75 },
-  { min: 0.85, max: 1.05, equivalent: "1", value: 1 },
-  { min: 1.05, max: 1.2, equivalent: "1 & 1/4", value: 1.25 },
-  { min: 1.2, max: 1.4, equivalent: "1 & 1/3", value: 1.3 },
-  { min: 1.4, max: 1.55, equivalent: "1 & 1/2", value: 1.5 },
-  { min: 1.55, max: 1.7, equivalent: "1 & 2/3", value: 1.66 },
-  { min: 1.7, max: 1.85, equivalent: "1 & 3/4", value: 1.75 },
-  { min: 1.85, max: 2, equivalent: "2", value: 2 },
-];
+
 export const calcMeasure = (foodCalories: number, key: string): StandardMeasure => {
   const food = conversion[key]; // greek yoghurt, almonds, apples
+  var valMeasure;
+  var portionMeasure;
+
   // 332 grams of steak should be 330 grams of steak
   if (["protein", "snackGrams"].includes(food.class)) {
-    var valMeasure =
+    valMeasure =
       Math.round((foodCalories * 100) / food.foodCalories / food.measureGrams / food.roundFactor) * food.roundFactor;
-    var portionMeasure = valMeasure.toString();
+    portionMeasure = valMeasure.toString();
   } else {
     // I still need this part for 0.8 cups of rice
-    var valMeasure =
+    valMeasure =
       Math.round((((foodCalories * 100) / food.foodCalories) * food.roundFactor) / food.measureGrams) /
       food.roundFactor;
     // For measures bigger than 2: 3 tsp honey, 4 tsp peanut butter
     if (valMeasure <= 2) {
       var equivalentValues = equivalents.find((item) => item.min <= valMeasure && valMeasure <= item.max);
-      var portionMeasure = equivalentValues.equivalent; // 3/4 cups of rice
-      var valMeasure = equivalentValues.value; // convert 0.8 cups of rice to 0.75 cups (so it matches the equivalent)
+      portionMeasure = equivalentValues.equivalent; // 3/4 cups of rice
+      valMeasure = equivalentValues.value; // convert 0.8 cups of rice to 0.75 cups (so it matches the equivalent)
     } else {
-      var portionMeasure = valMeasure.toString();
+      portionMeasure = valMeasure.toString();
     }
   }
   const valMeasureBack = Math.round(((valMeasure * food.measureGrams) / 100) * food.foodCalories);

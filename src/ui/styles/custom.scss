@@ -553,3 +553,10 @@ h2 {
 .references {
   font-size: 1.2rem;
 }
+
+// Prevent zoom in when focus is on input mobile
+@supports (-webkit-overflow-scrolling: touch) {
+  input {
+    font-size: 16px;
+  }
+}

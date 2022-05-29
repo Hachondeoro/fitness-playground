@@ -12,13 +12,13 @@ const initialState: IMeals = {
   // carb: ["Muesli", "Toasted Bread", "Potatoes", "Rice"],
   // protein: ["Tuna", "Steak"],
   // fat: ["Avocado", "Tofu"],
-  // snack: ["Blueberries", "Apples"],
-  // veggies: ["Broccoli", "Carrots"],
+  snack: ["Blueberries", "Apples"],
+  veggies: ["Broccoli", "Carrots"],
   carb: [],
   protein: [],
   fat: [],
-  snack: [],
-  veggies: [],
+  // snack: [],
+  // veggies: [],
 };
 export const MealPlan = createSlice({
   name: "mealplan",

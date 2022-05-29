@@ -11,7 +11,7 @@ const Fasting = () => {
   return (
     <div className="mt-3 gymRoutine paddingBottom">
       <Col md="10" className="mx-auto">
-        <h1>Crash course on Fasting</h1>
+        <h1>Fasting Guidelines</h1>
         Studies also show that fasting can:
         {/* prettier-ignore */}
         <div>
@@ -30,8 +30,8 @@ const Fasting = () => {
           thirsty, which is often mistaken as hunger.
         </p>
         <p>
-          First, in the morning start your day with a cup of coffee. Black coffee and tea are also allowed during
-          a fast. You may also find diet coke or diet jelly useful. Of course, this is your personal decision.
+          First, in the morning start your day with a cup of coffee. Black coffee and tea are also allowed during a
+          fast. You may also find diet coke or diet jelly useful. Of course, this is your personal decision.
         </p>
         <p>
           You may also find it helpful to stay busy while fasting. John Barban, Varsity Strength Coach has been
