@@ -98,7 +98,7 @@ export const calcMealsStats = (data: any, calories: number, equivalent: boolean)
     totalproteinMeal,
   };
 };
-export const dietComposition = (
+export const MealPlanTable = (
   Data: any,
   goal: string,
   day: string,
