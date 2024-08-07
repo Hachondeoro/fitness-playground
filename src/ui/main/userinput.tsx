@@ -27,6 +27,8 @@ const UserInput = () => {
     // return () => clearTimeout(timeOutId);
     if (weight > 30 && weight < 150) {
       dispatch(updateWeight(weight));
+    }else if (weight < 0){
+      setWeight(0);
     }
   }, [weight]);
   useEffect(() => {
