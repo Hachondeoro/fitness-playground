@@ -1,5 +1,5 @@
 import { Button, Col, Row } from "react-bootstrap";
-import { Input, Radio, Select } from "antd";
+import { InputNumber, Input, Radio, Select } from "antd";
 import {
   updateAge,
   updateGoal,
@@ -27,8 +27,6 @@ const UserInput = () => {
     // return () => clearTimeout(timeOutId);
     if (weight > 30 && weight < 150) {
       dispatch(updateWeight(weight));
-    }else if (weight < 0){
-      setWeight(0);
     }
   }, [weight]);
   useEffect(() => {
@@ -46,19 +44,19 @@ const UserInput = () => {
     <div className="paddingBottom">
       <img src="/logo.png" alt="logo Fitness Playground" height="250rem" className="my-3" />
       <div style={{ marginTop: "2em" }}>
+        
         <Col className="mx-auto text-left">
           <Row>
             <Col xs="6" md="8">
               My weight is:
             </Col>
             <Col xs="4" className="my-1">
-              <Input
-                suffix="KG"
-                type="number"
+              <InputNumber
                 value={weight}
                 className="inputCustom"
-                onChange={(e) => setWeight(e.target.value)}
-                style={{ width: 100 }}
+                onChange={(e) => setWeight(e)}
+                min={0}
+                max={150}
               />
             </Col>
           </Row>
