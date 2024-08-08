@@ -8,7 +8,7 @@ import {
   updateSex,
   updateWeight,
 } from "lib/redux/slices/bodydata";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "lib/redux/hooks";
 import { RootState } from "lib/redux/store";
 import Link from "next/link";
@@ -16,30 +16,14 @@ import Link from "next/link";
 const { Option } = Select;
 // import logo from "/logo.png";
 const UserInput = () => {
-  const [weight, setWeight] = useState<number | string>(useAppSelector((state: RootState) => state.bodydata.weight));
-  const [height, setHeight] = useState<number | string>(useAppSelector((state: RootState) => state.bodydata.height));
-  const [age, setAge] = useState<number | string>(useAppSelector((state: RootState) => state.bodydata.age));
+  const [weight, setWeight] = useState<number>(useAppSelector((state: RootState) => state.bodydata.weight));
+  const [height, setHeight] = useState<number>(useAppSelector((state: RootState) => state.bodydata.height));
+  const [age, setAge] = useState<number>(useAppSelector((state: RootState) => state.bodydata.age));
   const sex = useAppSelector((state: RootState) => state.bodydata.sex);
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const mealplan = useAppSelector((state: RootState) => state.bodydata.mealplan);
-  useEffect(() => {
-    // const timeOutId = setTimeout(() => dispatch(updateWeight(weight)), 3000);
-    // return () => clearTimeout(timeOutId);
-    if (weight > 30 && weight < 150) {
-      dispatch(updateWeight(weight));
-    }
-  }, [weight]);
-  useEffect(() => {
-    if (height > 100 && height < 220) {
-      dispatch(updateHeight(height));
-    }
-  }, [height]);
-  useEffect(() => {
-    if (age > 10 && age < 100) {
-      dispatch(updateAge(age));
-    }
-  }, [age]);
   const dispatch = useAppDispatch();
+
   return (
     <div className="paddingBottom">
       <img src="/logo.png" alt="logo Fitness Playground" height="250rem" className="my-3" />
@@ -55,7 +39,13 @@ const UserInput = () => {
                 type="number"
                 value={weight}
                 className="inputCustom"
-                onChange={(e) => setWeight(e.target.value)}
+                onChange={(e) => {
+                  const value = Number(e.target.value);
+                  if (value >= 0 && value <= 150) {
+                    setWeight(value);
+                    dispatch(updateWeight(value));
+                  }
+                }}
                 style={{ width: 100 }}
               />
             </Col>
@@ -70,7 +60,13 @@ const UserInput = () => {
                 type="number"
                 value={height}
                 className="inputCustom"
-                onChange={(e) => setHeight(e.target.value)}
+                onChange={(e) => {
+                  const value = Number(e.target.value);
+                  if (value >= 0 && value <= 220) {
+                    setHeight(value);
+                    dispatch(updateHeight(value));
+                  }
+                }}
                 style={{ width: 100 }}
               />
             </Col>
@@ -85,7 +81,13 @@ const UserInput = () => {
                 type="number"
                 value={age}
                 className="inputCustom"
-                onChange={(e) => setAge(e.target.value)}
+                onChange={(e) => {
+                  const value = Number(e.target.value);
+                  if (value >= 0 && value <= 100) {
+                    setAge(value);
+                    dispatch(updateAge(value));
+                  }
+                }}
                 style={{ width: 100 }}
               />
             </Col>
