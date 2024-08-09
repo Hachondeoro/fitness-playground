@@ -2,13 +2,15 @@ import { Button, Col, Row } from "react-bootstrap";
 import { Input, Radio, Select } from "antd";
 import {
   updateAge,
+  updateBMR,
+  updateCalories,
   updateGoal,
   updateHeight,
   updateMealPlan,
   updateSex,
   updateWeight,
 } from "lib/redux/slices/bodydata";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "lib/redux/hooks";
 import { RootState } from "lib/redux/store";
 import Link from "next/link";
@@ -19,10 +21,17 @@ const UserInput = () => {
   const [weight, setWeight] = useState<number>(useAppSelector((state: RootState) => state.bodydata.weight));
   const [height, setHeight] = useState<number>(useAppSelector((state: RootState) => state.bodydata.height));
   const [age, setAge] = useState<number>(useAppSelector((state: RootState) => state.bodydata.age));
-  const sex = useAppSelector((state: RootState) => state.bodydata.sex);
+  const [sex, setSex] = useState<string>(useAppSelector((state: RootState) => state.bodydata.sex));
   const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const mealplan = useAppSelector((state: RootState) => state.bodydata.mealplan);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    let bmr = 10 * weight + 6.25 * height - 5 * age;
+    bmr = sex === "male" ? bmr + 5 : bmr - 161;
+    dispatch(updateBMR(bmr));
+    dispatch(updateCalories(bmr * 1.38));
+  }, [height, weight, age, sex, goal]);
 
   return (
     <div className="paddingBottom">
@@ -46,7 +55,6 @@ const UserInput = () => {
                     dispatch(updateWeight(value));
                   }
                 }}
-                style={{ width: 100 }}
               />
             </Col>
           </Row>
@@ -67,7 +75,6 @@ const UserInput = () => {
                     dispatch(updateHeight(value));
                   }
                 }}
-                style={{ width: 100 }}
               />
             </Col>
           </Row>
@@ -88,7 +95,6 @@ const UserInput = () => {
                     dispatch(updateAge(value));
                   }
                 }}
-                style={{ width: 100 }}
               />
             </Col>
           </Row>
@@ -97,25 +103,24 @@ const UserInput = () => {
               I'm :
             </Col>
             <Col xs="4" className="my-1">
-              <Radio.Group name={"sex"} onChange={(e) => dispatch(updateSex(e.target.value))} value={sex}>
-                <Radio value={true}>Male</Radio>
-                <Radio value={false}>Female</Radio>
+              <Radio.Group
+                name={"sex"}
+                onChange={(e) => {
+                  setSex(e.target.value);
+                  dispatch(updateSex(e.target.value));
+                }}
+                value={sex}>
+                <Radio value="male">Male</Radio>
+                <Radio value="female">Female</Radio>
               </Radio.Group>
             </Col>
-          </Row>{" "}
+          </Row>
           <Row>
             <Col xs="6" md="8">
               <strong>I want to:</strong>
             </Col>
             <Col xs="4" className="my-1">
-              <Select
-                defaultValue={goal}
-                style={{
-                  background: "rgba(116, 105, 247, 0.15)",
-                  width: 140,
-                  borderRadius: "30px",
-                }}
-                onChange={(e) => dispatch(updateGoal(e))}>
+              <Select defaultValue={goal} className="selectCustom" onChange={(e) => dispatch(updateGoal(e))}>
                 <Option value={"cut"}>Lose weight</Option>
                 <Option value={"maintain"}>Maintain</Option>
                 <Option value={"gain"}>Gain muscle</Option>
@@ -127,14 +132,7 @@ const UserInput = () => {
               <strong>I want my meal plan:</strong>
             </Col>
             <Col xs="4" className="my-1">
-              <Select
-                defaultValue={mealplan}
-                style={{
-                  background: "rgba(116, 105, 247, 0.15)",
-                  width: 140,
-                  borderRadius: "30px",
-                }}
-                onChange={(e) => dispatch(updateMealPlan(e))}>
+              <Select defaultValue={mealplan} className="selectCustom" onChange={(e) => dispatch(updateMealPlan(e))}>
                 <Option value={"standard"}>Standard</Option>
                 <Option value={"custom"}>Customized</Option>
               </Select>
@@ -150,7 +148,6 @@ const UserInput = () => {
           </Row>
         </Col>
       </div>
-      {/*<img src={galleryDot} alt="" className="gallery-home-two__dots" />*/}
     </div>
   );
 };

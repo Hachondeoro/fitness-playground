@@ -1,21 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface ICounter {
+interface IStats {
   weight: number;
   height: number;
   age: number;
-  sex: boolean;
-  goal: string;
+  sex: "male" | "female";
+  goal: "cut" | "maintain" | "gain";
   calories: number;
   bmr: number;
-  mealplan: string;
+  mealplan: "standard" | "custom";
 }
 
-const initialState: ICounter = {
+const initialState: IStats = {
   weight: 70,
   height: 170,
   age: 28,
-  sex: true,
+  sex: "male",
   goal: "cut",
   calories: 2245,
   bmr: 1461,
