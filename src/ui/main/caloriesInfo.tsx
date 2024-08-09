@@ -1,33 +1,19 @@
-import { useAppDispatch, useAppSelector } from "lib/redux/hooks";
-import { updateBMR, updateCalories } from "lib/redux/slices/bodydata";
+import { useAppSelector } from "lib/redux/hooks";
 import type { RootState } from "lib/redux/store";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 const CaloriesInfo = () => {
-  const height = useAppSelector((state: RootState) => state.bodydata.height);
-  const weight = useAppSelector((state: RootState) => state.bodydata.weight);
-  const age = useAppSelector((state: RootState) => state.bodydata.age);
-  const sex = useAppSelector((state: RootState) => state.bodydata.sex);
-  const goal = useAppSelector((state: RootState) => state.bodydata.goal);
   const calories = useAppSelector((state: RootState) => state.bodydata.calories);
   const bmr = useAppSelector((state: RootState) => state.bodydata.bmr);
-  const [stats, setstats] = useState(false);
+  const [stats, setstats] = useState(true);
   const showstats = () => setstats(!stats);
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    if (sex) {
-      dispatch(updateBMR(10 * weight + 6.25 * height - 5 * age + 5));
-    } else {
-      dispatch(updateBMR(10 * weight + 6.25 * height - 5 * age - 161));
-    }
-    dispatch(updateCalories(bmr * 1.38));
-  }, [height, weight, age, sex, goal]);
 
-  var protein = (calories * 0.225) / 4;
-  var protein = protein > 140 ? 140 : protein;
+  let protein = (calories * 0.225) / 4;
+  protein = protein > 140 ? 140 : protein;
   const fat = (calories * 0.275) / 9;
   const carbs = (calories * 0.5) / 4;
+
   return (
     <div className="mt-3" style={{ fontSize: "1.2rem" }}>
       <Button onClick={showstats} className="statsButton">

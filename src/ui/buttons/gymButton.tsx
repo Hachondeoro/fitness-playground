@@ -16,7 +16,7 @@ const GymButton = () => {
     dispatch(updateMainTab(1));
     setTimeout(() => {
       scroll.scrollTo(0, { duration: 1200, delay: 0, smooth: "easeInOutCubic" });
-      sex == true ? dispatch(updateRoutineTab(0)) : dispatch(updateRoutineTab(1));
+      sex === "male" ? dispatch(updateRoutineTab(0)) : dispatch(updateRoutineTab(1));
     }, 100);
   };
   return (

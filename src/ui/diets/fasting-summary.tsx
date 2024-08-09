@@ -13,7 +13,7 @@ const FastingSummary = () => {
       <Col md="8" className="mx-auto">
         <h1>Crash course on Fasting</h1>
         {/* prettier-ignore */}
-        <>{sex?
+        <>{sex==="male"?
           (<div>
           <li>Fasting ends around lunch time. E.g. 1 or 2pm</li>
           <li>The last meal of the previous day should be between 8pm to 10pm</li>

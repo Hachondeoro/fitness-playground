@@ -83,10 +83,16 @@ body {
     background-color: rgba(116, 105, 247, 0);
     color: rgba(116, 105, 247);
   }
-
+  width:100px;
   color: #7469f7;
   background-color: rgba(116, 105, 247, 0.15);
   //border-width: 1.5px;
+  border-color: rgba(116, 105, 247);
+  border-radius: 30px;
+}
+.selectCustom {
+  background-color: rgba(116, 105, 247, 0.15);
+  width:140px;
   border-color: rgba(116, 105, 247);
   border-radius: 30px;
 }
