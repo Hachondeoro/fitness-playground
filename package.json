@@ -6,6 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "server": "nodemon ./server/server.js",
         "svgr": "npx @svgr/cli -d src/ui/icons --ignore-existing --icon --typescript public/icons",
         "codegen:generate": "graphql-codegen",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
@@ -15,6 +16,7 @@
         "@reduxjs/toolkit": "^1.5.0",
         "antd": "^4.20.6",
         "bootstrap": "^4.5.3",
+        "express": "^4.19.2",
         "graphql": "^15.4.0",
         "graphql-request": "^3.7.0",
         "next": "^12.1.6",
@@ -54,6 +56,7 @@
         "eslint": "^7.15.0",
         "eslint-config-prettier": "^7.0.0",
         "eslint-plugin-prettier": "^3.2.0",
+        "nodemon": "^3.1.4",
         "typescript": "^4.7.2"
     }
 }
