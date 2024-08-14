@@ -57,7 +57,6 @@ export const FoodChoices = (foodClass: string, numberChoices: number, message: s
         rules={[{ required: true, message: `Please select your favourite ${foodClass}!`, type: "array" }]}>
         <Select
           mode="multiple"
-          showArrow={true}
           placeholder={`Select ${numberChoices} choices`}
           ref={macroRef}
           onChange={(e: string[]) => foodChoiceChange(e, macroRef)}

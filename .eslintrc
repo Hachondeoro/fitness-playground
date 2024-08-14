@@ -1,27 +1,28 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["prettier"],
-    "overrides": [
-        {
-            "files": ["*.js"],
-            "rules": {
-                // "@typescript-eslint/no-var-requires": "off"
-            }
-        }
-    ],
-    "rules": {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.js"
+      ],
+      "rules": {
         // "@typescript-eslint/no-var-requires": "off"
-        "no-var": 0,
-        // "max-len": [1, 100, 4, {"ignoreUrls": true}]
-    },
-    "env": {
-        "node": true,
-        "browser": true,
-        "amd": true
-    },
-    "extends": [
-        "prettier"
-    ],
-    
+      }
+    }
+  ],
+  "rules": {
+    "no-var": 0
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "amd": true
+  },
+  "extends": [
+    "prettier"
+  ]
 }

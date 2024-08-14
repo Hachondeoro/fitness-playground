@@ -37,7 +37,7 @@ const UserInput = () => {
     <div className="paddingBottom">
       <img src="/logo.png" alt="logo Fitness Playground" height="250rem" className="my-3" />
       <div style={{ marginTop: "2em" }}>
-        <Col className="mx-auto text-left">
+        <Col className="mx-auto text-start">
           <Row>
             <Col xs="6" md="8">
               My weight is:

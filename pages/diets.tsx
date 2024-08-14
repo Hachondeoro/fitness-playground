@@ -75,14 +75,14 @@ const Diets = () => {
   };
   return (
     <div className="d-flex flex-column">
-      <Col md="9" className="mx-auto">
+      <Col md={9} className="mx-auto">
         <h1 className="text-center">Your customized meal plan</h1>
         <CaloriesInfo />
         <div className="meals">
           {/*Show Customized Diet*/}
           {mealplan == "custom" ? (
             <div className="meals">
-              <Col className="mx-auto text-left" md="12" lg="8">
+              <Col className="mx-auto text-start" md="12" lg="8">
                 <Form layout="vertical">
                   {goal === "cut"
                     ? FoodChoices("carbs", 2, "Pick 2 carbs for lunch")
@@ -93,10 +93,10 @@ const Diets = () => {
                   {FoodChoices("snack", 2, "Pick 2 snacks")}
                 </Form>
               </Col>
-              <Button type="primary" onClick={validateMealChoices} className="purpleButton">
+              <Button type="button" onClick={validateMealChoices} className="purpleButton">
                 Get custom diet
               </Button>
-              <Button type="primary" onClick={() => dispatch(resetFoodChoices())} className="purpleButton">
+              <Button type="button" onClick={() => dispatch(resetFoodChoices())} className="purpleButton">
                 Reset
               </Button>
               <BackArrow />
@@ -105,13 +105,13 @@ const Diets = () => {
                   <h1 className="text-center"> MY CUSTOM DIET </h1>
                   <Checkbox onChange={onChange}>Measure in grams</Checkbox>
                   <Row className="justify-content-center">
-                    <Col className="mt-2 mx-auto text-left" md="6">
+                    <Col className="mt-2 mx-auto text-start" md="6">
                       <h2>Training days</h2>
                       <p className="sameLine">3 times per week</p>
                       <InfoTooltip message="E.g. Monday, Wednesday, Friday<br />1 hour per day" />
                       {MealPlanTable(customMealPlan, goal, "training", calories, equivalent)}
                     </Col>
-                    <Col className="mt-2 mx-auto text-left" md="6">
+                    <Col className="mt-2 mx-auto text-start" md="6">
                       <h2>Resting days </h2>
                       <p className="sameLine">4 times per week</p>
                       <InfoTooltip message="E.g. Tuesday, Thursday, Saturday, Sunday" />
@@ -126,14 +126,14 @@ const Diets = () => {
             <>
               <Checkbox onChange={onChangeEquivalent}>Measure in grams</Checkbox>
               <Row className="justify-content-center">
-                <Col className="mt-2 mx-auto text-left" md="6">
+                <Col className="mt-2 mx-auto text-start" md="6">
                   <h2>Training days</h2>
                   <p className="sameLine">3 times per week</p>
                   <p className="explanation">E.g. Mon-Wed-Fri</p>
                   {/*<InfoTooltip message="E.g. Monday, Wednesday, Friday<br />1 hour per day" />*/}
                   {MealPlanTable(SampleMealOne, goal, "training", calories, equivalent)}
                 </Col>
-                <Col className="mt-2 mx-auto text-left" md="6">
+                <Col className="mt-2 mx-auto text-start" md="6">
                   <h2>Resting days </h2>
                   <p className="sameLine">4 times per week</p>
                   <p className="explanation">E.g.Tue-Thu-Sat-Sun</p>

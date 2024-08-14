@@ -4,7 +4,6 @@
 
 body {
   color: #818181;
-  font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -14,6 +13,7 @@ body {
   }
   .sidebarFix {
     left: -7.5%;
+    position: relative;
   }
 }
 
@@ -35,7 +35,7 @@ body {
 .ant-layout,
 .ant-layout-sider-trigger,
 .ant-layout-sider {
-  background: #fff;
+  background: #fff !important;
 }
 
 .anticon-left {

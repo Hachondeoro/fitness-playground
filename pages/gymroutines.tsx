@@ -24,7 +24,11 @@ const GymRoutine = () => {
     <div className="mt-3 gymRoutine paddingBottom">
       <Col md="10" className="mx-auto">
         <h1>Gym Routines</h1>
-        <Tabs selectedIndex={routineTab} onSelect={(index) => dispatch(updateRoutineTab(index))}>
+        <Tabs
+          selectedIndex={routineTab}
+          onSelect={(index) => {
+            dispatch(updateRoutineTab(index));
+          }}>
           <TabList className="reactTabs">
             <Tab>Men</Tab>
             <Tab>Women</Tab>
